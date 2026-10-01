@@ -14,8 +14,8 @@
         "TuneFinder macht jeden Titel in deinen eigenen Leadsheet-Büchern auffindbar und öffnet direkt die richtige PDF-Seite.",
       "Download TuneFinder": "TuneFinder laden",
       "See how it works": "So funktioniert es",
-      "Available for iPhone and iPad · Android coming soon":
-        "Für iPhone und iPad verfügbar · Android folgt bald",
+      "Available for iPhone, iPad and Android":
+        "Für iPhone, iPad und Android verfügbar",
       "Made for the bandstand": "Für die Bühne gemacht",
       "Less searching. More playing.": "Weniger suchen. Mehr spielen.",
       "Build a library around the books you use, keep your setlists close, and find a lead sheet before the count-in.":
@@ -42,7 +42,7 @@
       "Good to know:": "Gut zu wissen:",
       "Your next tune is already in the book.":
         "Der nächste Titel ist schon im Buch.",
-      "Coming soon on": "Demnächst für",
+      "Get it on": "Jetzt bei",
       Android: "Android",
       "Support & feedback": "Hilfe & Feedback",
       "Privacy first": "Datenschutz zuerst",
@@ -58,8 +58,8 @@
         "TuneFinder pone a tu alcance cada tema de tus propios libros y te lleva directamente a la página correcta del PDF.",
       "Download TuneFinder": "Descargar TuneFinder",
       "See how it works": "Ver cómo funciona",
-      "Available for iPhone and iPad · Android coming soon":
-        "Disponible para iPhone y iPad · Android próximamente",
+      "Available for iPhone, iPad and Android":
+        "Disponible para iPhone, iPad y Android",
       "Made for the bandstand": "Hecha para el escenario",
       "Less searching. More playing.": "Menos buscar. Más tocar.",
       "Build a library around the books you use, keep your setlists close, and find a lead sheet before the count-in.":
@@ -86,7 +86,7 @@
       "Good to know:": "Conviene saberlo:",
       "Your next tune is already in the book.":
         "Tu próximo tema ya está en el libro.",
-      "Coming soon on": "Próximamente en",
+      "Get it on": "Disponible en",
       Android: "Android",
       "Support & feedback": "Ayuda y comentarios",
       "Privacy first": "Privacidad ante todo",
@@ -102,8 +102,8 @@
         "TuneFinder retrouve chaque morceau dans vos propres recueils et ouvre directement la bonne page du PDF.",
       "Download TuneFinder": "Télécharger TuneFinder",
       "See how it works": "Voir comment ça marche",
-      "Available for iPhone and iPad · Android coming soon":
-        "Disponible sur iPhone et iPad · Android bientôt disponible",
+      "Available for iPhone, iPad and Android":
+        "Disponible sur iPhone, iPad et Android",
       "Made for the bandstand": "Pensée pour la scène",
       "Less searching. More playing.": "Moins chercher. Plus jouer.",
       "Build a library around the books you use, keep your setlists close, and find a lead sheet before the count-in.":
@@ -130,7 +130,7 @@
       "Good to know:": "Bon à savoir :",
       "Your next tune is already in the book.":
         "Votre prochain morceau est déjà dans le recueil.",
-      "Coming soon on": "Bientôt sur",
+      "Get it on": "Disponible sur",
       Android: "Android",
       "Support & feedback": "Assistance et avis",
       "Privacy first": "Confidentialité avant tout",
@@ -146,8 +146,8 @@
         "TuneFinder trova ogni brano nei tuoi libri e apre direttamente la pagina corretta del PDF.",
       "Download TuneFinder": "Scarica TuneFinder",
       "See how it works": "Scopri come funziona",
-      "Available for iPhone and iPad · Android coming soon":
-        "Disponibile per iPhone e iPad · Android in arrivo",
+      "Available for iPhone, iPad and Android":
+        "Disponibile per iPhone, iPad e Android",
       "Made for the bandstand": "Pensata per il palco",
       "Less searching. More playing.": "Meno ricerche. Più musica.",
       "Build a library around the books you use, keep your setlists close, and find a lead sheet before the count-in.":
@@ -175,7 +175,7 @@
       "Good to know:": "Da sapere:",
       "Your next tune is already in the book.":
         "Il tuo prossimo brano è già nel libro.",
-      "Coming soon on": "Prossimamente su",
+      "Get it on": "Disponibile su",
       Android: "Android",
       "Support & feedback": "Assistenza e feedback",
       "Privacy first": "La privacy prima di tutto",
@@ -191,8 +191,8 @@
         "O TuneFinder encontra qualquer tema nos seus próprios livros e abre diretamente a página certa do PDF.",
       "Download TuneFinder": "Descarregar o TuneFinder",
       "See how it works": "Veja como funciona",
-      "Available for iPhone and iPad · Android coming soon":
-        "Disponível para iPhone e iPad · Android em breve",
+      "Available for iPhone, iPad and Android":
+        "Disponível para iPhone, iPad e Android",
       "Made for the bandstand": "Feito para o palco",
       "Less searching. More playing.": "Menos procura. Mais música.",
       "Build a library around the books you use, keep your setlists close, and find a lead sheet before the count-in.":
@@ -220,7 +220,7 @@
       "Good to know:": "Convém saber:",
       "Your next tune is already in the book.":
         "O seu próximo tema já está no livro.",
-      "Coming soon on": "Em breve no",
+      "Get it on": "Disponível no",
       Android: "Android",
       "Support & feedback": "Apoio e comentários",
       "Privacy first": "Privacidade em primeiro lugar",
@@ -282,7 +282,7 @@
         "Beim Pausieren bleiben die Kopien auf Gerät und iCloud erhalten.",
       ],
       syncScope:
-        "Gut zu wissen: TuneFinder bleibt lokal nutzbar und funktioniert ohne iCloud. Die kommende Android-Version nutzt ein separates System; Bibliotheken werden nicht zwischen iOS und Android übertragen.",
+        "Gut zu wissen: TuneFinder bleibt lokal nutzbar und funktioniert ohne iCloud. Die Android-Version nutzt ein separates System; Bibliotheken werden nicht zwischen iOS und Android übertragen.",
       download:
         "Lade TuneFinder herunter und nutze deine eigene Songbook-Bibliothek einfacher.",
       support:
@@ -344,7 +344,7 @@
         "Pausar la sincronización conserva las copias del dispositivo y de iCloud.",
       ],
       syncScope:
-        "Conviene saberlo: TuneFinder funciona localmente sin iCloud. La futura versión para Android utilizará un sistema independiente; las bibliotecas no se transferirán entre iOS y Android.",
+        "Conviene saberlo: TuneFinder funciona localmente sin iCloud. La versión para Android utiliza un sistema independiente; las bibliotecas no se transferirán entre iOS y Android.",
       download:
         "Descarga TuneFinder y utiliza tu propia biblioteca con mayor facilidad.",
       support:
@@ -406,7 +406,7 @@
         "La mise en pause conserve les copies sur l’appareil et dans iCloud.",
       ],
       syncScope:
-        "Bon à savoir : TuneFinder reste local et fonctionne sans iCloud. La future version Android utilisera un système distinct ; les bibliothèques ne seront pas transférées entre iOS et Android.",
+        "Bon à savoir : TuneFinder reste local et fonctionne sans iCloud. La version Android utilise un système distinct ; les bibliothèques ne seront pas transférées entre iOS et Android.",
       download:
         "Téléchargez TuneFinder pour utiliser plus facilement votre propre bibliothèque.",
       support:
@@ -468,7 +468,7 @@
         "La pausa conserva entrambe le copie sul dispositivo e su iCloud.",
       ],
       syncScope:
-        "Da sapere: TuneFinder funziona localmente anche senza iCloud. La futura versione Android userà un sistema separato; le librerie non saranno trasferite tra iOS e Android.",
+        "Da sapere: TuneFinder funziona localmente anche senza iCloud. La versione Android usa un sistema separato; le librerie non saranno trasferite tra iOS e Android.",
       download:
         "Scarica TuneFinder e usa più facilmente la tua libreria personale.",
       support:
@@ -530,7 +530,7 @@
         "Pausar mantém intactas as cópias no dispositivo e no iCloud.",
       ],
       syncScope:
-        "Convém saber: o TuneFinder funciona localmente sem iCloud. A futura versão Android utilizará um sistema separado; as bibliotecas não serão transferidas entre iOS e Android.",
+        "Convém saber: o TuneFinder funciona localmente sem iCloud. A versão Android utiliza um sistema separado; as bibliotecas não serão transferidas entre iOS e Android.",
       download:
         "Descarregue o TuneFinder e utilize mais facilmente a sua biblioteca pessoal.",
       support:
