@@ -540,6 +540,44 @@
     },
   }[locale];
 
+  const releaseUpdates = {
+    de: [
+      "Die Synchronisierung läuft beim Start und nach lokalen Änderungen, sobald der Cloud-Dienst bereit ist.",
+      "Playlist-Änderungen werden zusammengeführt, einschließlich hinzugefügter und entfernter Titel sowie ihrer Reihenfolge.",
+      "Wenn Index und PDF verknüpft sind, kehre zum Startbildschirm zurück.",
+      "Öffne Einstellungen und tippe auf iCloud-Sync aktivieren.",
+    ],
+    es: [
+      "La sincronización se ejecuta al iniciar y tras cambios locales cuando el servicio cloud está listo.",
+      "Los cambios de las listas se combinan entre dispositivos, incluidos los temas añadidos, eliminados y su orden.",
+      "Cuando el índice y el PDF estén vinculados, vuelve a la pantalla de inicio.",
+      "Abre Ajustes y toca Activar sincronización iCloud.",
+    ],
+    fr: [
+      "La synchronisation s’exécute au démarrage et après les modifications locales lorsque le service cloud est prêt.",
+      "Les modifications des playlists sont fusionnées entre appareils, y compris les ajouts, les suppressions et l’ordre des morceaux.",
+      "Une fois l’index et le PDF liés, revenez à l’écran d’accueil.",
+      "Ouvrez Paramètres et touchez Activer la synchronisation iCloud.",
+    ],
+    it: [
+      "La sincronizzazione avviene all’avvio e dopo le modifiche locali quando il servizio cloud è pronto.",
+      "Le modifiche alle playlist vengono unite tra dispositivi, comprese aggiunte, rimozioni e ordine dei brani.",
+      "Quando indice e PDF sono collegati, torna alla schermata iniziale.",
+      "Apri Impostazioni e tocca Attiva sincronizzazione iCloud.",
+    ],
+    pt: [
+      "A sincronização é executada ao iniciar e após alterações locais quando o serviço cloud está pronto.",
+      "As alterações das listas são combinadas entre dispositivos, incluindo temas adicionados, removidos e a sua ordem.",
+      "Quando o índice e o PDF estiverem ligados, volte ao ecrã inicial.",
+      "Abra Definições e toque em Ativar sincronização iCloud.",
+    ],
+  }[locale];
+  if (details && releaseUpdates) {
+    details.syncBehavior[0] = releaseUpdates[0];
+    details.syncBehavior[2] = releaseUpdates[1];
+    details.instructions[0][2] = releaseUpdates[2];
+    details.syncSetup[1] = releaseUpdates[3];
+  }
   if (!copy) return;
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   while (walker.nextNode()) {

@@ -55,7 +55,8 @@ for (const [locale, meta] of Object.entries(locales)) {
     .replace(
       '<summary aria-label="Choose language">English</summary>',
       `<summary aria-label="Choose language">${meta.label}</summary>`
-    );
+    )
+    .replaceAll("/screenshots/en/", `/screenshots/${locale}/`);
   await mkdir(new URL(`${locale}/`, import.meta.url), { recursive: true });
   await writeFile(new URL(`${locale}/index.html`, import.meta.url), html);
 }

@@ -9,7 +9,7 @@
       content="TuneFinder retrouve les morceaux de jazz dans vos propres recueils et ouvre directement la bonne page du PDF."
     />
     <meta name="robots" content="index,follow,max-image-preview:large" />
-    <meta name="application-version" content="1.5.0" />
+    <meta name="application-version" content="1.5.2" />
     <meta name="theme-color" content="#087f5b" />
     <link rel="canonical" href="https://tunefinder.app/fr/" />
     <link rel="alternate" hreflang="en" href="https://tunefinder.app/" />
@@ -23,6 +23,8 @@
     <link rel="icon" href="/tune-finder-logo.png" type="image/png" />
     <link rel="apple-touch-icon" href="/tune-finder-logo.png" />
     <script src="/locales.js" defer></script>
+    <script src="/release-materials.js" defer></script>
+    <link rel="stylesheet" href="/release-materials.css" />
     <meta property="og:title" content="TuneFinder — Find any tune, instantly" />
     <meta
       property="og:description"
@@ -66,7 +68,7 @@
         "applicationCategory": "MusicApplication",
         "featureList": "Search jazz lead-sheet books, open matching PDF pages, manage playlists, optional device sync",
         "operatingSystem": "iOS, Android",
-        "softwareVersion": "1.5.0",
+        "softwareVersion": "1.5.2",
         "downloadUrl": "https://apps.apple.com/app/tune-finder/id6471411472",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "publisher": { "@type": "Organization", "name": "Ekeller Limited" }
@@ -110,7 +112,8 @@
               ><a class="button-secondary" href="#features">See how it works</a>
             </div>
             <p class="version">
-              <strong>Version 1.5.0</strong> · Available for iPhone, iPad and Android
+              <strong>Version 1.5.2</strong> · Available for iPhone, iPad and
+              Android
             </p>
           </div>
           <div
@@ -217,8 +220,7 @@
                   book.
                 </li>
                 <li>
-                  When the status says <strong>Ready to search</strong>, return
-                  to the home screen.
+                  Once your index and PDF are linked, return to the home screen.
                 </li>
               </ol>
               <p class="guide-note">
@@ -228,11 +230,11 @@
             </div>
             <figure class="screenshot-frame">
               <img
-                src="/screenshots/book-indexes.png"
-                width="739"
-                height="1600"
+                src="/screenshots/fr/book-indexes.png"
+                width="640"
+                height="1391"
                 loading="lazy"
-                alt="TuneFinder Book indexes screen showing The Real Book Volume I ready to search"
+                alt="TuneFinder Book indexes screen showing The Real Book Volume I starter index and linked PDF"
               />
               <figcaption>Download an index, then connect its PDF.</figcaption>
             </figure>
@@ -263,9 +265,9 @@
             </div>
             <figure class="screenshot-frame">
               <img
-                src="/screenshots/search-results.png"
-                width="739"
-                height="1600"
+                src="/screenshots/fr/search-results.png"
+                width="640"
+                height="1391"
                 loading="lazy"
                 alt="TuneFinder search results for the word love, showing matching tunes and page numbers"
               />
@@ -302,9 +304,9 @@
             </div>
             <figure class="screenshot-frame">
               <img
-                src="/screenshots/playlists.png"
-                width="739"
-                height="1600"
+                src="/screenshots/fr/playlists.png"
+                width="640"
+                height="1391"
                 loading="lazy"
                 alt="TuneFinder Playlists screen with Bluegrass Session, Irish Favourites, and Sunday Jam setlists"
               />
@@ -335,7 +337,7 @@
                     iPadOS Settings.
                   </li>
                   <li>
-                    Open <strong>Device sync</strong> in TuneFinder and tap
+                    Open <strong>Settings</strong> in TuneFinder and tap
                     <strong>Enable iCloud sync</strong>.
                   </li>
                   <li>
@@ -352,16 +354,16 @@
                 <h4 id="sync-behaviour-heading">How it behaves</h4>
                 <ul class="check-list">
                   <li>
-                    Changes sync at startup and when the app returns to the
-                    foreground.
+                    Sync runs at startup and after local library edits when your
+                    provider is ready.
                   </li>
                   <li>
                     Pull to refresh on Playlists or Book indexes to request an
                     update.
                   </li>
                   <li>
-                    The most recently edited copy wins if the same playlist
-                    changes twice.
+                    Playlist edits are merged across devices, including tune
+                    additions, removals and ordering.
                   </li>
                   <li>
                     Pausing sync keeps both the device and iCloud copies intact.
@@ -372,11 +374,81 @@
             <div class="sync-scope" role="note">
               <strong>Good to know:</strong> TuneFinder stays local-first and
               works without iCloud. This synchronisation is only between Apple
-              devices. The Android version uses its own separate
-              device-sync system; libraries will not transfer between iOS and
-              Android.
+              devices. Android connects to a Google Drive account selected in
+              Settings; libraries will not transfer between iOS and Android.
             </div>
           </article>
+        </section>
+        <section
+          class="release-features"
+          id="release-152"
+          aria-labelledby="release-heading"
+        >
+          <p class="eyebrow">TuneFinder 1.5.2</p>
+          <h2 id="release-heading">New in 1.5.2</h2>
+          <p id="release-intro">
+            Shape your own catalogue, keep your setlists together, and choose
+            the language that suits you.
+          </p>
+          <div class="release-grid">
+            <article class="release-card">
+              <h3 data-release-title="0">Edit your book indexes</h3>
+              <p data-release-body="0">
+                Correct tune titles and PDF pages, or add missing tunes directly
+                in TuneFinder.
+              </p>
+              <img
+                src="/screenshots/fr/index-editor.png"
+                width="1320"
+                height="2868"
+                loading="lazy"
+                alt="Edit your book indexes"
+              />
+            </article>
+            <article class="release-card">
+              <h3 data-release-title="1">Import and export CSV</h3>
+              <p data-release-body="1">
+                Keep a copy of your index or bring your own catalogue in through
+                Manage files.
+              </p>
+              <img
+                src="/screenshots/fr/book-files-csv.png"
+                width="1320"
+                height="2868"
+                loading="lazy"
+                alt="Import and export CSV"
+              />
+            </article>
+            <article class="release-card">
+              <h3 data-release-title="2">Choose your app language</h3>
+              <p data-release-body="2">
+                Select English, French, Portuguese, German, Spanish or Italian
+                in Settings. The choice stays on this device.
+              </p>
+              <img
+                src="/screenshots/fr/app-language.png"
+                width="1320"
+                height="2868"
+                loading="lazy"
+                alt="Choose your app language"
+              />
+            </article>
+            <article class="release-card">
+              <h3 data-release-title="3">Optional sync, clear controls</h3>
+              <p data-release-body="3">
+                iPhone and iPad use iCloud Documents. Android connects to Google
+                Drive. Your library works locally, with no sharing between
+                platforms.
+              </p>
+              <img
+                src="/screenshots/fr/device-sync.png"
+                width="1320"
+                height="2868"
+                loading="lazy"
+                alt="Optional sync, clear controls"
+              />
+            </article>
+          </div>
         </section>
         <section
           class="download"
@@ -385,7 +457,7 @@
         >
           <div class="download-panel">
             <div>
-              <p class="eyebrow">TuneFinder 1.5.0</p>
+              <p class="eyebrow">TuneFinder 1.5.2</p>
               <h2 id="download-heading">
                 Your next tune is already in the book.
               </h2>
@@ -417,7 +489,7 @@
               >.
             </p>
           </article>
-          <article class="support-card">
+          <article class="support-card" id="privacy">
             <h2>Privacy first</h2>
             <p>
               TuneFinder does not require an account or collect your personal

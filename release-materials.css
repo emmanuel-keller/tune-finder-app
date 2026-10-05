@@ -1,0 +1,30 @@
+.release-features {
+  padding: 64px 0;
+}
+.release-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+.release-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+}
+.release-card h3 {
+  margin-top: 0;
+}
+.release-card p {
+  color: var(--muted);
+}
+.release-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  border-radius: 16px;
+  margin-top: 24px;
+}
