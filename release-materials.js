@@ -193,4 +193,5 @@
   guide.querySelectorAll('.instruction-list li').forEach((e, i) => {e.textContent = c.steps[i];});
   guide.querySelector('.guide-note').textContent = c.note;
   guide.querySelector('figcaption').textContent = c.guideTitle;
+  guide.querySelector('img').alt = c.guideTitle;
 })();
