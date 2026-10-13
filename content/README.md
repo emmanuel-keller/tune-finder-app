@@ -21,6 +21,8 @@ Each `docs/<language>/<stable-id>.md` starts with JSON metadata between `---` li
 
 Use matching-language screenshots and descriptive captions. Images link directly to their full-size version. Documentation search fetches only the current language’s static index; queries stay in the browser. Platform preference is stored locally and can be changed explicitly. Direct links to a platform heading remain readable even if a saved preference differs.
 
+Shared documentation UI labels, including navigation and image actions, are centralized in `scripts/docs-ui.mjs` and also used by marketing locale generation. CI checks tracked and untracked generated output with `scripts/check-generated.mjs`.
+
 The glossary snapshot is `terminology.json`; its provenance is recorded in `terminology-source.json`. Refresh it with the app release, then check translated prose and exact control labels. A playlist is also the app’s performance collection; do not introduce a separate setlist concept.
 
 ## Content audit: 1.5.5

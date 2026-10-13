@@ -46,3 +46,39 @@ test('generated pages and sitemap are reproducible and keep privacy anchors',asy
  const after=await Promise.all(files.map(f=>readFile(root+f,'utf8')));assert.deepEqual(after,before);
  assert.match(after[1],/id="privacy"/);assert.match(after[2],/href="\/fr\/docs\/"/);
 });
+
+test('inline links encode raw query separators exactly once without exposing HTML',()=>{
+ assert.equal(inline('[A & B](https://example.com/?a=1&b=2)'),'<a href="https://example.com/?a=1&amp;b=2">A &amp; B</a>');
+ assert.equal(inline('[Support](mailto:contact@tunefinder.app?subject=Help&body=PDF)'),'<a href="mailto:contact@tunefinder.app?subject=Help&amp;body=PDF">Support</a>');
+ assert.equal(inline('[<b> & **help**](https://example.com/)'),'<a href="https://example.com/">&lt;b&gt; &amp; <strong>help</strong></a>');
+ assert.throws(()=>inline('[Link](https://example.com/"onclick=x)'));
+});
+test('all supported locales provide localized image actions and navigation labels',async()=>{
+ const {ui}=await import('../scripts/docs-ui.mjs');
+ for(const locale of ['en','fr','pt','de','es','it']) {
+  const figure=renderMarkdown(`![PDF](/screenshots/${locale}/index-editor.png)`,locale).html;
+  assert.ok(figure.includes(ui[locale].openImage));
+  const html=await readFile(root+route(locale)+'index.html','utf8');
+  assert.ok(html.includes(`aria-label="${ui[locale].language}"`));
+  assert.ok(html.includes(`aria-label="${ui[locale].breadcrumb}"`));
+  if(['en','fr'].includes(locale)) assert.match(html,/<a aria-current="page" href="[^\"]+">/);
+  else {assert.doesNotMatch(html,/class="guide-menu"/);assert.doesNotMatch(html,/<ul><\/ul>/);}
+ }
+ const article=await readFile(root+'fr/docs/import-pdf/index.html','utf8');
+ assert.match(article,/<span aria-current="page">Importer et partager un PDF<\/span>/);
+});
+test('CI clean-check detects forgotten new generated files as well as tracked edits',async()=>{
+ const {mkdtemp,writeFile,rm}=await import('node:fs/promises');
+ const {tmpdir}=await import('node:os');
+ const {join}=await import('node:path');
+ const dir=await mkdtemp(join(tmpdir(),'tf-generated-check-'));
+ const git=(...args)=>execFileSync('git',args,{cwd:dir,stdio:'pipe'});
+ const check=()=>execFileSync(process.execPath,[root+'scripts/check-generated.mjs'],{cwd:dir,stdio:'pipe'});
+ try {
+  git('init');await writeFile(join(dir,'tracked.html'),'original');git('add','tracked.html');
+  git('-c','user.name=Test','-c','user.email=test@example.com','commit','-m','fixture');check();
+  await writeFile(join(dir,'new-guide.html'),'forgotten output');assert.throws(check);
+  await rm(join(dir,'new-guide.html'));check();
+  await writeFile(join(dir,'tracked.html'),'changed output');assert.throws(check);
+ } finally {await rm(dir,{recursive:true,force:true});}
+});

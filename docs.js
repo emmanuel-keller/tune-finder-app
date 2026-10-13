@@ -1,7 +1,11 @@
 (() => {
   const locale = document.body.dataset.locale;
   const menu = document.querySelector('.guide-menu');
-  if (menu) menu.open = window.matchMedia('(min-width: 701px)').matches;
+  if (menu) {
+    const layout = window.matchMedia('(min-width: 701px)');
+    menu.open = layout.matches;
+    layout.addEventListener('change', event => {menu.open = event.matches;});
+  }
   const normalize = text => text.normalize('NFD').replace(/\p{M}/gu, '').toLocaleLowerCase();
   const picker = document.querySelector('.platform-picker');
   let platform = 'all';
@@ -39,8 +43,14 @@
     for (const a of results) {
       const li=document.createElement('li'), link=document.createElement('a'), snippet=document.createElement('p');
       link.href=a.url; link.textContent=a.title;
-      const offset=Math.max(0, normalize(a.text).indexOf(terms[0])-45);
-      snippet.textContent=`${offset?'…':''}${a.text.slice(offset,offset+175)}${a.text.length>offset+175?'…':''}`;
+      // Prefer a specific matching keyword over a short/common first term.
+      const body = normalize(a.text);
+      const anchor = [...terms].sort((a,b)=>b.length-a.length).map(term=>body.indexOf(term)).find(position=>position!==-1);
+      if (anchor === undefined) {snippet.textContent = a.summary;}
+      else {
+        const offset = Math.max(0, anchor-45);
+        snippet.textContent=`${offset?'…':''}${a.text.slice(offset,offset+175)}${a.text.length>offset+175?'…':''}`;
+      }
       li.append(link,snippet); list.append(li);
     }
   };

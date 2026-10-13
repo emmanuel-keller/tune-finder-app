@@ -1,3 +1,4 @@
+import {ui} from './docs-ui.mjs';
 import {readFile, readdir} from 'node:fs/promises';
 export const locales = ['en', 'fr', 'pt', 'de', 'es', 'it'];
 export const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -8,7 +9,16 @@ export function safeUrl(url) {
   throw new Error(`Unsafe link: ${url}`);
 }
 export function inline(text) {
-  return escape(text).replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => `<a href="${escape(safeUrl(url))}">${label}</a>`).replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  // Parse Markdown first, then escape prose and each attribute exactly once.
+  const tokens = /\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*/g;
+  let html = '', offset = 0;
+  for (const match of text.matchAll(tokens)) {
+    html += escape(text.slice(offset, match.index));
+    html += match[3] !== undefined ? `<strong>${inline(match[3])}</strong>`
+      : `<a href="${escape(safeUrl(match[2]))}">${inline(match[1])}</a>`;
+    offset = match.index + match[0].length;
+  }
+  return html + escape(text.slice(offset));
 }
 export function parseArticle(source, locale, filename) {
   const match = source.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
@@ -43,7 +53,7 @@ export function renderMarkdown(body, locale) {
     } else if (image) {
       flush(); const url = safeUrl(image[2]);
       if (!url.startsWith(`/screenshots/${locale}/`)) throw new Error('Screenshot must match article language');
-      html.push(`<figure><a href="${escape(url)}"><img src="${escape(url)}" alt="${escape(image[1])}" loading="lazy" width="420" height="910"></a><figcaption>${escape(image[1])} · <a href="${escape(url)}">${locale === 'fr' ? 'Ouvrir l’image' : 'Open full image'}</a></figcaption></figure>`);
+      html.push(`<figure><a href="${escape(url)}"><img src="${escape(url)}" alt="${escape(image[1])}" loading="lazy" width="420" height="910"></a><figcaption>${escape(image[1])} · <a href="${escape(url)}">${escape(ui[locale].openImage)}</a></figcaption></figure>`);
     } else if (item) {if (paragraph.length) flush(); list.push(item[1]);}
     else {if (list.length) flush(); if (line.startsWith('#') || line.startsWith('![')) throw new Error(`Unsupported Markdown: ${line}`); paragraph.push(line);}
   }
