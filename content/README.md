@@ -19,7 +19,9 @@ GitHub Pages continues to serve committed HTML from `main`. Commit generated pag
 
 Each `docs/<language>/<stable-id>.md` starts with JSON metadata between `---` lines. Required fields: `id`, `title`, `summary`, `section`, `order`, `platforms`, `minVersion`, `verifiedRelease`, `related`. Keep the ID and explicit heading anchors stable across translations. Supported Markdown is deliberately small: paragraphs, numbered lists, bold text, HTTPS/mail links, relative site links, screenshots, and level-two/three headings with `{#stable-anchor}`. Raw HTML is escaped. Platform blocks use `::: ios` or `::: android`, followed by `:::`. Both remain visible without JavaScript.
 
-Use matching-language screenshots and descriptive captions. Images link directly to their full-size version. Documentation search fetches only the current language’s static index; queries stay in the browser. Platform preference is stored locally and can be changed explicitly. Direct links to a platform heading remain readable even if a saved preference differs.
+Use matching-language screenshots and descriptive captions. Images link directly to their full-size version. Documentation search fetches only the current language’s static index; queries stay in the browser. Platform preference is stored locally and can be changed explicitly. Direct links to a platform heading select the matching visible platform without replacing the stored preference. An explicit platform choice updates the preference and clears the opposing heading fragment. Search ignores punctuation, preserves support-reference hyphens, and prepares normalized article text once on index load. Client helper and DOM-controller regressions run in the Node test suite.
+
+The translated documentation languages are configured once in `activeLocales` in `scripts/docs-ui.mjs`; adding a language there requires its article files and translations.
 
 Shared documentation UI labels, including navigation and image actions, are centralized in `scripts/docs-ui.mjs` and also used by marketing locale generation. CI checks tracked and untracked generated output with `scripts/check-generated.mjs`.
 

@@ -1,4 +1,4 @@
-import {ui} from './docs-ui.mjs';
+import {ui, activeLocales} from './docs-ui.mjs';
 import {readFile, readdir} from 'node:fs/promises';
 export const locales = ['en', 'fr', 'pt', 'de', 'es', 'it'];
 export const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -62,7 +62,7 @@ export function renderMarkdown(body, locale) {
 }
 export async function loadArticles(root) {
   const articles = [];
-  for (const locale of ['en','fr']) {
+  for (const locale of activeLocales) {
     for (const filename of (await readdir(`${root}/content/docs/${locale}`)).filter(f => f.endsWith('.md')).sort()) {
       articles.push(parseArticle(await readFile(`${root}/content/docs/${locale}/${filename}`, 'utf8'), locale, filename));
     }
@@ -70,7 +70,7 @@ export async function loadArticles(root) {
   const keys = new Set(articles.map(a => `${a.locale}/${a.id}`));
   if (keys.size !== articles.length) throw new Error('Duplicate article IDs');
   for (const a of articles) {
-    if (!keys.has(`en/${a.id}`) || !keys.has(`fr/${a.id}`)) throw new Error(`Missing prototype translation: ${a.id}`);
+    if (activeLocales.some(locale=>!keys.has(`${locale}/${a.id}`))) throw new Error(`Missing prototype translation: ${a.id}`);
     for (const id of a.related) if (!keys.has(`${a.locale}/${id}`) || id === a.id) throw new Error(`Invalid related article: ${id}`);
   }
   return articles.sort((a,b) => a.order - b.order);
