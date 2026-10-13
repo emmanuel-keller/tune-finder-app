@@ -98,3 +98,50 @@ test('synchronization guides pair each platform with its matching instructions a
   assert.match(android,/Google Drive/);assert.ok(android.includes(`/screenshots/${locale}/device-sync-android.png`));
  }
 });
+
+test('all guide PNG assets are readable and HTML reserves their intrinsic dimensions',async()=>{
+ const {pngDimensions}=await import('../scripts/docs-images.mjs');
+ const {inflateSync}=await import('node:zlib');
+ const articles=await loadArticles(root);
+ const checked=new Set();
+ for(const a of articles) {
+  const html=await readFile(root+route(a.locale,a.id)+'index.html','utf8');
+  for(const [,url] of a.body.matchAll(/^!\[[^\]]+\]\((\/screenshots\/[^)]+)\)$/gm)) {
+   const bytes=await readFile(root+url),{width,height}=pngDimensions(bytes);
+   assert.ok(html.includes(`src="${url}"`));
+   assert.ok(html.includes(`loading="lazy" width="${width}" height="${height}"`));
+   if(checked.has(url))continue;checked.add(url);
+   const chunks=[];let offset=8,ended=false;
+   while(offset<bytes.length) {
+    assert.ok(offset+12<=bytes.length,'Truncated PNG chunk');
+    const length=bytes.readUInt32BE(offset),type=bytes.toString('ascii',offset+4,offset+8);
+    assert.ok(offset+12+length<=bytes.length,'Truncated PNG payload');
+    if(type==='IDAT')chunks.push(bytes.subarray(offset+8,offset+8+length));
+    offset+=length+12;
+    if(type==='IEND'){ended=true;break;}
+   }
+   assert.ok(ended && chunks.length,'Missing PNG image data/end');
+   assert.equal(bytes[24],8,'Screenshots must use 8-bit channels');
+   const channels=({2:3,6:4})[bytes[25]];assert.ok(channels,'Unsupported screenshot color type');
+   assert.equal(bytes[28],0,'Screenshots must not be interlaced');
+   const pixels=inflateSync(Buffer.concat(chunks));const stride=width*channels+1;
+   assert.equal(pixels.length,stride*height);
+   for(let row=0;row<height;row++)assert.ok(pixels[row*stride]<=4,'Invalid PNG row filter');
+  }
+ }
+ assert.ok(checked.has('/screenshots/en/device-sync-android.png'));
+ assert.deepEqual(pngDimensions(await readFile(root+'screenshots/en/device-sync-android.png')),{width:1080,height:1920});
+ assert.throws(()=>pngDimensions(Buffer.from('broken image')));
+ const invalid=Buffer.from(await readFile(root+'screenshots/en/device-sync-android.png'));invalid.writeUInt32BE(0,16);assert.throws(()=>pngDimensions(invalid));
+});
+test('shared synchronization guidance and search suggestions cover both providers',async()=>{
+ const {ui}=await import('../scripts/docs-ui.mjs');
+ for(const locale of ['en','fr']) {
+  const article=(await loadArticles(root)).find(a=>a.locale===locale&&a.id==='android-drive');
+  const troubleshooting=article.body.split('{#troubleshooting}')[1];
+  assert.match(troubleshooting,/iCloud/);assert.match(troubleshooting,/Google/);
+  assert.ok(troubleshooting.includes(locale==='en'?'On Android, system backup':'Sur Android, la sauvegarde système'));
+  assert.ok(ui[locale].placeholder.includes(locale==='en'?'synchronization':'synchronisation'));
+  assert.ok(ui[locale].empty.includes(locale==='en'?'synchronization':'synchronisation'));
+ }
+});

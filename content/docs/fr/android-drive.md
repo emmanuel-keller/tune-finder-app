@@ -61,10 +61,10 @@ TuneFinder synchronise après le lancement lorsque le service est prêt, et apr�
 Pour demander une mise à jour, ouvrez **Paramètres** et touchez **Synchroniser**, ou tirez pour actualiser **Recueils** ou **Playlists**. Lancez aussi une synchronisation manuelle sur l’autre appareil pour vérifier l’arrivée d’un changement. Attendez la fin sur les deux appareils avant de comparer.
 
 ## Problèmes de connexion ou de synchronisation {#troubleshooting}
-Vérifiez la connexion, le compte Google et l’espace disponible sur l’appareil et dans Drive. Sur Android, utilisez **Reconnecter Google Drive** pour renouveler l’autorisation. Sur iOS, vérifiez l’activation d’iCloud Drive et que la synchronisation n’est pas suspendue. Gardez le compte prévu ; ne changez pas de compte comme tentative de réparation.
+Vérifiez la connexion internet, votre compte cloud (iCloud sur iOS ou Google sur Android) et l’espace disponible sur l’appareil et dans le cloud. Sur Android, utilisez **Reconnecter Google Drive** pour renouveler l’autorisation. Sur iOS, vérifiez l’activation d’iCloud Drive et que la synchronisation n’est pas suspendue. Gardez le compte prévu ; ne changez pas de compte comme tentative de réparation.
 
 Le transfert de gros PDF peut prendre du temps. Un échec ne justifie pas la suppression et la réimportation de la bibliothèque. Conservez vos copies locales et les PDF d’origine. En cas de conflit, comparez les copies avant de choisir ; ne supposez pas que la copie cloud est plus récente.
 
-Pour **TF-SYNC-4300** ou toute autre référence affichée, [contactez l’assistance](mailto:contact@tunefinder.app) avec la version de l’app, la version d’iOS ou d’Android, l’action et la référence. La sauvegarde système Android est un mécanisme de récupération distinct qui ne remplace pas la synchronisation.
+Pour **TF-SYNC-4300** ou toute autre référence affichée, [contactez l’assistance](mailto:contact@tunefinder.app) avec la version de l’app, la version d’iOS ou d’Android, l’action et la référence. Sur Android, la sauvegarde système est un mécanisme de récupération distinct qui ne remplace pas la synchronisation.
 
 Pour ajouter un document, suivez [Importer et partager un PDF](/fr/docs/import-pdf/), puis [détectez et vérifiez ses titres](/fr/docs/detect-titles/).

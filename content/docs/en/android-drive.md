@@ -61,10 +61,10 @@ TuneFinder synchronizes after launch when the provider is ready, and after accep
 To request an update, open **Settings** and tap **Sync now**, or pull to refresh **Books** or **Playlists**. Repeat a manual sync on the other device when checking that a change has arrived. Wait for both devices to finish before comparing.
 
 ## Connection or sync trouble {#troubleshooting}
-Check your connection, Google account, and available device and Drive storage. On Android, use **Reconnect Google Drive** if authorization needs refreshing. On iOS, check that iCloud Drive is enabled and synchronization is not paused. Keep the same intended account; do not switch accounts as a repair attempt.
+Check your internet connection, cloud account (iCloud on iOS or Google on Android), and available device and cloud storage. On Android, use **Reconnect Google Drive** if authorization needs refreshing. On iOS, check that iCloud Drive is enabled and synchronization is not paused. Keep the same intended account; do not switch accounts as a repair attempt.
 
 Large PDFs can take time to transfer. A failure does not mean you should delete and reimport your library. Keep local copies and original PDFs. If TuneFinder shows a conflict, compare the copies before choosing which to keep; do not assume the cloud copy is newer.
 
-For **TF-SYNC-4300** or another displayed reference, [contact support](mailto:contact@tunefinder.app) with the app version, iOS or Android version, the action, and the reference. Android system backup is a separate recovery mechanism and does not replace synchronization.
+For **TF-SYNC-4300** or another displayed reference, [contact support](mailto:contact@tunefinder.app) with the app version, iOS or Android version, the action, and the reference. On Android, system backup is a separate recovery mechanism and does not replace synchronization.
 
 To add a new document, follow [Import and share a PDF](/docs/import-pdf/), then [detect and review its titles](/docs/detect-titles/).

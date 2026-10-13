@@ -1,5 +1,6 @@
 import {readFile, writeFile, mkdir, access} from 'node:fs/promises';
 import {ui, names, activeLocales} from './docs-ui.mjs';
+import {pngDimensions} from './docs-images.mjs';
 import {fileURLToPath} from 'node:url';
 import {escape as e, locales, route, renderMarkdown, loadArticles} from './docs-core.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -7,8 +8,14 @@ const origin = 'https://tunefinder.app';
 const articles = await loadArticles(root);
 const glossary = JSON.parse(await readFile(`${root}/content/terminology.json`, 'utf8'));
 const rendered = new Map();
+const imageDimensions = {};
+for (const article of articles) {
+ for (const [,url] of article.body.matchAll(/^!\[[^\]]+\]\((\/screenshots\/[^)]+)\)$/gm)) {
+  if (!imageDimensions[url]) imageDimensions[url] = pngDimensions(await readFile(root+url));
+ }
+}
 for (const a of articles) {
- const r = renderMarkdown(a.body,a.locale); rendered.set(`${a.locale}/${a.id}`,r);
+ const r = renderMarkdown(a.body,a.locale,imageDimensions); rendered.set(`${a.locale}/${a.id}`,r);
  const words = `${a.title} ${a.summary} ${r.text}`.toLocaleLowerCase(a.locale).match(/\p{L}+(?:-\p{L}+)*/gu) ?? [];
  const conflicts = glossary[a.locale].avoid.filter(term => words.includes(term.toLocaleLowerCase(a.locale)));
  if (conflicts.length) throw new Error(`Terminology conflict in ${a.locale}/${a.id}: ${conflicts}`);
