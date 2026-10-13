@@ -82,3 +82,17 @@ test('CI clean-check detects forgotten new generated files as well as tracked ed
   await writeFile(join(dir,'tracked.html'),'changed output');assert.throws(check);
  } finally {await rm(dir,{recursive:true,force:true});}
 });
+
+test('synchronization guides pair each platform with its matching instructions and image',async()=>{
+ const articles=await loadArticles(root);
+ for (const locale of ['en','fr']) {
+  const guide=articles.find(a=>a.locale===locale&&a.id==='android-drive');
+  assert.deepEqual(guide.platforms,['ios','android']);
+  assert.equal(guide.title,locale==='en'?'Synchronization':'Synchronisation');
+  const html=renderMarkdown(guide.body,locale).html;
+  const ios=html.match(/<section data-platform="ios"[\s\S]*?<\/section>/)[0];
+  const android=html.match(/<section data-platform="android"[\s\S]*?<\/section>/)[0];
+  assert.match(ios,/iCloud/);assert.ok(ios.includes(`/screenshots/${locale}/device-sync.png`));assert.doesNotMatch(ios,/device-sync-android/);
+  assert.match(android,/Google Drive/);assert.ok(android.includes(`/screenshots/${locale}/device-sync-android.png`));
+ }
+});

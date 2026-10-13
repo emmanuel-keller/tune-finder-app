@@ -33,7 +33,7 @@ The glossary snapshot is `terminology.json`; its provenance is recorded in `term
 | --- | --- | --- | --- |
 | Import/share PDF | Books tab; Import PDF; copy ownership; duplicate handling; PDF/page limits; iOS/Android share paths; error references | localized book library | Owner should follow Apple Books and Android source-app share steps on devices |
 | Detect/review titles | Book Details; Detect tune titles; pause/resume; editor page checks, add/edit/delete and Save tune; free Use for search | localized index editor | Owner should follow the pause/resume and acceptance steps on devices |
-| Android Google Drive | Settings gear; Connect/Reconnect Google Drive; same account; no folder picker; local-first preservation; bounded sync triggers | localized Device Sync | Owner should follow account connection and two-device propagation steps |
+| iCloud/Google Drive synchronization | Settings gear; Enable/Pause iCloud; Connect/Reconnect Google Drive; same account; no folder picker; local-first preservation; bounded sync triggers | localized iOS and Android Device Sync | Owner should follow iCloud enable/pause, Google account connection and two-device propagation steps |
 
 Sources were audited against TuneFinder `v1.5.5`, including `MainTabs`, `SettingsButton`, `IndexEditor`, `Sync`, and the import/OCR/Drive engineering guides. Button labels are **Save tune** / **Enregistrer**, and **Sync now** / **Synchroniser**, matching this release. Browser checks establish web behavior, not device synchronization or OCR accuracy.
 
@@ -41,4 +41,4 @@ Existing captures cover the three overview states. Detailed share-sheet, consent
 
 ## Next scope
 
-Expand to first search, catalogue/file management, manual/CSV indexing, playlists, iCloud, purchase restoration/settings, troubleshooting and release notes. Translate that coverage into all six languages. In-app Help links are a subsequent app change. Every release should review affected articles, glossary, screenshots, links and verified-release metadata.
+Expand to first search, catalogue/file management, manual/CSV indexing, playlists, extended sync recovery, purchase restoration/settings, troubleshooting and release notes. Translate that coverage into all six languages. In-app Help links are a subsequent app change. Every release should review affected articles, glossary, screenshots, links and verified-release metadata.

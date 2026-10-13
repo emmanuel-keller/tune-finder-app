@@ -50,4 +50,4 @@ Check consecutive page ranges carefully: repeated headings may be joined into on
 ## Rebuild or recover {#rebuild}
 Removing an index does not prevent detection while the PDF is still available. Open the book details and tap **Detect tune titles** to rebuild it. If the PDF is unavailable, restore or choose its PDF before retrying. Do not delete your library to repair a recognition failure.
 
-If an error persists, [contact support](mailto:contact@tunefinder.app) with your app version, platform, action, and displayed error reference. For optional Android synchronization of accepted indexes, see [Connect Google Drive](/docs/android-drive/).
+If an error persists, [contact support](mailto:contact@tunefinder.app) with your app version, platform, action, and displayed error reference. For optional synchronization of accepted indexes, see [Synchronization](/docs/android-drive/).
