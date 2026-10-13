@@ -43,3 +43,9 @@ Browser checks establish website behavior, not physical-device sync, purchase ou
 ## Release maintenance
 
 Review affected articles, translations, glossary, screenshots and links for each app change. Keep all six translations current with the latest app. Internal minVersion and verifiedRelease metadata records audit provenance only and is never shown to readers. Keep the versionless whats-new route current; old release routes redirect to it. Document new platform detection options only after their behavior is verified.
+
+## What’s new maintenance policy
+
+`whats-new` is a curated overview of the current app, not a cumulative changelog. At each app update, revise or replace its highlights in all six languages to reflect what users can use now. Retain stable topical anchors (`library`, `ocr`, `search-sync`, `limits`) while updating their content. Do not add versioned or dated entries to this guide. Historical release notes belong in the app repository’s GitHub Releases; they are not stored in the user guide. Add retired article routes to `scripts/docs-redirects.mjs`; the builder excludes those exact paths from the sitemap and labels redirect links with the translated destination title.
+
+`content/app-ui-labels.json` is an audited snapshot of purchase-navigation labels from the app localization dictionary, with its source commit recorded. When these app labels change, read the effective translations (including overrides), refresh the snapshot and corresponding guide text together, then run the website tests. This snapshot keeps website CI independent of an adjacent app checkout; it does not automatically detect later changes in the app repository.

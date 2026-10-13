@@ -1,5 +1,6 @@
 import {readFile, writeFile, mkdir, access} from 'node:fs/promises';
 import {ui, names, activeLocales} from './docs-ui.mjs';
+import {redirects} from './docs-redirects.mjs';
 import {pngDimensions} from './docs-images.mjs';
 import {fileURLToPath} from 'node:url';
 import {escape as e, locales, route, renderMarkdown, loadArticles} from './docs-core.mjs';
@@ -69,13 +70,19 @@ for (const [path,html] of output) {
   }
  }
 }
-// Preserve old public release-note links without showing release-specific guides.
-for (const locale of locales) {
- const destination=route(locale,'whats-new');
- output.set(route(locale,'release-1-5-5'),`<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=${destination}"><link rel="canonical" href="${origin+destination}"><meta name="robots" content="noindex,follow"><title>${e(ui[locale].docs)}</title></head><body><a href="${destination}">${e(ui[locale].docs)}</a></body></html>`);
+// Keep redirects separate from indexable article routes.
+const redirectPaths = new Set();
+for (const {from,to} of redirects) {
+ for (const locale of locales) {
+  const destination=route(locale,to), path=route(locale,from);
+  const target=articles.find(a=>a.locale===locale && a.id===to);
+  if (!target || output.has(path)) throw new Error(`Invalid redirect ${path} to ${destination}`);
+  redirectPaths.add(path);
+  output.set(path,`<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=${destination}"><link rel="canonical" href="${origin+destination}"><meta name="robots" content="noindex,follow"><title>${e(target.title)} — TuneFinder</title></head><body><a href="${destination}">${e(target.title)}</a></body></html>`);
+ }
 }
 for (const [path,html] of output) {await mkdir(root+path,{recursive:true}); await writeFile(root+path+'index.html',html+'\n');}
 const sitemap = (await readFile(root+'sitemap.xml','utf8')).replace(/\s*<!-- documentation --><url>[\s\S]*?<\/url>/g,'');
-const urls = [...output.keys()].filter(p=>activeLocales.some(locale=>p.startsWith(route(locale))) && !p.includes('/release-1-5-5/')).map(p=>`  <!-- documentation --><url><loc>${origin+p}</loc><changefreq>monthly</changefreq></url>`).join('\n');
+const urls = [...output.keys()].filter(p=>activeLocales.some(locale=>p.startsWith(route(locale))) && !redirectPaths.has(p)).map(p=>`  <!-- documentation --><url><loc>${origin+p}</loc><changefreq>monthly</changefreq></url>`).join('\n');
 await writeFile(root+'sitemap.xml',sitemap.replace('</urlset>',`${urls}\n</urlset>`));
 console.log(`Built ${articles.length} articles, ${output.size} routes, and ${activeLocales.length} local search indexes.`);

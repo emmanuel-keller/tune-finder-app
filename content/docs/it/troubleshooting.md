@@ -30,4 +30,4 @@ Confronta copie prima di scegliere. Conserva modifiche/originali; non presumere 
 **TF-SYNC-4004**: download; **TF-SYNC-4005**: sostituzione; **TF-SYNC-4006**: modifica durante sincronizzazione; **TF-SYNC-4300**: sincronizzazione/aggiornamento. Verifica disponibilità, lascia finire modifiche, riprova e segnala errori persistenti. Non provano perdita. Segui messaggio e [Sincronizzazione](/it/docs/android-drive/).
 ## Contattare assistenza {#support}
 Scrivi a [contact@tunefinder.app](mailto:contact@tunefinder.app) con versioni app/sistema, piattaforma, azione, riferimento esatto e ripetizione. Controlla dati privati nelle immagini prima di allegarle. PDF privati solo su richiesta appropriata e con consenso; non inviare password o dati di pagamento.
-Conserva originale/libreria. Distingui revisione nello store, ripristino e connessione cloud. Vedi la limitazione di acquisto in Per acquisto e ripristino, consulta [Accesso alla ricerca e lingua](/it/docs/settings-purchases/).
+Conserva originale/libreria. Distingui revisione nello store, ripristino e connessione cloud. Per acquisto e ripristino, consulta [Accesso alla ricerca e lingua](/it/docs/settings-purchases/).

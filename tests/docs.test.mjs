@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile, readdir} from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
+import {redirects} from '../scripts/docs-redirects.mjs';
 import {activeLocales,ui} from '../scripts/docs-ui.mjs';
 import {parseArticle,renderMarkdown,inline,route,loadArticles,normalize,safeUrl} from '../scripts/docs-core.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
@@ -155,18 +156,62 @@ test('shared synchronization guidance and search suggestions cover both provider
  }
 });
 
-test('guides present current instructions without release numbers and retain old redirects',async()=>{
+test('guides and public search stay versionless; redirects are not indexed',async()=>{
  const articles=await loadArticles(root);
+ // Two- and three-part releases; avoid localized thousands such as 1.000 pages.
+ const versionNumber=/\b\d+\.\d{1,2}(?:\.\d+)?\b(?![\d.]\d)/;
+ assert.match("TuneFinder 1.5",versionNumber);
+ assert.match("TuneFinder 1.6.0",versionNumber);
+ assert.doesNotMatch("1.000 páginas",versionNumber);
+ const sitemap=await readFile(root+'sitemap.xml','utf8');
  for(const article of articles) {
+  assert.doesNotMatch(article.body,versionNumber);
   const html=await readFile(root+route(article.locale,article.id)+'index.html','utf8');
-  assert.doesNotMatch(html,/\b\d+\.\d+\.\d+\b/);
+  assert.doesNotMatch(html,versionNumber);
  }
  for(const locale of activeLocales) {
   for (const file of ['index.html','search-index.json']) {
    const content=await readFile(root+route(locale)+file,'utf8');
-   assert.doesNotMatch(content,/\b\d+\.\d+\.\d+\b/);
+   assert.doesNotMatch(content,versionNumber);
   }
-  const redirect=await readFile(root+route(locale,'release-1-5-5')+'index.html','utf8');
-  assert.ok(redirect.includes(`content="0;url=${route(locale,'whats-new')}"`));
+  for(const {from,to} of redirects) {
+   const destination=route(locale,to), legacy=route(locale,from);
+   const redirect=await readFile(root+legacy+'index.html','utf8');
+   const title=articles.find(a=>a.locale===locale && a.id===to).title;
+   assert.ok(redirect.includes(`content="0;url=${destination}"`));
+   assert.ok(redirect.includes(`href="https://tunefinder.app${destination}"`));
+   assert.ok(redirect.includes('content="noindex,follow"'));
+   assert.ok(redirect.includes(`>${title}</a>`));
+   assert.ok(!sitemap.includes(`<loc>https://tunefinder.app${legacy}</loc>`));
+   assert.ok(sitemap.includes(`<loc>https://tunefinder.app${destination}</loc>`));
+  }
+ }
+});
+
+test('purchase guide actions match audited effective app translations',async()=>{
+ const snapshot=JSON.parse(await readFile(root+'content/app-ui-labels.json','utf8'));
+ assert.match(snapshot.source.commit,/^[a-f0-9]{40}$/);
+ assert.equal(snapshot.source.path,'src/i18n.ts');
+ const articles=await loadArticles(root);
+ for(const locale of activeLocales) {
+  const body=articles.find(a=>a.locale===locale && a.id==='settings-purchases').body;
+  assert.deepEqual(Object.keys(snapshot.labels[locale]),['settings','multiBookSearch','restorePurchase','chooseSongbooks']);
+  for(const [key,label] of Object.entries(snapshot.labels[locale])) {
+   assert.ok(body.includes(`**${label}**`),`${locale} purchase guide missing ${key}: ${label}`);
+  }
+ }
+});
+
+test('troubleshooting translations do not retain retired purchase-limit lead-ins',async()=>{
+ const articles=await loadArticles(root);
+ const fragments=['Siehe Kaufgrenze unter','Consulta la limitación de compra en','Vedi la limitazione di acquisto in','Veja a limitação de compra em'];
+ for(const article of articles.filter(a=>a.id==='troubleshooting')) {
+  const html=await readFile(root+route(article.locale,article.id)+'index.html','utf8');
+  const index=await readFile(root+route(article.locale)+'search-index.json','utf8');
+  for(const fragment of fragments) {
+   assert.ok(!article.body.includes(fragment));
+   assert.ok(!html.includes(fragment));
+   assert.ok(!index.includes(fragment));
+  }
  }
 });
