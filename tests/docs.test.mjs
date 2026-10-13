@@ -154,3 +154,14 @@ test('shared synchronization guidance and search suggestions cover both provider
   assert.ok(ui[locale].empty.includes(({en:'synchronization',fr:'synchronisation',pt:'sincronização',de:'Synchronisierung',es:'sincronización',it:'sincronizzazione'})[locale]));
  }
 });
+
+test('purchase guide separates the upcoming Settings route from shipped 1.5.5',async()=>{
+ for(const locale of activeLocales) {
+  const article=(await loadArticles(root)).find(a=>a.locale===locale&&a.id==='settings-purchases');
+  const upcoming=article.body.split('{#open-search-access}')[1]?.split('## ')[0];
+  assert.ok(upcoming,`${locale} missing updated-build instructions`);
+  assert.ok(upcoming.includes('1.5.5'));
+  assert.ok(article.body.includes('{#purchase}'));
+  assert.equal(article.verifiedRelease,'1.5.5');
+ }
+});

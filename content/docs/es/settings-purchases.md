@@ -19,6 +19,16 @@
 ---
 ## Búsqueda gratuita y compra {#access}
 Importación, índices manuales, borradores OCR y elegir un libro son gratuitos. **Búsqueda en varios libros** permite buscar en varios índices. Muchos libros o archivos cloud no demuestran compra. Guarda índices y conserva PDF para leer; la compra no proporciona PDF ni mejora OCR.
+## Abrir compras en versiones actualizadas {#open-search-access}
+Una actualización 1.5.6 prevista añade **Búsqueda en varios libros** a **Ajustes**. Estos pasos se aplican solo si aparece esa entrada; la limitación de la versión publicada 1.5.5 está abajo.
+
+1. Abre **Ajustes** con el engranaje.
+2. Toca **Búsqueda en varios libros**.
+3. Para comprar, usa el botón de compra y confirma el precio en la tienda de la plataforma. Para recuperar una compra, usa **Restaurar compra** con la cuenta que compró.
+4. Espera confirmación. Con acceso ya activo, **Elegir libros** vuelve a la biblioteca.
+
+La entrada está disponible en iOS y Android incluso sin sincronización cloud. Abrir ajustes no inicia una compra. Compra y restauración necesitan la tienda disponible.
+
 ## Compra y restauración en 1.5.5 {#purchase}
 La pantalla **Búsqueda en varios libros** incluye compra y **Restaurar compra**, pero 1.5.5 no tiene entrada a ella en la navegación principal. Si no puedes acceder para comprar/restaurar, [contacta con ayuda](mailto:contact@tunefinder.app); no borres la biblioteca ni compres de nuevo.
 La app puede reconocer una compra al iniciar con la cuenta que la adquirió. Si puedes acceder a restauración, solicita el derecho existente y espera confirmación.
