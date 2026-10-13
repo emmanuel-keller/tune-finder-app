@@ -23,9 +23,9 @@ test('Markdown escapes text, rejects unsafe links and requires stable anchors',(
  const r=renderMarkdown('## Title {#title}\n\n1. One\n2. Two\n\n::: ios\n### iOS {#ios}\n**Bold**\n:::','en');
  assert.match(r.html,/<ol><li>One<\/li><li>Two<\/li><\/ol>/);assert.match(r.html,/data-platform="ios"/);
 });
-test('all planned 1.5.5 guides have corresponding translations and navigation',async()=>{
+test('all guides have corresponding translations and navigation',async()=>{
  const articles=await loadArticles(root);assert.equal(articles.length,66);
- const coverage=['getting-started','import-pdf','manage-books','detect-titles','manual-index','search-reading','playlists','android-drive','settings-purchases','troubleshooting','release-1-5-5'];
+ const coverage=['getting-started','import-pdf','manage-books','detect-titles','manual-index','search-reading','playlists','android-drive','settings-purchases','troubleshooting','whats-new'];
  for(const locale of activeLocales) assert.deepEqual(articles.filter(a=>a.locale===locale).map(a=>a.id),coverage);
  for(const a of articles) {assert.equal(a.verifiedRelease,'1.5.5');assert.equal(a.related.length,2);}
  for (const english of articles.filter(a=>a.locale==='en')) {for(const locale of activeLocales) {const translated=articles.find(a=>a.locale===locale&&a.id===english.id); assert.deepEqual(renderMarkdown(english.body,'en').headings.map(h=>h.id),renderMarkdown(translated.body,locale).headings.map(h=>h.id)); assert.deepEqual([...new Set(english.body.match(/TF-SYNC-\d+/g)??[])].sort(),[...new Set(translated.body.match(/TF-SYNC-\d+/g)??[])].sort());}}
@@ -155,13 +155,18 @@ test('shared synchronization guidance and search suggestions cover both provider
  }
 });
 
-test('purchase guide separates the upcoming Settings route from shipped 1.5.5',async()=>{
+test('guides present current instructions without release numbers and retain old redirects',async()=>{
+ const articles=await loadArticles(root);
+ for(const article of articles) {
+  const html=await readFile(root+route(article.locale,article.id)+'index.html','utf8');
+  assert.doesNotMatch(html,/\b\d+\.\d+\.\d+\b/);
+ }
  for(const locale of activeLocales) {
-  const article=(await loadArticles(root)).find(a=>a.locale===locale&&a.id==='settings-purchases');
-  const upcoming=article.body.split('{#open-search-access}')[1]?.split('## ')[0];
-  assert.ok(upcoming,`${locale} missing updated-build instructions`);
-  assert.ok(upcoming.includes('1.5.5'));
-  assert.ok(article.body.includes('{#purchase}'));
-  assert.equal(article.verifiedRelease,'1.5.5');
+  for (const file of ['index.html','search-index.json']) {
+   const content=await readFile(root+route(locale)+file,'utf8');
+   assert.doesNotMatch(content,/\b\d+\.\d+\.\d+\b/);
+  }
+  const redirect=await readFile(root+route(locale,'release-1-5-5')+'index.html','utf8');
+  assert.ok(redirect.includes(`content="0;url=${route(locale,'whats-new')}"`));
  }
 });

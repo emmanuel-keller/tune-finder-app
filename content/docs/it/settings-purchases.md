@@ -19,8 +19,7 @@
 ---
 ## Ricerca gratuita e acquisto {#access}
 Importazione, indici manuali, bozze OCR e scelta di un libro non richiedono acquisto. **Ricerca multi-libro** cerca in più indici. Molti libri/file cloud non provano acquisto. Salva indici e tieni PDF disponibili; acquisto non fornisce PDF né migliora OCR.
-## Aprire gli acquisti nelle versioni aggiornate {#open-search-access}
-Un aggiornamento 1.5.6 previsto aggiunge **Ricerca multi-libro** alle **Impostazioni**. Questi passi valgono solo quando la voce è presente; la limitazione della versione pubblicata 1.5.5 è descritta sotto.
+## Aprire acquisto e ripristino {#open-search-access}
 
 1. Apri **Impostazioni** dall’ingranaggio.
 2. Tocca **Ricerca multi-libro**.
@@ -29,8 +28,8 @@ Un aggiornamento 1.5.6 previsto aggiunge **Ricerca multi-libro** alle **Impostaz
 
 La voce è disponibile su iOS/Android anche senza sincronizzazione cloud. Aprire impostazioni non avvia acquisti. Acquisto e ripristino richiedono uno store disponibile.
 
-## Acquisto e ripristino in 1.5.5 {#purchase}
-**Ricerca multi-libro** offre acquisto e **Ripristina acquisto**, ma 1.5.5 non ha accesso a quella schermata dalla navigazione principale. Se non puoi acquistare/ripristinare, [contatta assistenza](mailto:contact@tunefinder.app); non cancellare libreria né acquistare di nuovo.
+## Acquisto e ripristino {#purchase}
+Se non puoi aprire acquisto o ripristino, [contatta assistenza](mailto:contact@tunefinder.app); non cancellare la libreria né acquistare di nuovo.
 L’app può riconoscere acquisti all’avvio con l’account che comprò. Quando accessibile, il ripristino richiede il diritto esistente: attendi conferma.
 Acquisti appartengono all’account della piattaforma. Non presumere trasferimento App Store/Google Play né tramite PDF. Segnala fallimento/acquisto assente con piattaforma, versione e risultato; mai password o pagamenti.
 ## Cambiare lingua {#language}
