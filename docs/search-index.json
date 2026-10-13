@@ -1,0 +1,58 @@
+[
+  {
+    "id": "import-pdf",
+    "title": "Import and share a PDF",
+    "summary": "Add a personal PDF to your library from the file picker or another app.",
+    "url": "/docs/import-pdf/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Before you start",
+      "Import inside TuneFinder",
+      "Share from another app",
+      "On iPhone or iPad",
+      "On Android",
+      "After importing",
+      "If the import fails"
+    ],
+    "text": "Before you start Use an unlocked PDF, no larger than 500 MB and with no more than 1,000 pages. Download it fully in the source app first. A shared website link is not a PDF document. TuneFinder copies the PDF into your private library. It does not change the original file. Later changes to the original do not update your imported copy automatically. No cloud connection or purchase is required to import. Import inside TuneFinder 1. Open Books from the bottom navigation. 2. Tap Import PDF and choose the PDF in the document picker. 3. Wait for Importing PDF… to finish. The book appears in your library. 4. Tap the book to open its details. You can open the PDF before creating an index. Share from another app On iPhone or iPad 1. In Apple Books, open the PDF’s options and choose Share. In Files, use the PDF’s share action. 2. Choose TuneFinder in the app row. You may need More to find it. 3. Wait for TuneFinder to import the PDF and open the book details. The source app must share an actual PDF. If TuneFinder is missing, check that you are sharing a PDF file rather than a link or an ebook in another format. On Android 1. In your file or PDF app, choose Share or Open with for the PDF. 2. Choose TuneFinder and wait for the import to finish. 3. Review the imported book in its details screen. If your source app shares several PDFs, TuneFinder imports them one at a time. No extra storage permission or Google Drive connection is required. The source app must grant access to the PDF, rather than share a website link. After importing An exact duplicate opens the existing personal book. To make titles searchable, detect and review titles or create an index manually in the book details. Free search uses one selected indexed book; you can switch that selection without deleting other indexes. Multi-Book Search enables simultaneous search across several books. If the import fails Confirm that the source app can open the fully downloaded PDF and that it is unlocked and within the limits. Try importing the same PDF through Import PDF. Keep your original file. For TF-SYNC-4610, try downloading the PDF locally and sharing the actual file again. TF-SYNC-4612 identifies the size limit, TF-SYNC-4613 a password-protected PDF, and TF-SYNC-4614 the page limit. Other references, including TF-SYNC-4606, may indicate that installation could not finish safely; they do not by themselves mean the PDF is damaged. If retrying fails, contact support with the app version, iOS/Android version, the action you tried, and the displayed error reference. Do not send a private PDF unless support requests it and you agree."
+  },
+  {
+    "id": "detect-titles",
+    "title": "Detect and review tune titles",
+    "summary": "Create an editable index with on-device OCR, check the suggestions, and save it.",
+    "url": "/docs/detect-titles/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "What detection does",
+      "Detect titles",
+      "Pause and resume",
+      "Review and save",
+      "Improve an imperfect result",
+      "Rebuild or recover"
+    ],
+    "text": "What detection does OCR reads printed text in your PDF and proposes tune titles and page ranges. It runs on the device; TuneFinder does not send the PDF to an OCR service. The proposed index enters search only after you review and save it. Start with an imported PDF. An index is a list of titles and their PDF pages; it is separate from the PDF itself. Detect titles 1. Open Books and tap the book. 2. Tap Detect tune titles. The index editor opens and starts detection. 3. Keep TuneFinder in the foreground while pages are processed. 4. When detection finishes, review the proposed entries in the editor. Pause and resume Tap Cancel during detection to pause after the current page. Backgrounding the app also interrupts detection. Your PDF and completed-page progress are kept. Return to the book and tap Detect tune titles again to resume. If you have unsaved manual edits, finish or discard those edits before starting detection. Replacing the PDF can invalidate an earlier draft; generate a new index for the replacement rather than applying old suggestions. Review and save 1. Check each proposed title and its first and last PDF pages. 2. Open PDF pages from the editor to compare the title and page range with the document. PDF page numbers may differ from printed page numbers. 3. Use Edit, Delete, or Add tune to correct mistakes or supply missing entries. 4. Tap Save tune when the index is ready. 5. Return to the book details. For free single-book search, tap Use for search if the book is not already selected. Improve an imperfect result Clear printed Latin text works best. Handwritten headings, decorative fonts, skewed or faint scans, contents pages, and multiple tunes on one page can produce missed or incorrect titles. Detection cannot identify a tune from notation alone. Check consecutive page ranges carefully: repeated headings may be joined into one range, while untitled continuation pages may need manual corrections. If detection finds no titles, create entries manually; your imported PDF remains available. Rebuild or recover Removing an index does not prevent detection while the PDF is still available. Open the book details and tap Detect tune titles to rebuild it. If the PDF is unavailable, restore or choose its PDF before retrying. Do not delete your library to repair a recognition failure. If an error persists, contact support with your app version, platform, action, and displayed error reference. For optional Android synchronization of accepted indexes, see Connect Google Drive."
+  },
+  {
+    "id": "android-drive",
+    "title": "Connect Google Drive on Android",
+    "summary": "Keep your local library and synchronize it with your other Android devices.",
+    "url": "/docs/android-drive/",
+    "platforms": [
+      "android"
+    ],
+    "headings": [
+      "Before connecting",
+      "Connect your account",
+      "What synchronizes",
+      "When changes arrive",
+      "Connection or sync trouble"
+    ],
+    "text": "Before connecting Your library works locally without a cloud connection. Google Drive synchronization is optional and requires an internet connection and a Google account. Use the same account on every Android device you want to synchronize. This guide is for Android. iPhone and iPad use iCloud Documents; TuneFinder does not synchronize libraries between iOS and Android. Connect your account 1. Open Settings using the gear button. 2. Tap Connect Google Drive. 3. Choose your Google account and approve the requested access. 4. Wait for the initial synchronization and check the status before leaving the screen. 5. Repeat these steps with the same account on your other Android devices, including devices that have local edits. TuneFinder creates and manages its TuneFinder Sync folder in Drive. You do not choose a folder in the file picker. If you cancel account selection or decline access, your local library stays available. What synchronizes Accepted book PDFs, indexes, book names, and playlists participate in synchronization. Unsaved index edits and OCR checkpoints stay on their original device. Save an index before expecting it on another device. All indexes may synchronize, but free search still uses only one selected indexed book. Cloud files do not unlock Multi-Book Search. When changes arrive TuneFinder synchronizes after launch when the provider is ready, and after accepted local playlist or book changes. It does not continuously poll for changes or start synchronization merely because you return to the foreground. To request an update, open Settings and tap Sync now, or pull to refresh Books or Playlists. Repeat a manual sync on the other device when checking that a change has arrived. Wait for both devices to finish before comparing. Connection or sync trouble Check your connection, Google account, and available device and Drive storage. If authorization needs refreshing, use Reconnect Google Drive. Keep the same intended account when reconnecting; do not switch accounts as a repair attempt. Large PDFs can take time to transfer. A failure does not mean you should delete and reimport your library. Keep local copies and original PDFs. If TuneFinder shows a conflict, compare the copies before choosing which to keep; do not assume the cloud copy is newer. For TF-SYNC-4300 or another displayed reference, contact support with the app version, Android version, the action, and the reference. Android system backup is a separate recovery mechanism and does not replace synchronization. To add a new document, follow Import and share a PDF, then detect and review its titles."
+  }
+]

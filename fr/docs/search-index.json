@@ -1,0 +1,58 @@
+[
+  {
+    "id": "import-pdf",
+    "title": "Importer et partager un PDF",
+    "summary": "Ajoutez un PDF personnel à votre bibliothèque depuis le sélecteur de fichiers ou une autre app.",
+    "url": "/fr/docs/import-pdf/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Avant de commencer",
+      "Importer dans TuneFinder",
+      "Partager depuis une autre app",
+      "Sur iPhone ou iPad",
+      "Sur Android",
+      "Après l’importation",
+      "Si l’importation échoue"
+    ],
+    "text": "Avant de commencer Utilisez un PDF déverrouillé, de 500 Mo maximum et de 1 000 pages maximum. Téléchargez-le entièrement dans l’app d’origine. Un lien vers un site n’est pas un document PDF. TuneFinder copie le PDF dans votre bibliothèque privée et ne modifie pas le fichier d’origine. Les modifications ultérieures de l’original ne mettent pas à jour la copie importée. Aucune connexion cloud ni aucun achat n’est nécessaire pour importer. Importer dans TuneFinder 1. Ouvrez Recueils dans la navigation du bas. 2. Touchez Importer un PDF et choisissez le PDF dans le sélecteur de documents. 3. Attendez la fin de Importation du PDF…. Le recueil apparaît dans votre bibliothèque. 4. Touchez le recueil pour ouvrir ses détails. Vous pouvez ouvrir le PDF avant de créer un index. Partager depuis une autre app Sur iPhone ou iPad 1. Dans Apple Books, ouvrez les options du PDF et choisissez Partager. Dans Fichiers, utilisez l’action de partage du PDF. 2. Choisissez TuneFinder dans la rangée d’apps. Il peut se trouver sous Plus. 3. Attendez que TuneFinder importe le PDF et ouvre les détails du recueil. L’app d’origine doit partager un PDF réel. Si TuneFinder est absent, vérifiez que vous partagez un fichier PDF et non un lien ou un document dans un autre format. Sur Android 1. Dans votre app de fichiers ou de PDF, choisissez Partager ou Ouvrir avec pour le PDF. 2. Choisissez TuneFinder et attendez la fin de l’importation. 3. Consultez le recueil importé dans ses détails. Si l’app partage plusieurs PDF, TuneFinder les importe un par un. Aucune autorisation de stockage supplémentaire ni connexion Google Drive n’est nécessaire. L’app d’origine doit donner accès au PDF, plutôt que partager un lien vers un site. Après l’importation Un doublon exact ouvre le recueil personnel existant. Pour rechercher ses titres, détectez et vérifiez les titres ou créez un index manuellement dans les détails. La recherche gratuite utilise un seul recueil indexé sélectionné ; vous pouvez changer ce choix sans supprimer les autres index. La Recherche multi-recueils permet de rechercher dans plusieurs recueils à la fois. Si l’importation échoue Vérifiez que l’app d’origine peut ouvrir le PDF entièrement téléchargé, qu’il est déverrouillé et respecte les limites. Essayez le même PDF avec Importer un PDF. Conservez l’original. Pour TF-SYNC-4610, téléchargez le PDF localement puis partagez le fichier réel. TF-SYNC-4612 indique la limite de taille, TF-SYNC-4613 un PDF protégé par mot de passe et TF-SYNC-4614 la limite de pages. D’autres références, comme TF-SYNC-4606, peuvent indiquer une installation interrompue pour préserver les fichiers ; elles ne signifient pas à elles seules que le PDF est endommagé. Si le problème persiste, contactez l’assistance avec la version de l’app, la version d’iOS ou d’Android, l’action tentée et la référence affichée. N’envoyez pas de PDF privé sans demande de l’assistance et votre accord."
+  },
+  {
+    "id": "detect-titles",
+    "title": "Détecter et vérifier les titres",
+    "summary": "Créez un index modifiable par OCR sur l’appareil, vérifiez les propositions et enregistrez-le.",
+    "url": "/fr/docs/detect-titles/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Le rôle de la détection",
+      "Détecter les titres",
+      "Suspendre et reprendre",
+      "Vérifier et enregistrer",
+      "Améliorer un résultat imparfait",
+      "Reconstruire ou récupérer"
+    ],
+    "text": "Le rôle de la détection L’OCR lit le texte imprimé du PDF et propose des titres de morceaux et des plages de pages. Il fonctionne sur l’appareil ; TuneFinder n’envoie pas le PDF à un service d’OCR. Les propositions deviennent recherchables uniquement après vérification et enregistrement. Commencez avec un PDF importé. Un index liste les titres et leurs pages PDF ; il est distinct du PDF. Détecter les titres 1. Ouvrez Recueils et touchez le recueil. 2. Touchez Détecter les titres. L’éditeur d’index s’ouvre et lance la détection. 3. Gardez TuneFinder au premier plan pendant le traitement des pages. 4. À la fin, vérifiez les entrées proposées dans l’éditeur. Suspendre et reprendre Touchez Annuler pendant la détection pour la suspendre après la page en cours. Le passage en arrière-plan interrompt également la détection. Le PDF et la progression des pages terminées sont conservés. Revenez au recueil et touchez Détecter les titres pour reprendre. Si vous avez des modifications manuelles non enregistrées, enregistrez-les ou abandonnez-les avant de lancer la détection. Le remplacement du PDF peut invalider un brouillon précédent ; générez un nouvel index pour le nouveau PDF. Vérifier et enregistrer 1. Vérifiez chaque titre et ses première et dernière pages PDF. 2. Ouvrez les pages PDF depuis l’éditeur pour comparer les titres et les plages de pages. Les numéros de pages PDF peuvent différer des numéros imprimés. 3. Utilisez Modifier, Supprimer ou Ajouter un morceau pour corriger les erreurs ou ajouter les entrées manquantes. 4. Touchez Enregistrer lorsque l’index est prêt. 5. Revenez aux détails. Pour la recherche gratuite dans un seul recueil, touchez Utiliser pour la recherche si ce recueil n’est pas sélectionné. Améliorer un résultat imparfait Les textes imprimés latins nets donnent les meilleurs résultats. Les titres manuscrits, polices décoratives, scans inclinés ou pâles, sommaires et pages contenant plusieurs morceaux peuvent entraîner des erreurs. La détection ne reconnaît pas un morceau à partir de la notation musicale seule. Vérifiez les plages de pages : des titres répétés peuvent être réunis en une plage, et des pages de continuation sans titre peuvent nécessiter une correction manuelle. Si aucun titre n’est détecté, créez les entrées manuellement ; le PDF reste disponible. Reconstruire ou récupérer La suppression d’un index n’empêche pas la détection tant que le PDF est disponible. Ouvrez les détails et touchez Détecter les titres pour reconstruire l’index. Si le PDF est inaccessible, restaurez-le ou choisissez son fichier avant de réessayer. Ne supprimez pas la bibliothèque pour réparer une erreur de reconnaissance. Si l’erreur persiste, contactez l’assistance avec la version de l’app, la plateforme, l’action et la référence affichée. Pour synchroniser les index enregistrés sur Android, consultez Connecter Google Drive."
+  },
+  {
+    "id": "android-drive",
+    "title": "Connecter Google Drive sur Android",
+    "summary": "Conservez votre bibliothèque locale et synchronisez-la avec vos autres appareils Android.",
+    "url": "/fr/docs/android-drive/",
+    "platforms": [
+      "android"
+    ],
+    "headings": [
+      "Avant la connexion",
+      "Connecter votre compte",
+      "Les éléments synchronisés",
+      "Quand les changements arrivent",
+      "Problèmes de connexion ou de synchronisation"
+    ],
+    "text": "Avant la connexion Votre bibliothèque fonctionne localement sans connexion cloud. La synchronisation Google Drive est facultative et nécessite une connexion internet et un compte Google. Utilisez le même compte sur chaque appareil Android à synchroniser. Ce guide concerne Android. L’iPhone et l’iPad utilisent iCloud Documents ; TuneFinder ne synchronise pas les bibliothèques entre iOS et Android. Connecter votre compte 1. Ouvrez Paramètres avec le bouton en forme d’engrenage. 2. Touchez Connecter Google Drive. 3. Choisissez votre compte Google et autorisez l’accès demandé. 4. Attendez la synchronisation initiale et vérifiez l’état avant de quitter l’écran. 5. Répétez ces étapes avec le même compte sur vos autres appareils Android, y compris ceux contenant des modifications locales. TuneFinder crée et gère son dossier TuneFinder Sync dans Drive. Vous ne choisissez pas de dossier dans le sélecteur de fichiers. Si vous annulez le choix du compte ou refusez l’accès, votre bibliothèque locale reste disponible. Les éléments synchronisés Les PDF, index enregistrés, noms des recueils et playlists participent à la synchronisation. Les modifications d’index non enregistrées et la progression OCR restent sur leur appareil d’origine. Enregistrez l’index avant de l’attendre sur un autre appareil. Tous les index peuvent se synchroniser, mais la recherche gratuite utilise toujours un seul recueil indexé sélectionné. La présence de fichiers dans le cloud n’active pas la Recherche multi-recueils. Quand les changements arrivent TuneFinder synchronise après le lancement lorsque le service est prêt, et après les modifications locales enregistrées des playlists ou recueils. Il ne recherche pas continuellement les changements et ne lance pas de synchronisation simplement au retour au premier plan. Pour demander une mise à jour, ouvrez Paramètres et touchez Synchroniser, ou tirez pour actualiser Recueils ou Playlists. Lancez aussi une synchronisation manuelle sur l’autre appareil pour vérifier l’arrivée d’un changement. Attendez la fin sur les deux appareils avant de comparer. Problèmes de connexion ou de synchronisation Vérifiez la connexion, le compte Google et l’espace disponible sur l’appareil et dans Drive. Pour renouveler l’autorisation, utilisez Reconnecter Google Drive. Gardez le compte prévu ; ne changez pas de compte comme tentative de réparation. Le transfert de gros PDF peut prendre du temps. Un échec ne justifie pas la suppression et la réimportation de la bibliothèque. Conservez vos copies locales et les PDF d’origine. En cas de conflit, comparez les copies avant de choisir ; ne supposez pas que la copie cloud est plus récente. Pour TF-SYNC-4300 ou toute autre référence affichée, contactez l’assistance avec la version de l’app, la version d’Android, l’action et la référence. La sauvegarde système Android est un mécanisme de récupération distinct qui ne remplace pas la synchronisation. Pour ajouter un document, suivez Importer et partager un PDF, puis détectez et vérifiez ses titres."
+  }
+]

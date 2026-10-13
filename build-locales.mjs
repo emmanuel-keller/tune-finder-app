@@ -1,3 +1,4 @@
+import {ui} from './scripts/docs-ui.mjs';
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 
 const origin = "https://tunefinder.app";
@@ -56,7 +57,9 @@ for (const [locale, meta] of Object.entries(locales)) {
       '<summary aria-label="Choose language">English</summary>',
       `<summary aria-label="Choose language">${meta.label}</summary>`
     )
-    .replaceAll("/screenshots/en/", `/screenshots/${locale}/`);
+    .replaceAll("/screenshots/en/", `/screenshots/${locale}/`)
+    .replaceAll('href="/docs/"', `href="/${locale}/docs/"`)
+    .replaceAll('class="documentation-link">Documentation', `class="documentation-link">${ui[locale].docs}`);
   await mkdir(new URL(`${locale}/`, import.meta.url), { recursive: true });
   await writeFile(new URL(`${locale}/index.html`, import.meta.url), html);
 }

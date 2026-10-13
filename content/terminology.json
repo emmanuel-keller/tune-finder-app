@@ -1,0 +1,116 @@
+{
+  "en": {
+    "book": "book",
+    "books": "books",
+    "tune": "tune",
+    "tunes": "tunes",
+    "index": "index",
+    "indexes": "indexes",
+    "library": "library",
+    "playlists": "playlists",
+    "avoid": [
+      "songbook",
+      "songbooks",
+      "song",
+      "songs",
+      "setlist",
+      "setlists"
+    ],
+    "playlist": "playlist"
+  },
+  "fr": {
+    "book": "recueil",
+    "books": "recueils",
+    "tune": "morceau",
+    "tunes": "morceaux",
+    "index": "index",
+    "indexes": "index",
+    "library": "bibliothèque",
+    "playlists": "playlists",
+    "avoid": [
+      "livre",
+      "livres",
+      "multi-livres",
+      "chanson",
+      "chansons",
+      "setlist",
+      "setlists"
+    ],
+    "playlist": "playlist"
+  },
+  "pt": {
+    "book": "livro",
+    "books": "livros",
+    "tune": "tema",
+    "tunes": "temas",
+    "index": "índice",
+    "indexes": "índices",
+    "library": "biblioteca",
+    "playlists": "playlists",
+    "avoid": [
+      "música",
+      "músicas",
+      "repertório",
+      "repertórios",
+      "alinhamento",
+      "alinhamentos"
+    ],
+    "playlist": "playlist"
+  },
+  "de": {
+    "book": "Buch",
+    "books": "Bücher",
+    "tune": "Titel",
+    "tunes": "Titel",
+    "index": "Index",
+    "indexes": "Indizes",
+    "library": "Bibliothek",
+    "playlists": "Playlists",
+    "avoid": [
+      "Songbuch",
+      "Songbücher",
+      "Songbuchindexe",
+      "Buchindexe",
+      "Setlist",
+      "Setlists"
+    ],
+    "playlist": "Playlist"
+  },
+  "es": {
+    "book": "libro",
+    "books": "libros",
+    "tune": "tema",
+    "tunes": "temas",
+    "index": "índice",
+    "indexes": "índices",
+    "library": "biblioteca",
+    "playlists": "listas",
+    "avoid": [
+      "cancionero",
+      "cancioneros",
+      "canción",
+      "canciones",
+      "repertorio",
+      "repertorios"
+    ],
+    "playlist": "lista"
+  },
+  "it": {
+    "book": "libro",
+    "books": "libri",
+    "tune": "brano",
+    "tunes": "brani",
+    "index": "indice",
+    "indexes": "indici",
+    "library": "libreria",
+    "playlists": "playlist",
+    "avoid": [
+      "spartiti",
+      "canzone",
+      "canzoni",
+      "scaletta",
+      "scalette"
+    ],
+    "playlist": "playlist"
+  }
+}
