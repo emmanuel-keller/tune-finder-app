@@ -1,0 +1,198 @@
+[
+  {
+    "id": "getting-started",
+    "title": "A primeira biblioteca e pesquisa",
+    "summary": "Conheça PDF, índices, livros e playlists e encontre o primeiro tema.",
+    "url": "/pt/docs/getting-started/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Quatro conceitos da biblioteca",
+      "Criar a primeira biblioteca",
+      "Encontrar o primeiro tema",
+      "Mudar de vista"
+    ],
+    "text": "Quatro conceitos da biblioteca Um livro é um elemento da biblioteca. O PDF contém as páginas; o índice, títulos e números de página PDF. Importar não torna os títulos automaticamente pesquisáveis. Uma playlist guarda temas ordenados para praticar ou tocar, sem copiar PDF. A importação pessoal é privada. A biblioteca funciona sem conta cloud; a sincronização opcional usa serviços diferentes no iOS e Android. Criar a primeira biblioteca 1. Abra Livros na navegação inferior. 2. Toque em Importar PDF e escolha um PDF desbloqueado que possa utilizar. 3. Abra os detalhes do livro importado. 4. Use Detetar títulos e reveja propostas, ou Criar índice manualmente. 5. Guarde o índice e escolha Usar na pesquisa se necessário. Consulte Importar PDF e Detetar títulos. Encontrar o primeiro tema 1. Abra Pesquisa. 2. Escreva parte de um título indexado. 3. Toque no resultado do livro e página pretendidos. 4. Leia o PDF e use + no leitor para adicionar o tema a uma playlist. Mudar de vista Os separadores são Pesquisa, Playlists e Livros. Uma linha abre detalhes; a roda dentada abre Definições, incluindo sincronização e idioma. Voltar regressa à vista anterior. A pesquisa gratuita usa um livro indexado selecionado. Pode guardar vários e mudar a seleção sem os eliminar. Consulte Pesquisa e leitura."
+  },
+  {
+    "id": "import-pdf",
+    "title": "Importar e partilhar um PDF",
+    "summary": "Adicione um PDF pessoal pelo seletor de documentos ou outra app.",
+    "url": "/pt/docs/import-pdf/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Antes de começar",
+      "Importar no TuneFinder",
+      "Partilhar de outra app",
+      "iPhone ou iPad",
+      "Android",
+      "Depois da importação",
+      "Se a importação falhar"
+    ],
+    "text": "Antes de começar Use um PDF desbloqueado até 500 MB e 1.000 páginas, totalmente descarregado na app de origem. Uma ligação web não é um PDF. TuneFinder copia-o para a biblioteca privada sem modificar o original. Alterações posteriores do original não atualizam a cópia. Não é necessária compra nem ligação cloud. Importar no TuneFinder 1. Abra Livros. 2. Toque em Importar PDF e escolha o documento. 3. Espere pelo fim de A importar o PDF…; o livro aparece na biblioteca. 4. Abra os detalhes. Pode ler o PDF sem índice. Partilhar de outra app iPhone ou iPad 1. No Apple Books, abra as opções do PDF e Partilhar; na app Ficheiros, partilhe o PDF. 2. Escolha TuneFinder na linha de apps; poderá estar em Mais. 3. Espere pela importação e abertura dos detalhes. Se não aparecer, confirme que partilha um PDF real, não uma ligação ou outro formato. Android 1. Na app de ficheiros/PDF, escolha Partilhar ou Abrir com. 2. Escolha TuneFinder e espere. 3. Verifique os detalhes. Vários PDF são importados um de cada vez. Não é necessário acesso extra ao armazenamento nem Google Drive. A app de origem deve dar acesso ao PDF, não apenas a uma ligação. Depois da importação Um duplicado exato abre o livro existente. Detete e reveja títulos ou crie um índice manual para pesquisar. Pode selecionar gratuitamente um livro indexado sem remover os restantes. Busca em vários livros pesquisa vários em simultâneo. Se a importação falhar Confirme que a app original abre o PDF completo, desbloqueado e dentro dos limites. Tente Importar PDF e conserve o original. TF-SYNC-4610: descarregue localmente e partilhe o ficheiro real. TF-SYNC-4612: tamanho; TF-SYNC-4613: palavra-passe; TF-SYNC-4614: páginas. Outras referências, como TF-SYNC-4606, indicam instalação não concluída em segurança, sem provar danos no PDF. Contacte o apoio com versões da app/sistema, ação e referência. Não envie PDF privado sem pedido e consentimento."
+  },
+  {
+    "id": "manage-books",
+    "title": "Gerir livros e ficheiros",
+    "summary": "Encontre, renomeie, substitua ou remova elementos distinguindo PDF e índices.",
+    "url": "/pt/docs/manage-books/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Encontrar um livro",
+      "Utilizar o catálogo",
+      "Renomear um livro pessoal",
+      "Substituir ou remover ficheiros",
+      "Eliminar um livro pessoal"
+    ],
+    "text": "Encontrar um livro Em Livros, filtre nomes pela pesquisa. A lista alfabética mostra PDF e índice disponíveis. Toque numa linha para as ações desse livro. Utilizar o catálogo 1. Toque em Explorar catálogo. 2. Escolha a edição correspondente. 3. Use Descarregar índice se houver índice inicial e Escolher PDF… para a sua cópia. 4. Verifique páginas: edições podem diferir em títulos e numeração. O catálogo não fornece PDF protegidos. Livros com PDF ou índice local aparecem na biblioteca. Adapte o índice inicial ao documento. Renomear um livro pessoal 1. Abra os detalhes e Gerir ficheiros. 2. Escolha Renomear, escreva o nome e Guardar alterações. 3. Pesquise o novo nome na biblioteca. Renomear conserva a identidade e referências das playlists; esta ação não renomeia livros do catálogo. Substituir ou remover ficheiros Substituir PDF escolhe um substituto. Guarde o original até abrir o novo com sucesso. Reveja as páginas do índice ou gere outro se já não corresponder. Remover índice conserva o PDF; Remover PDF conserva o índice. Confirme o livro antes da ação. Eliminações aceites podem propagar-se a dispositivos da mesma plataforma; em pausa/sem rede ficam guardadas para sincronizar depois. Eliminar um livro pessoal Eliminar documento, após confirmação, remove os ficheiros da biblioteca, mas não o PDF original na outra app. Referências de playlists permanecem e podem ficar indisponíveis: remova-as ou repare-as deliberadamente. Não elimine ficheiros para corrigir OCR ou sincronização. Consulte Resolução de problemas."
+  },
+  {
+    "id": "detect-titles",
+    "title": "Detetar e rever títulos",
+    "summary": "Crie um índice editável com OCR no dispositivo e reveja as propostas.",
+    "url": "/pt/docs/detect-titles/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "O que faz a deteção",
+      "Detetar títulos",
+      "Pausar e retomar",
+      "Rever e guardar",
+      "Melhorar resultados imperfeitos",
+      "Reconstruir ou recuperar"
+    ],
+    "text": "O que faz a deteção OCR lê texto impresso e propõe títulos e intervalos de páginas no dispositivo, sem enviar o PDF a um serviço OCR. Só propostas revistas e guardadas entram na pesquisa. Comece com um PDF importado. O índice é a lista de títulos e páginas, distinta do PDF. Detetar títulos 1. Abra Livros e o livro. 2. Toque em Detetar títulos; o editor abre e inicia a deteção. 3. Mantenha TuneFinder em primeiro plano. 4. Reveja as entradas no final. Pausar e retomar Cancelar pausa após a página atual. Passar para segundo plano também interrompe. PDF e progresso ficam guardados; toque novamente em Detetar títulos para retomar. Guarde ou descarte edições pendentes antes de detetar. Substituir o PDF pode invalidar um rascunho; gere outro para o novo documento. Rever e guardar 1. Confira títulos e primeira/última página. 2. Abra páginas no editor; a numeração PDF pode diferir da impressa. 3. Use Editar, Eliminar ou Adicionar tema para corrigir. 4. Toque em Guardar para guardar o índice. 5. Em detalhes, escolha Usar na pesquisa se não estiver selecionado para pesquisa gratuita. Melhorar resultados imperfeitos Texto latino impresso nítido funciona melhor. Escrita manual, tipos decorativos, digitalizações inclinadas/fracas, sumários e vários temas por página causam erros. Notação sem texto não identifica um tema. Reveja intervalos: cabeçalhos repetidos podem unir-se; continuações sem título podem precisar de correção. Se não houver títulos, adicione manualmente; o PDF permanece. Reconstruir ou recuperar Pode reconstruir um índice removido se o PDF existir. Restaure ou escolha o PDF se estiver indisponível. Não elimine a biblioteca para reparar OCR. Contacte o apoio com versão, plataforma, ação e referência persistente. Os índices aceites podem sincronizar-se."
+  },
+  {
+    "id": "manual-index",
+    "title": "Editar índices e trocar CSV",
+    "summary": "Crie entradas, corrija páginas e importe ou exporte índices.",
+    "url": "/pt/docs/manual-index/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Criar ou editar um índice",
+      "Corrigir intervalos PDF",
+      "Importar CSV",
+      "Exportar e verificar"
+    ],
+    "text": "Criar ou editar um índice 1. Abra os detalhes em Livros. 2. Use Criar índice manualmente sem índice ou Editar índice. 3. Adicionar tema: título, Primeira página e Última página opcional; guarde a entrada. 4. Corrija com Editar ou retire com Eliminar. 5. Toque em Guardar no topo para guardar o índice completo. Guardar a entrada e o índice completo são passos distintos. Pesquise entradas no editor. Ao sair com edições pendentes, leia a confirmação antes de guardar ou descartar. Corrigir intervalos PDF Páginas são inteiros positivos desde PDF 1. Última página vazia significa uma página; se indicada, deve ser igual ou posterior à primeira. Verifique abrindo a página no editor. Capas e sumários podem deslocar a numeração impressa. Corrija números PDF: não há controlo global do desvio. Se a página impressa 10 for PDF 14, use 14 e verifique o desvio ao longo do documento. Importar CSV 1. Exporte o índice atual antes de o substituir. 2. Use Importar CSV em detalhes e escolha um CSV de texto. 3. Confira entradas e páginas com Editar índice. Colunas separadas por vírgulas: Title,FirstPage,LastPage. Esse cabeçalho é aceite. Blue Example,12,14 cobre PDF 12–14. A terceira coluna é opcional e assume a primeira página. Ponha títulos com vírgulas entre aspas e duplique aspas internas. Use inteiros positivos e fim não anterior ao início. CSV vazio/inválido é rejeitado. Importar substitui o índice, não acrescenta PDF nem corrige uma associação errada. Conserve a cópia e resolva conflitos de versões antes de repetir. Exportar e verificar Exportar CSV partilha texto CSV; guarde ou copie para um destino que preserve as vírgulas. Não contém o PDF nem é cópia completa da biblioteca. Marcar como revisto para este PDF, se disponível após revisão, regista a verificação sem corrigir páginas. Repor o índice inicial substitui edições pelo índice inicial do catálogo; exporte antes para as conservar."
+  },
+  {
+    "id": "search-reading",
+    "title": "Pesquisar e ler páginas PDF",
+    "summary": "Selecione um livro, encontre títulos e abra a página certa.",
+    "url": "/pt/docs/search-reading/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Escolher o livro para pesquisa gratuita",
+      "Pesquisar um título",
+      "Ler e adicionar um tema",
+      "Resultado ou PDF em falta"
+    ],
+    "text": "Escolher o livro para pesquisa gratuita 1. Abra Livros e um livro com índice aceite. 2. Use Usar na pesquisa se não estiver Selecionado para pesquisa. 3. Volte a Pesquisa. Mudar é gratuito e preserva os restantes livros/índices. Busca em vários livros pesquisa vários; ficheiros sincronizados não desbloqueiam a compra. Pesquisar um título 1. Escreva parte do título. 2. Leia livro e página/intervalo de cada resultado. 3. Toque no pretendido para abrir o PDF. A pesquisa usa o índice aceite, não todo o texto PDF. Guarde OCR/edições primeiro. Um título pode surgir em páginas ou livros diferentes. Ler e adicionar um tema Percorra páginas e toque para ocultar/mostrar navegação. + adiciona o tema a uma playlist. Detalhes também abre PDF sem índice. Para uma página errada, corrija o intervalo, não o original. Resultado ou PDF em falta Verifique seleção, índice guardado, ortografia e PDF; tente um título mais curto. Pode existir índice sem PDF, logo um resultado não garante leitura. Restaure o PDF correspondente. Uma referência de playlist pode manter título/página anterior após correção do índice. Reveja-a e substitua se necessário. Consulte Resolução de problemas."
+  },
+  {
+    "id": "playlists",
+    "title": "Preparar e gerir playlists",
+    "summary": "Adicione temas e organize a ordem para praticar ou tocar.",
+    "url": "/pt/docs/playlists/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Criar uma playlist a partir de um tema",
+      "Adicionar mais temas",
+      "Renomear, ordenar e reorganizar",
+      "Eliminar ou recuperar"
+    ],
+    "text": "Criar uma playlist a partir de um tema 1. Abra um resultado e toque em + no leitor. 2. Escolha Nova playlist, dê um nome e crie com o tema mostrado. 3. Encontre-a em Playlists. Uma playlist ordena temas para praticar ou tocar; não copia PDF nem altera índices. Adicionar mais temas 1. Abra a playlist e toque em +. 2. Pesquise nos livros disponíveis para pesquisa. 3. Adicione resultados e continue antes de fechar o seletor. Entradas existentes são assinaladas, mas pode repetir uma intencionalmente. A seleção gratuita aplica-se também à pesquisa para adicionar. Renomear, ordenar e reorganizar Em Playlists, pesquise nomes e ordene por nome ou modificação. O controlo de edição renomeia sem alterar entradas. Dentro, mantenha a pega e arraste para reorganizar; toque numa entrada para abrir o PDF. Remover com confirmação remove só essa ocorrência. Eliminar ou recuperar Eliminar junto à playlist, após confirmar, remove a coleção e ordem, conservando PDF e índices. A eliminação pode sincronizar-se nessa plataforma. PDF/livros removidos deixam referências que podem não abrir. Restaure o livro/PDF ou substitua a entrada pela pesquisa. Alterar o índice não garante atualizar páginas das playlists. Consulte Sincronização. Guarde cópias locais e não elimine uma playlist para reparar sincronização."
+  },
+  {
+    "id": "android-drive",
+    "title": "Sincronização",
+    "summary": "Sincronize com iCloud no iPhone/iPad ou Google Drive no Android.",
+    "url": "/pt/docs/android-drive/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Antes de ligar",
+      "Ligar a conta",
+      "iPhone e iPad: iCloud",
+      "Android: Google Drive",
+      "O que sincroniza",
+      "Quando chegam as alterações",
+      "Problemas de ligação ou sincronização"
+    ],
+    "text": "Antes de ligar A biblioteca funciona localmente. Sincronização opcional necessita de internet: iCloud Documents no iPhone/iPad, Google Drive no Android. Use a mesma conta cloud nos dispositivos de cada plataforma. Não existe sincronização entre iOS e Android. Escolha a plataforma acima. Ligar a conta iPhone e iPad: iCloud 1. Inicie sessão no iCloud e ative iCloud Drive para TuneFinder nas definições do dispositivo. 2. Abra Definições pela roda dentada. 3. Toque em Ativar iCloud quando disponível. 4. Espere pelo fim e confira o estado. 5. Ative noutro iPhone/iPad com a mesma conta. Se indisponível, confira sessão e Drive. A imagem mostra esse estado; a biblioteca local funciona. Pausar iCloud interrompe sem eliminar cópias locais/cloud. Ative para retomar e mantenha disponíveis dispositivos com edições pendentes. Android: Google Drive 1. Abra Definições. 2. Toque em Conectar Google Drive. 3. Escolha a conta e autorize acesso. 4. Espere pela sincronização inicial e confira antes de sair. 5. Repita noutros Android com a mesma conta, incluindo os com edições locais. TuneFinder gere TuneFinder Sincronização; não escolhe pasta no seletor. Cancelar ou recusar acesso conserva a biblioteca local. O que sincroniza PDF, índices aceites, nomes e playlists. Edições não guardadas e progresso OCR ficam no dispositivo; guarde antes de esperar o índice noutro. Todos os índices podem sincronizar, mas a pesquisa gratuita usa um selecionado. Ficheiros cloud não desbloqueiam compras. Quando chegam as alterações Sincroniza no arranque quando o serviço está pronto e após alterações locais aceites de livros/playlists. Não verifica continuamente nem sincroniza apenas por voltar a primeiro plano. Use Sincronizar agora em Definições ou puxe para atualizar Livros/Playlists. Faça sincronização manual no outro dispositivo e espere o fim em ambos antes de comparar. Problemas de ligação ou sincronização Confira internet, conta (iCloud no iOS, Google no Android) e espaço local/cloud. Android: Reconectar Google Drive renova acesso. iOS: confira Drive e pausa. Não mude de conta para reparar. PDF grandes demoram. Conserve originais e cópias locais; não elimine/reimporte a biblioteca. Em conflitos, compare versões sem presumir que cloud é mais recente. Para TF-SYNC-4300 ou referência persistente, contacte o apoio com versões da app/sistema, ação e referência. No Android, a cópia de segurança do sistema é recuperação separada, não sincronização. Adicione com Importar PDF e reveja títulos."
+  },
+  {
+    "id": "settings-purchases",
+    "title": "Acesso à pesquisa e idioma",
+    "summary": "Conheça a pesquisa gratuita, compras, restauro e idioma da app.",
+    "url": "/pt/docs/settings-purchases/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Pesquisa gratuita e compra",
+      "Compra e restauro na versão 1.5.5",
+      "Mudar o idioma"
+    ],
+    "text": "Pesquisa gratuita e compra Importação, índices manuais, rascunhos OCR e escolher um livro não exigem compra. Busca em vários livros pesquisa vários índices. Muitos livros/ficheiros cloud não provam compra. Guarde índices e tenha PDF para ler; a compra não fornece PDF nem melhora OCR. Compra e restauro na versão 1.5.5 O ecrã Busca em vários livros tem compra e Restaurar compra, mas 1.5.5 não tem entrada para esse ecrã na navegação principal. Sem acesso para comprar/restaurar, contacte o apoio; não elimine a biblioteca nem compre novamente. A app pode reconhecer compras no arranque com a conta que comprou. Quando o restauro está acessível, solicita o direito existente; espere confirmação. Compras pertencem à conta da loja. Não presuma transferência App Store/Google Play nem por PDF. Informe plataforma, versão e resultado se falhar ou não encontrar compra; nunca palavras-passe ou dados de pagamento. Mudar o idioma 1. Abra Definições. 2. Encontre a secção de idioma. 3. Escolha inglês, francês, português, alemão, espanhol, italiano ou Usar o idioma do dispositivo. 4. Verifique os controlos traduzidos. O idioma é local e não sincroniza. Não traduz PDF, nomes nem títulos. O idioma do site é independente do da app. O site lembra iOS/Android neste navegador. Mude para ler instruções de outro dispositivo; não exige conta cloud."
+  },
+  {
+    "id": "troubleshooting",
+    "title": "Resolução de problemas e apoio",
+    "summary": "Verifique problemas de importação, OCR, pesquisa e sincronização preservando a biblioteca.",
+    "url": "/pt/docs/troubleshooting/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Importação ou PDF inacessível",
+      "OCR impreciso ou interrompido",
+      "Pesquisa vazia ou página errada",
+      "Sincronização ou conflito",
+      "Contactar o apoio"
+    ],
+    "text": "Importação ou PDF inacessível Abra e descarregue o original totalmente. Partilhe PDF real ou use Importar PDF. Deve estar desbloqueado até 500 MB/1.000 páginas. A primeira página legível não garante as seguintes. TF-SYNC-4610: cópia; TF-SYNC-4611: PDF inválido; TF-SYNC-4612: tamanho; TF-SYNC-4613: palavra-passe; TF-SYNC-4614: páginas. Conserve o original ao obter uma cópia reparada/reduzida/desbloqueada. TF-SYNC-4606 não prova ausência/corrupção: instalação não concluída em segurança. Repita em primeiro plano e informe se persistir. OCR impreciso ou interrompido Mantenha primeiro plano e retome com Detetar títulos; confira o PDF. Tipos decorativos, escrita manual e digitalizações fracas exigem revisão. Corrija entradas/páginas ou use índice manual. Pesquisa vazia ou página errada Confira livro, gravação e ortografia; tente título curto. Rascunhos não guardados não entram na pesquisa. Restaure PDF correspondente. Corrija páginas PDF, não numeração impressa. Sincronização ou conflito Confira conta, rede e espaço; Sincronizar agora em cada dispositivo e espere o fim. Android: Reconectar Google Drive; iOS: confira Drive/pausa. Compare cópias antes de escolher. Conserve edições e originais; não presuma cloud mais recente, nem elimine a biblioteca ou mude conta. Se o estado mudar, atualize e compare novamente. TF-SYNC-4004: transferência; TF-SYNC-4005: substituição; TF-SYNC-4006: alterações durante sincronização; TF-SYNC-4300: sincronização/atualização. Confira disponibilidade, deixe terminar alterações e repita; informe erros persistentes. Não provam perda de dados. Siga a mensagem e Sincronização. Contactar o apoio Escreva a contact@tunefinder.app com versões app/sistema, plataforma, ação, referência exata e repetição. Verifique dados privados em capturas antes de anexar. Nunca partilhe palavras-passe nem dados de pagamento. Envie um PDF privado apenas mediante pedido explícito e com o seu consentimento. Conserve original e biblioteca. Distinga análise pela loja, restauro e ligação cloud. Veja a limitação de compra em Acesso e idioma."
+  },
+  {
+    "id": "release-1-5-5",
+    "title": "Novidades da versão 1.5.5",
+    "summary": "PDF pessoais, índices OCR revistos e biblioteca pesquisável no iOS e Android.",
+    "url": "/pt/docs/release-1-5-5/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Biblioteca PDF pessoal",
+      "Índices OCR editáveis",
+      "Pesquisa, apresentação e sincronização",
+      "Disponibilidade e limites"
+    ],
+    "text": "Biblioteca PDF pessoal 1.5.5 importa PDF próprios e recebe ficheiros reais de apps iOS/Android. Lista pesquisável e detalhes facilitam coleções grandes. Índices OCR editáveis OCR local propõe títulos/intervalos: reveja, corrija e guarde antes de pesquisar. Retome após interrupção ou reconstrua índice removido se o PDF existir. Pesquisa, apresentação e sincronização Gratuitamente, escolha um livro indexado sem eliminar outros. Busca em vários livros pesquisa vários. Navegação inferior, apresentação telefone/tablet e erros localizados ajudam. Sincronização opcional separada: iCloud Documents no iOS, Google Drive ligado no Android. Importação conserva originais e rascunhos OCR ficam locais até aceitação. Disponibilidade e limites Estes guias descrevem 1.5.5. Apple Intelligence é uma função posterior da 1.6.0, não este OCR. A precisão depende do PDF e exige revisão. A ausência de entrada para compra/restauro está em Acesso. Comece pela Primeira biblioteca ou todos os guias."
+  }
+]

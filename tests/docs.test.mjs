@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile, readdir} from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
+import {activeLocales,ui} from '../scripts/docs-ui.mjs';
 import {parseArticle,renderMarkdown,inline,route,loadArticles,normalize,safeUrl} from '../scripts/docs-core.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const sample={id:'sample',title:'Example',summary:'Help',section:'Books',order:1,platforms:['ios','android'],minVersion:'1.5.5',verifiedRelease:'1.5.5',related:[]};
@@ -23,11 +24,11 @@ test('Markdown escapes text, rejects unsafe links and requires stable anchors',(
  assert.match(r.html,/<ol><li>One<\/li><li>Two<\/li><\/ol>/);assert.match(r.html,/data-platform="ios"/);
 });
 test('all planned 1.5.5 guides have corresponding translations and navigation',async()=>{
- const articles=await loadArticles(root);assert.equal(articles.length,22);
+ const articles=await loadArticles(root);assert.equal(articles.length,66);
  const coverage=['getting-started','import-pdf','manage-books','detect-titles','manual-index','search-reading','playlists','android-drive','settings-purchases','troubleshooting','release-1-5-5'];
- for(const locale of ['en','fr']) assert.deepEqual(articles.filter(a=>a.locale===locale).map(a=>a.id),coverage);
+ for(const locale of activeLocales) assert.deepEqual(articles.filter(a=>a.locale===locale).map(a=>a.id),coverage);
  for(const a of articles) {assert.equal(a.verifiedRelease,'1.5.5');assert.equal(a.related.length,2);}
- for (const english of articles.filter(a=>a.locale==='en')) {const french=articles.find(a=>a.locale==='fr'&&a.id===english.id); assert.deepEqual(renderMarkdown(english.body,'en').headings.map(h=>h.id),renderMarkdown(french.body,'fr').headings.map(h=>h.id));}
+ for (const english of articles.filter(a=>a.locale==='en')) {for(const locale of activeLocales) {const translated=articles.find(a=>a.locale===locale&&a.id===english.id); assert.deepEqual(renderMarkdown(english.body,'en').headings.map(h=>h.id),renderMarkdown(translated.body,locale).headings.map(h=>h.id)); assert.deepEqual([...new Set(english.body.match(/TF-SYNC-\d+/g)??[])].sort(),[...new Set(translated.body.match(/TF-SYNC-\d+/g)??[])].sort());}}
  assert.equal(route('fr','import-pdf'),'/fr/docs/import-pdf/');
 });
 test('search data contains accented terms and support references in the selected language',async()=>{
@@ -36,10 +37,19 @@ test('search data contains accented terms and support references in the selected
  assert.ok(find('détection').length);assert.ok(find('TF-SYNC-4613').some(a=>a.id==='import-pdf'));assert.ok(find('Google Drive').length);
  assert.ok(index.every(a=>a.url.startsWith('/fr/docs/')));
 });
-test('translation placeholders are clearly identified and excluded from sitemap',async()=>{
- const html=await readFile(root+'pt/docs/import-pdf/index.html','utf8');
- assert.match(html,/ainda não está traduzido/);assert.match(html,/noindex,follow/);assert.match(html,/href="\/fr\/docs\/import-pdf\/"/);
- assert.doesNotMatch(await readFile(root+'sitemap.xml','utf8'),/\/pt\/docs\//);
+test('all six languages have real guides, search indexes and indexed sitemap routes',async()=>{
+ const sitemap=await readFile(root+'sitemap.xml','utf8');
+ const articles=await loadArticles(root);
+ for(const locale of activeLocales) {
+  const html=await readFile(root+route(locale,'import-pdf')+'index.html','utf8');
+  assert.doesNotMatch(html,/noindex,follow/);
+  assert.ok(html.includes(articles.find(a=>a.locale===locale&&a.id==='import-pdf').title));
+  const index=JSON.parse(await readFile(root+route(locale)+'search-index.json','utf8'));
+  assert.equal(index.length,11);assert.ok(index.every(a=>a.url.startsWith(route(locale))));
+  assert.ok(sitemap.includes('https://tunefinder.app'+route(locale,'import-pdf')));
+  for(const other of activeLocales)assert.ok(html.includes(`hreflang="${other}" href="https://tunefinder.app${route(other,'import-pdf')}"`));
+  for(const key of Object.keys(ui.en))assert.ok(Object.hasOwn(ui[locale],key),`${locale} missing UI ${key}`);
+ }
 });
 test('generated pages and sitemap are reproducible and keep privacy anchors',async()=>{
  const files=['sitemap.xml','index.html','fr/index.html','docs/import-pdf/index.html','fr/docs/detect-titles/index.html'];
@@ -63,8 +73,7 @@ test('all supported locales provide localized image actions and navigation label
   const html=await readFile(root+route(locale)+'index.html','utf8');
   assert.ok(html.includes(`aria-label="${ui[locale].language}"`));
   assert.ok(html.includes(`aria-label="${ui[locale].breadcrumb}"`));
-  if(['en','fr'].includes(locale)) assert.match(html,/<a aria-current="page" href="[^\"]+">/);
-  else {assert.doesNotMatch(html,/class="guide-menu"/);assert.doesNotMatch(html,/<ul><\/ul>/);}
+  assert.match(html,/<a aria-current="page" href="[^\"]+">/);
  }
  const article=await readFile(root+'fr/docs/import-pdf/index.html','utf8');
  assert.match(article,/<span aria-current="page">Importer et partager un PDF<\/span>/);
@@ -87,10 +96,10 @@ test('CI clean-check detects forgotten new generated files as well as tracked ed
 
 test('synchronization guides pair each platform with its matching instructions and image',async()=>{
  const articles=await loadArticles(root);
- for (const locale of ['en','fr']) {
+ for (const locale of activeLocales) {
   const guide=articles.find(a=>a.locale===locale&&a.id==='android-drive');
   assert.deepEqual(guide.platforms,['ios','android']);
-  assert.equal(guide.title,locale==='en'?'Synchronization':'Synchronisation');
+  assert.equal(guide.title,({en:'Synchronization',fr:'Synchronisation',pt:'Sincronização',de:'Synchronisierung',es:'Sincronización',it:'Sincronizzazione'})[locale]);
   const html=renderMarkdown(guide.body,locale).html;
   const ios=html.match(/<section data-platform="ios"[\s\S]*?<\/section>/)[0];
   const android=html.match(/<section data-platform="android"[\s\S]*?<\/section>/)[0];
@@ -136,12 +145,12 @@ test('all guide PNG assets are readable and HTML reserves their intrinsic dimens
 });
 test('shared synchronization guidance and search suggestions cover both providers',async()=>{
  const {ui}=await import('../scripts/docs-ui.mjs');
- for(const locale of ['en','fr']) {
+ for(const locale of activeLocales) {
   const article=(await loadArticles(root)).find(a=>a.locale===locale&&a.id==='android-drive');
   const troubleshooting=article.body.split('{#troubleshooting}')[1];
   assert.match(troubleshooting,/iCloud/);assert.match(troubleshooting,/Google/);
-  assert.ok(troubleshooting.includes(locale==='en'?'On Android, system backup':'Sur Android, la sauvegarde système'));
-  assert.ok(ui[locale].placeholder.includes(locale==='en'?'synchronization':'synchronisation'));
-  assert.ok(ui[locale].empty.includes(locale==='en'?'synchronization':'synchronisation'));
+  assert.ok(troubleshooting.includes(({en:'On Android, system backup',fr:'Sur Android, la sauvegarde système',pt:'No Android, a cópia',de:'Android-Systembackup',es:'En Android, la copia',it:'Su Android il backup'})[locale]));
+  assert.ok(ui[locale].placeholder.includes(({en:'synchronization',fr:'synchronisation',pt:'sincronização',de:'Synchronisierung',es:'sincronización',it:'sincronizzazione'})[locale]));
+  assert.ok(ui[locale].empty.includes(({en:'synchronization',fr:'synchronisation',pt:'sincronização',de:'Synchronisierung',es:'sincronización',it:'sincronizzazione'})[locale]));
  }
 });

@@ -7,4 +7,4 @@
 
 ## User documentation
 
-The English/French 1.5.5 user guide lives under `/docs/` (English) and `/fr/docs/` (French). See [content/README.md](content/README.md) for editing, generation, validation, coverage and remaining review steps.
+The six-language 1.5.5 user guide lives under `/docs/` (English) and `/fr/docs/` (French), with `/pt/docs/`, `/de/docs/`, `/es/docs/` and `/it/docs/` equivalents. See [content/README.md](content/README.md) for editing, generation, validation, coverage and remaining review steps.

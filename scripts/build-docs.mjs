@@ -73,4 +73,4 @@ for (const [path,html] of output) {await mkdir(root+path,{recursive:true}); awai
 const sitemap = (await readFile(root+'sitemap.xml','utf8')).replace(/\s*<!-- documentation --><url>[\s\S]*?<\/url>/g,'');
 const urls = [...output.keys()].filter(p=>activeLocales.some(locale=>p.startsWith(route(locale)))).map(p=>`  <!-- documentation --><url><loc>${origin+p}</loc><changefreq>monthly</changefreq></url>`).join('\n');
 await writeFile(root+'sitemap.xml',sitemap.replace('</urlset>',`${urls}\n</urlset>`));
-console.log(`Built ${articles.length} articles, ${output.size} routes, and two local search indexes.`);
+console.log(`Built ${articles.length} articles, ${output.size} routes, and ${activeLocales.length} local search indexes.`);

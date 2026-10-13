@@ -1,6 +1,6 @@
 # TuneFinder documentation sources
 
-The 1.5.5 guide covers 11 topics in English and French: first library/search, PDF import/share, book/file management, OCR review, manual/CSV indexes, search/reading, playlists, synchronization, purchases/settings, troubleshooting and release notes. Portuguese, German, Spanish and Italian routes identify unavailable translations and link to the equivalent English/French article; they are excluded from the sitemap and use `noindex,follow`. Completing those translations and adding in-app Help links are subsequent work. Apple Intelligence belongs to the later 1.6.0 documentation update.
+The complete 1.5.5 guide covers 11 topics in English, French, Portuguese, German, Spanish and Italian: first library/search, PDF import/share, book/file management, OCR review, manual/CSV indexes, search/reading, playlists, synchronization, purchases/settings, troubleshooting and release notes. Every article has equivalent stable routes and heading anchors in all six languages, its own localized search data, UI labels and matching screenshots. Portuguese uses the neutral `pt` language/route. Optional in-app Help links remain subsequent work; Apple Intelligence belongs to the later 1.6.0 update.
 
 ## Build and validate
 
@@ -42,4 +42,4 @@ Browser checks establish website behavior, not physical-device sync, purchase ou
 
 ## Release maintenance
 
-Review affected articles, translations, glossary, screenshots, links and release markers for each app change. Complete remaining-language coverage next; add contextual in-app Help after the routes/content are settled. Extend platform detection instructions for 1.6.0 only after its behavior is verified.
+Review affected articles, translations, glossary, screenshots, links and release markers for each app change. Keep all six translations current and add contextual in-app Help after the routes/content are settled. Extend platform detection instructions for 1.6.0 only after its behavior is verified.
