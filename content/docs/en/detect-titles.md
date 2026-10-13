@@ -4,7 +4,7 @@
   "title": "Detect and review tune titles",
   "summary": "Create an editable index with on-device OCR, check the suggestions, and save it.",
   "section": "Indexes and title detection",
-  "order": 2,
+  "order": 4,
   "platforms": [
     "ios",
     "android"
@@ -12,8 +12,8 @@
   "minVersion": "1.5.5",
   "verifiedRelease": "1.5.5",
   "related": [
-    "import-pdf",
-    "android-drive"
+    "manual-index",
+    "troubleshooting"
   ]
 }
 ---

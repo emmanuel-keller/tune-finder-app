@@ -22,8 +22,10 @@ test('Markdown escapes text, rejects unsafe links and requires stable anchors',(
  const r=renderMarkdown('## Title {#title}\n\n1. One\n2. Two\n\n::: ios\n### iOS {#ios}\n**Bold**\n:::','en');
  assert.match(r.html,/<ol><li>One<\/li><li>Two<\/li><\/ol>/);assert.match(r.html,/data-platform="ios"/);
 });
-test('all six source guides have corresponding translations and navigation',async()=>{
- const articles=await loadArticles(root);assert.equal(articles.length,6);
+test('all planned 1.5.5 guides have corresponding translations and navigation',async()=>{
+ const articles=await loadArticles(root);assert.equal(articles.length,22);
+ const coverage=['getting-started','import-pdf','manage-books','detect-titles','manual-index','search-reading','playlists','android-drive','settings-purchases','troubleshooting','release-1-5-5'];
+ for(const locale of ['en','fr']) assert.deepEqual(articles.filter(a=>a.locale===locale).map(a=>a.id),coverage);
  for(const a of articles) {assert.equal(a.verifiedRelease,'1.5.5');assert.equal(a.related.length,2);}
  for (const english of articles.filter(a=>a.locale==='en')) {const french=articles.find(a=>a.locale==='fr'&&a.id===english.id); assert.deepEqual(renderMarkdown(english.body,'en').headings.map(h=>h.id),renderMarkdown(french.body,'fr').headings.map(h=>h.id));}
  assert.equal(route('fr','import-pdf'),'/fr/docs/import-pdf/');

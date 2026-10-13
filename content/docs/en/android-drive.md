@@ -4,7 +4,7 @@
   "title": "Synchronization",
   "summary": "Synchronize your library with iCloud on iPhone/iPad or Google Drive on Android.",
   "section": "Sync and recovery",
-  "order": 3,
+  "order": 8,
   "platforms": [
     "ios",
     "android"
@@ -12,8 +12,8 @@
   "minVersion": "1.5.5",
   "verifiedRelease": "1.5.5",
   "related": [
-    "import-pdf",
-    "detect-titles"
+    "playlists",
+    "troubleshooting"
   ]
 }
 ---

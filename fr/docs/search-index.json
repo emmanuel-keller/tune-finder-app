@@ -1,5 +1,22 @@
 [
   {
+    "id": "getting-started",
+    "title": "Votre première bibliothèque et recherche",
+    "summary": "Comprenez les PDF, index, recueils et playlists, puis trouvez votre premier morceau.",
+    "url": "/fr/docs/getting-started/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Les quatre notions de la bibliothèque",
+      "Constituer votre première bibliothèque",
+      "Trouver votre premier morceau",
+      "Passer d’une vue à l’autre"
+    ],
+    "text": "Les quatre notions de la bibliothèque Un recueil est un élément de votre bibliothèque TuneFinder. Son PDF contient les pages à lire ; son index contient les titres des morceaux et leurs pages PDF. L’importation d’un PDF ne rend pas automatiquement ses titres recherchables. Une playlist conserve une sélection ordonnée de morceaux pour travailler ou jouer ensemble. L’importation de vos PDF personnels reste privée. La bibliothèque fonctionne localement sans compte cloud. La synchronisation est facultative et utilise des services distincts sur iOS et Android. Constituer votre première bibliothèque 1. Touchez Recueils dans la navigation du bas. 2. Touchez Importer un PDF et choisissez un PDF déverrouillé que vous êtes autorisé à utiliser. 3. Touchez le recueil importé pour ouvrir ses détails. 4. Utilisez Détecter les titres et vérifiez les propositions, ou Créer un index manuellement pour saisir les titres. 5. Enregistrez l’index, puis touchez Utiliser pour la recherche dans les détails si ce recueil n’est pas sélectionné. Consultez Importer et partager un PDF et Détecter et vérifier les titres pour les étapes détaillées. Trouver votre premier morceau 1. Touchez Recherche. 2. Saisissez une partie d’un titre indexé. 3. Touchez le résultat du recueil et de la page souhaités. 4. Lisez le PDF et utilisez le bouton + du lecteur pour ajouter le morceau à une playlist. Passer d’une vue à l’autre Les onglets du bas sont Recherche, Playlists et Recueils. Une ligne de recueil ouvre ses détails ; l’engrenage ouvre Paramètres, avec la synchronisation et la langue de l’app. Retour ramène à la vue précédente depuis les détails ou l’éditeur. La recherche gratuite utilise un seul recueil indexé sélectionné. Vous pouvez conserver plusieurs recueils et changer celui utilisé sans rien supprimer. Consultez Recherche et lecture."
+  },
+  {
     "id": "import-pdf",
     "title": "Importer et partager un PDF",
     "summary": "Ajoutez un PDF personnel à votre bibliothèque depuis le sélecteur de fichiers ou une autre app.",
@@ -18,6 +35,24 @@
       "Si l’importation échoue"
     ],
     "text": "Avant de commencer Utilisez un PDF déverrouillé, de 500 Mo maximum et de 1 000 pages maximum. Téléchargez-le entièrement dans l’app d’origine. Un lien vers un site n’est pas un document PDF. TuneFinder copie le PDF dans votre bibliothèque privée et ne modifie pas le fichier d’origine. Les modifications ultérieures de l’original ne mettent pas à jour la copie importée. Aucune connexion cloud ni aucun achat n’est nécessaire pour importer. Importer dans TuneFinder 1. Ouvrez Recueils dans la navigation du bas. 2. Touchez Importer un PDF et choisissez le PDF dans le sélecteur de documents. 3. Attendez la fin de Importation du PDF…. Le recueil apparaît dans votre bibliothèque. 4. Touchez le recueil pour ouvrir ses détails. Vous pouvez ouvrir le PDF avant de créer un index. Partager depuis une autre app Sur iPhone ou iPad 1. Dans Apple Books, ouvrez les options du PDF et choisissez Partager. Dans Fichiers, utilisez l’action de partage du PDF. 2. Choisissez TuneFinder dans la rangée d’apps. Il peut se trouver sous Plus. 3. Attendez que TuneFinder importe le PDF et ouvre les détails du recueil. L’app d’origine doit partager un PDF réel. Si TuneFinder est absent, vérifiez que vous partagez un fichier PDF et non un lien ou un document dans un autre format. Sur Android 1. Dans votre app de fichiers ou de PDF, choisissez Partager ou Ouvrir avec pour le PDF. 2. Choisissez TuneFinder et attendez la fin de l’importation. 3. Consultez le recueil importé dans ses détails. Si l’app partage plusieurs PDF, TuneFinder les importe un par un. Aucune autorisation de stockage supplémentaire ni connexion Google Drive n’est nécessaire. L’app d’origine doit donner accès au PDF, plutôt que partager un lien vers un site. Après l’importation Un doublon exact ouvre le recueil personnel existant. Pour rechercher ses titres, détectez et vérifiez les titres ou créez un index manuellement dans les détails. La recherche gratuite utilise un seul recueil indexé sélectionné ; vous pouvez changer ce choix sans supprimer les autres index. La Recherche multi-recueils permet de rechercher dans plusieurs recueils à la fois. Si l’importation échoue Vérifiez que l’app d’origine peut ouvrir le PDF entièrement téléchargé, qu’il est déverrouillé et respecte les limites. Essayez le même PDF avec Importer un PDF. Conservez l’original. Pour TF-SYNC-4610, téléchargez le PDF localement puis partagez le fichier réel. TF-SYNC-4612 indique la limite de taille, TF-SYNC-4613 un PDF protégé par mot de passe et TF-SYNC-4614 la limite de pages. D’autres références, comme TF-SYNC-4606, peuvent indiquer une installation interrompue pour préserver les fichiers ; elles ne signifient pas à elles seules que le PDF est endommagé. Si le problème persiste, contactez l’assistance avec la version de l’app, la version d’iOS ou d’Android, l’action tentée et la référence affichée. N’envoyez pas de PDF privé sans demande de l’assistance et votre accord."
+  },
+  {
+    "id": "manage-books",
+    "title": "Gérer les recueils et fichiers",
+    "summary": "Retrouvez, renommez, remplacez ou retirez des éléments en distinguant PDF et index.",
+    "url": "/fr/docs/manage-books/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Retrouver un recueil",
+      "Utiliser le catalogue",
+      "Renommer un recueil personnel",
+      "Remplacer ou supprimer des fichiers",
+      "Supprimer un recueil personnel"
+    ],
+    "text": "Retrouver un recueil Ouvrez Recueils et filtrez les noms avec la recherche. La liste est alphabétique et indique la disponibilité du PDF et de l’index. Touchez une ligne pour les actions de ce recueil. Utiliser le catalogue 1. Dans Recueils, touchez Parcourir le catalogue. 2. Choisissez le recueil correspondant à votre édition. 3. Utilisez Télécharger l’index si un index de départ existe, puis Choisir un PDF… pour associer votre copie. 4. Vérifiez les pages PDF avant de vous fier à l’index fourni. Les éditions peuvent avoir des pages et titres différents. Le catalogue ne fournit pas de PDF protégés par le droit d’auteur. Les recueils ayant un PDF ou un index local apparaissent dans la bibliothèque. L’index de départ peut être modifié pour correspondre à votre document. Renommer un recueil personnel 1. Ouvrez les détails du recueil importé et la section de gestion des fichiers. 2. Touchez Renommer, saisissez le nom, puis touchez Enregistrer. 3. Revenez à la bibliothèque et recherchez le nouveau nom. Le renommage conserve l’identité du recueil et les références des playlists. Cette action ne renomme pas les recueils du catalogue. Remplacer ou supprimer des fichiers Utilisez Remplacer le PDF pour choisir un remplacement. Gardez l’original jusqu’à l’ouverture réussie du nouveau PDF. L’index existant peut ne plus correspondre ; vérifiez ses pages ou générez-en un nouveau. Supprimer l’index retire l’index enregistré et conserve le PDF. Supprimer le PDF retire la copie PDF de la bibliothèque et conserve l’index. Vérifiez le recueil avant de confirmer. Si la synchronisation est active, ces suppressions enregistrées peuvent se propager aux appareils de la même plateforme ; une suppression hors ligne ou en pause est conservée pour la synchronisation ultérieure. Supprimer un recueil personnel Utilisez Supprimer le document dans les détails d’un recueil importé et confirmez. Les fichiers de ce recueil personnel sont retirés de la bibliothèque, mais pas le PDF d’origine dans l’autre app. Les références des playlists sont conservées et peuvent devenir indisponibles ; retirez-les ou réparez-les volontairement. La suppression de fichiers n’est pas une réparation d’une erreur de synchronisation ou d’OCR. Consultez les Dépannages pour les vérifications plus sûres."
   },
   {
     "id": "detect-titles",
@@ -39,6 +74,57 @@
     "text": "Le rôle de la détection L’OCR lit le texte imprimé du PDF et propose des titres de morceaux et des plages de pages. Il fonctionne sur l’appareil ; TuneFinder n’envoie pas le PDF à un service d’OCR. Les propositions deviennent recherchables uniquement après vérification et enregistrement. Commencez avec un PDF importé. Un index liste les titres et leurs pages PDF ; il est distinct du PDF. Détecter les titres 1. Ouvrez Recueils et touchez le recueil. 2. Touchez Détecter les titres. L’éditeur d’index s’ouvre et lance la détection. 3. Gardez TuneFinder au premier plan pendant le traitement des pages. 4. À la fin, vérifiez les entrées proposées dans l’éditeur. Suspendre et reprendre Touchez Annuler pendant la détection pour la suspendre après la page en cours. Le passage en arrière-plan interrompt également la détection. Le PDF et la progression des pages terminées sont conservés. Revenez au recueil et touchez Détecter les titres pour reprendre. Si vous avez des modifications manuelles non enregistrées, enregistrez-les ou abandonnez-les avant de lancer la détection. Le remplacement du PDF peut invalider un brouillon précédent ; générez un nouvel index pour le nouveau PDF. Vérifier et enregistrer 1. Vérifiez chaque titre et ses première et dernière pages PDF. 2. Ouvrez les pages PDF depuis l’éditeur pour comparer les titres et les plages de pages. Les numéros de pages PDF peuvent différer des numéros imprimés. 3. Utilisez Modifier, Supprimer ou Ajouter un morceau pour corriger les erreurs ou ajouter les entrées manquantes. 4. Touchez Enregistrer lorsque l’index est prêt. 5. Revenez aux détails. Pour la recherche gratuite dans un seul recueil, touchez Utiliser pour la recherche si ce recueil n’est pas sélectionné. Améliorer un résultat imparfait Les textes imprimés latins nets donnent les meilleurs résultats. Les titres manuscrits, polices décoratives, scans inclinés ou pâles, sommaires et pages contenant plusieurs morceaux peuvent entraîner des erreurs. La détection ne reconnaît pas un morceau à partir de la notation musicale seule. Vérifiez les plages de pages : des titres répétés peuvent être réunis en une plage, et des pages de continuation sans titre peuvent nécessiter une correction manuelle. Si aucun titre n’est détecté, créez les entrées manuellement ; le PDF reste disponible. Reconstruire ou récupérer La suppression d’un index n’empêche pas la détection tant que le PDF est disponible. Ouvrez les détails et touchez Détecter les titres pour reconstruire l’index. Si le PDF est inaccessible, restaurez-le ou choisissez son fichier avant de réessayer. Ne supprimez pas la bibliothèque pour réparer une erreur de reconnaissance. Si l’erreur persiste, contactez l’assistance avec la version de l’app, la plateforme, l’action et la référence affichée. Pour synchroniser les index enregistrés, consultez Synchronisation."
   },
   {
+    "id": "manual-index",
+    "title": "Modifier les index et échanger des CSV",
+    "summary": "Créez des entrées manuellement, corrigez les pages et importez ou exportez un index.",
+    "url": "/fr/docs/manual-index/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Créer ou modifier un index",
+      "Corriger les plages de pages PDF",
+      "Importer un CSV",
+      "Exporter et vérifier"
+    ],
+    "text": "Créer ou modifier un index 1. Ouvrez les détails depuis Recueils. 2. Touchez Créer un index manuellement sans index, ou Modifier l’index pour un index existant. 3. Touchez Ajouter un morceau, saisissez le titre, la Première page et éventuellement la Dernière page, puis enregistrez l’entrée. 4. Utilisez Modifier pour corriger une entrée ou Supprimer pour la retirer. 5. Touchez Enregistrer en haut de l’éditeur pour enregistrer l’index complet. Enregistrer une entrée du formulaire et enregistrer l’index complet sont deux étapes distinctes. La recherche de l’éditeur retrouve une entrée dans un long index. Si vous quittez avec des modifications non enregistrées, lisez la confirmation avant de les conserver ou de les abandonner. Corriger les plages de pages PDF Les pages sont des entiers positifs commençant à la page PDF 1. Laissez la dernière page vide pour une entrée d’une page, ou saisissez une dernière page au moins égale à la première. Ouvrez la page PDF depuis l’éditeur pour vérifier. Les numéros imprimés peuvent différer à cause des couvertures et sommaires. Corrigez les pages PDF dans l’index ; l’app ne propose pas de réglage global du décalage. Par exemple, si la page imprimée 10 est la page PDF 14, l’entrée doit commencer à 14. Vérifiez le décalage dans le document sans supposer qu’il reste constant. Importer un CSV 1. Conservez un export de l’index actuel avant de le remplacer. 2. Dans les détails, touchez Importer un CSV et choisissez un fichier CSV texte. 3. Vérifiez les entrées et pages importées avec Modifier l’index. Le fichier utilise les colonnes séparées par des virgules Title,FirstPage,LastPage. Un en-tête avec ces noms exacts est accepté. La ligne Blue Example,12,14 couvre les pages PDF 12–14. La troisième valeur est facultative et vaut par défaut la première page. Entourez de guillemets un titre contenant une virgule et doublez les guillemets présents dans un titre entre guillemets. Utilisez des pages entières positives, la dernière au moins égale à la première. Un CSV invalide ou vide est refusé. L’importation remplace l’index enregistré ; elle n’ajoute pas de PDF et ne fait pas correspondre un autre PDF. Si une autre version a changé, conservez votre copie et résolvez le conflit avant de réessayer. Exporter et vérifier Utilisez Exporter au format CSV dans les détails. Le partage contient le texte CSV ; enregistrez-le ou copiez-le vers une destination conservant les valeurs séparées par des virgules. Un export d’index ne contient pas le PDF et n’est pas une sauvegarde complète de la bibliothèque. Après comparaison avec le PDF associé, utilisez Marquer comme vérifié pour ce PDF si l’action est proposée. Cela enregistre votre vérification sans corriger les pages. Réinitialiser avec l’index de départ, si disponible pour un recueil du catalogue, remplace vos modifications par l’index initial ; exportez d’abord pour les conserver."
+  },
+  {
+    "id": "search-reading",
+    "title": "Rechercher et lire les pages PDF",
+    "summary": "Choisissez un recueil de recherche, trouvez les titres et ouvrez la bonne page PDF.",
+    "url": "/fr/docs/search-reading/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Choisir le recueil de recherche gratuit",
+      "Rechercher un titre",
+      "Lire et ajouter un morceau",
+      "Résultat ou PDF manquant"
+    ],
+    "text": "Choisir le recueil de recherche gratuit 1. Ouvrez Recueils et touchez un recueil avec un index enregistré. 2. Touchez Utiliser pour la recherche s’il n’est pas déjà Sélectionné pour la recherche. 3. Revenez à Recherche. Ce choix peut être changé gratuitement. Les autres recueils et index restent dans la bibliothèque. La Recherche multi-recueils recherche dans plusieurs index à la fois ; les fichiers synchronisés seuls ne l’activent pas. Rechercher un titre 1. Saisissez une partie du titre dans Recherche. 2. Lisez le nom du recueil et la page ou plage PDF de chaque résultat. 3. Touchez le résultat souhaité pour ouvrir son PDF. La recherche utilise le texte de l’index enregistré, pas tout le texte PDF. Enregistrez les propositions OCR ou modifications manuelles avant de les attendre dans les résultats. Des titres répétés peuvent figurer à différentes pages ou dans plusieurs recueils. Lire et ajouter un morceau Faites défiler les pages PDF. Touchez une page pour masquer ou afficher la navigation. Le bouton + du lecteur ajoute le morceau affiché à une playlist ; consultez Playlists. Les détails permettent aussi d’ouvrir un PDF sans index. Si le résultat ouvre la mauvaise page, corrigez sa plage de pages PDF plutôt que de modifier le PDF d’origine. Résultat ou PDF manquant Vérifiez le recueil sélectionné, l’index enregistré, l’orthographe et la présence du PDF. Essayez un titre plus court. Un index peut être disponible sans PDF : trouver un résultat ne garantit pas l’ouverture de ses pages. Restaurez le PDF correspondant dans les détails et réessayez. Une référence de playlist peut conserver un ancien titre ou numéro après correction de l’index. Vérifiez-la et remplacez l’entrée si nécessaire. Consultez les Dépannages pour les erreurs persistantes."
+  },
+  {
+    "id": "playlists",
+    "title": "Préparer et gérer les playlists",
+    "summary": "Créez une sélection pour jouer, ajoutez des morceaux et organisez leur ordre.",
+    "url": "/fr/docs/playlists/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Créer une playlist depuis un morceau",
+      "Ajouter d’autres morceaux",
+      "Renommer, trier et réordonner",
+      "Supprimer ou récupérer"
+    ],
+    "text": "Créer une playlist depuis un morceau 1. Ouvrez un morceau depuis la recherche et touchez + dans le lecteur. 2. Choisissez Nouvelle playlist, saisissez un nom et créez-la avec le morceau affiché. 3. Ouvrez Playlists pour retrouver la nouvelle sélection. Une playlist est la collection ordonnée de l’app pour travailler ou jouer. Sa création ne copie pas les PDF et ne modifie pas leurs index. Ajouter d’autres morceaux 1. Ouvrez la playlist et touchez +. 2. Recherchez un titre dans vos recueils recherchables. 3. Ajoutez un résultat, puis continuez à rechercher et ajouter avant de fermer la sélection. Les morceaux déjà ajoutés sont signalés, mais vous pouvez ajouter volontairement une autre occurrence. Le choix du recueil de recherche gratuit s’applique aussi aux ajouts. Renommer, trier et réordonner Dans Playlists, recherchez un nom avec le champ de recherche. Le tri propose l’ordre des noms ou la date de modification. Utilisez le contrôle de modification à côté d’une playlist pour la renommer ; ses entrées sont conservées. Dans une playlist, maintenez la poignée de réorganisation et faites glisser l’entrée à sa nouvelle position. Touchez une entrée pour ouvrir son PDF. Utilisez Retirer et confirmez pour enlever cette occurrence uniquement. Supprimer ou récupérer Utilisez Supprimer à côté d’une playlist et confirmez pour retirer la playlist et son ordre. Les PDF et index des recueils sont conservés. Si la synchronisation est active, la suppression peut se propager aux appareils de cette plateforme. Un PDF absent ou un recueil personnel supprimé peut laisser une référence impossible à ouvrir. Restaurez le recueil/PDF correspondant ou remplacez l’entrée avec un nouveau résultat. Une modification d’index ne garantit pas la réécriture des pages déjà référencées dans les playlists. Pour les changements sur un autre appareil, consultez Synchronisation. Gardez les copies locales et ne supprimez pas une playlist pour réparer une erreur de synchronisation."
+  },
+  {
     "id": "android-drive",
     "title": "Synchronisation",
     "summary": "Synchronisez votre bibliothèque avec iCloud sur iPhone/iPad ou Google Drive sur Android.",
@@ -57,5 +143,56 @@
       "Problèmes de connexion ou de synchronisation"
     ],
     "text": "Avant la connexion Votre bibliothèque fonctionne localement sans connexion cloud. La synchronisation est facultative et nécessite une connexion internet. L’iPhone et l’iPad utilisent iCloud Documents ; Android utilise Google Drive. Utilisez le même compte cloud sur les appareils de chaque plateforme à synchroniser. TuneFinder ne synchronise pas les bibliothèques entre iOS et Android. Choisissez votre plateforme ci-dessus pour afficher les instructions correspondantes. Connecter votre compte iPhone et iPad : iCloud 1. Connectez-vous à iCloud sur l’appareil et activez iCloud Drive pour TuneFinder dans les réglages de l’appareil. 2. Ouvrez Paramètres dans TuneFinder avec le bouton en forme d’engrenage. 3. Touchez Activer iCloud lorsque le service est disponible. 4. Attendez la fin de la synchronisation et vérifiez l’état. 5. Activez la synchronisation sur votre autre iPhone ou iPad avec le même compte iCloud. Si iCloud est indisponible, vérifiez votre connexion au compte et l’activation d’iCloud Drive. L’exemple ci-dessous montre cet état indisponible ; votre bibliothèque locale reste utilisable. Pour arrêter la synchronisation, touchez Suspendre iCloud. Les copies locales et iCloud sont conservées. Activez à nouveau la synchronisation pour reprendre ; gardez les appareils contenant des modifications non synchronisées disponibles pour les transmettre. Android : Google Drive 1. Ouvrez Paramètres avec le bouton en forme d’engrenage. 2. Touchez Connecter Google Drive. 3. Choisissez votre compte Google et autorisez l’accès demandé. 4. Attendez la synchronisation initiale et vérifiez l’état avant de quitter l’écran. 5. Répétez ces étapes avec le même compte sur vos autres appareils Android, y compris ceux contenant des modifications locales. TuneFinder crée et gère son dossier TuneFinder Sync dans Drive. Vous ne choisissez pas de dossier dans le sélecteur de fichiers. Si vous annulez le choix du compte ou refusez l’accès, votre bibliothèque locale reste disponible. Les éléments synchronisés Les PDF, index enregistrés, noms des recueils et playlists participent à la synchronisation. Les modifications d’index non enregistrées et la progression OCR restent sur leur appareil d’origine. Enregistrez l’index avant de l’attendre sur un autre appareil. Tous les index peuvent se synchroniser, mais la recherche gratuite utilise toujours un seul recueil indexé sélectionné. La présence de fichiers dans le cloud n’active pas la Recherche multi-recueils. Quand les changements arrivent TuneFinder synchronise après le lancement lorsque le service est prêt, et après les modifications locales enregistrées des playlists ou recueils. Il ne recherche pas continuellement les changements et ne lance pas de synchronisation simplement au retour au premier plan. Pour demander une mise à jour, ouvrez Paramètres et touchez Synchroniser, ou tirez pour actualiser Recueils ou Playlists. Lancez aussi une synchronisation manuelle sur l’autre appareil pour vérifier l’arrivée d’un changement. Attendez la fin sur les deux appareils avant de comparer. Problèmes de connexion ou de synchronisation Vérifiez la connexion, le compte Google et l’espace disponible sur l’appareil et dans Drive. Sur Android, utilisez Reconnecter Google Drive pour renouveler l’autorisation. Sur iOS, vérifiez l’activation d’iCloud Drive et que la synchronisation n’est pas suspendue. Gardez le compte prévu ; ne changez pas de compte comme tentative de réparation. Le transfert de gros PDF peut prendre du temps. Un échec ne justifie pas la suppression et la réimportation de la bibliothèque. Conservez vos copies locales et les PDF d’origine. En cas de conflit, comparez les copies avant de choisir ; ne supposez pas que la copie cloud est plus récente. Pour TF-SYNC-4300 ou toute autre référence affichée, contactez l’assistance avec la version de l’app, la version d’iOS ou d’Android, l’action et la référence. La sauvegarde système Android est un mécanisme de récupération distinct qui ne remplace pas la synchronisation. Pour ajouter un document, suivez Importer et partager un PDF, puis détectez et vérifiez ses titres."
+  },
+  {
+    "id": "settings-purchases",
+    "title": "Accès à la recherche et langue de l’app",
+    "summary": "Comprenez la recherche gratuite ou achetée, la restauration et le choix de la langue.",
+    "url": "/fr/docs/settings-purchases/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Recherche gratuite et Recherche multi-recueils",
+      "Achat et restauration dans la version 1.5.5",
+      "Changer la langue de l’app"
+    ],
+    "text": "Recherche gratuite et Recherche multi-recueils L’importation de PDF, les index manuels, les brouillons OCR et le choix d’un recueil indexé ne nécessitent pas la Recherche multi-recueils. Cet achat permet de rechercher dans plusieurs index à la fois. La présence de nombreux recueils ou de fichiers reçus par synchronisation ne prouve pas l’achat. L’index doit être enregistré et le PDF disponible pour ouvrir un résultat. La Recherche multi-recueils ne fournit pas de PDF et n’améliore pas l’OCR. Achat et restauration dans la version 1.5.5 L’écran Recherche multi-recueils contient un achat via la boutique et Restaurer l’achat. Toutefois, la version 1.5.5 n’a pas de point d’accès à cet écran dans sa navigation principale. Si vous devez acheter ou restaurer l’accès sans pouvoir atteindre ces contrôles, contactez l’assistance plutôt que de supprimer la bibliothèque ou d’acheter à nouveau. L’app peut reconnaître un achat existant au lancement. Utilisez le compte de boutique ayant effectué l’achat. Si l’écran de restauration est accessible, Restaurer l’achat demande le droit existant à la boutique ; attendez la confirmation avant d’attendre les résultats multi-recueils. Les achats appartiennent au compte de la boutique de chaque plateforme. Ne supposez pas qu’un achat App Store se transfère à Google Play ni que la synchronisation PDF transfère l’achat. En cas d’échec ou d’achat introuvable, indiquez la plateforme, la version de l’app et le résultat à l’assistance. N’envoyez jamais de mots de passe ni de données de paiement. Changer la langue de l’app 1. Ouvrez Paramètres avec l’engrenage. 2. Trouvez la section de langue de l’app. 3. Choisissez anglais, français, portugais, allemand, espagnol, italien ou la langue de l’appareil. 4. Vérifiez que les contrôles changent de langue. La langue est un choix local non synchronisé avec la bibliothèque. Elle ne traduit pas vos noms de documents, PDF ou titres. La langue du site change les guides, pas celle de l’app. La documentation mémorise aussi votre choix iOS/Android dans ce navigateur. Changez le sélecteur pour lire les instructions d’un autre appareil ; aucun compte cloud n’est nécessaire."
+  },
+  {
+    "id": "troubleshooting",
+    "title": "Dépannage et assistance",
+    "summary": "Vérifiez les problèmes d’importation, d’OCR, de recherche ou de synchronisation en conservant la bibliothèque.",
+    "url": "/fr/docs/troubleshooting/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Importation ou PDF inaccessible",
+      "OCR imprécis ou interrompu",
+      "Recherche vide ou mauvaise page",
+      "Synchronisation ou conflit",
+      "Contacter l’assistance"
+    ],
+    "text": "Importation ou PDF inaccessible Ouvrez le PDF d’origine dans son app et téléchargez-le entièrement. Partagez un PDF réel plutôt qu’un lien, ou essayez Importer un PDF dans TuneFinder. Le PDF doit être déverrouillé, de 500 Mo et 1 000 pages maximum. Une première page lisible ne garantit pas toutes les pages suivantes. TF-SYNC-4610 indique un problème de copie ; TF-SYNC-4611 un PDF invalide ; TF-SYNC-4612 une taille excessive ; TF-SYNC-4613 un mot de passe ; TF-SYNC-4614 trop de pages. Conservez l’original en obtenant une copie déverrouillée, réduite ou réparée. TF-SYNC-4606 indique une installation impossible à terminer en sécurité ; ce n’est pas une preuve de fichier absent ou corrompu. Réessayez au premier plan et signalez la référence persistante. OCR imprécis ou interrompu Gardez l’app au premier plan et reprenez avec Détecter les titres après interruption. Vérifiez la présence du PDF. Des titres imprimés nets fonctionnent mieux que les polices décoratives, l’écriture manuscrite ou les scans dégradés. Vérifiez les propositions et corrigez les titres et pages. L’OCR est facultatif ; l’indexation manuelle reste disponible. Recherche vide ou mauvaise page Vérifiez le recueil indexé sélectionné, l’enregistrement et l’orthographe. Essayez un titre plus court. Les brouillons OCR non enregistrés ne sont pas recherchables. Restaurez le PDF correspondant s’il manque. En cas de mauvaise page, vérifiez la numérotation PDF plutôt qu’imprimée et corrigez l’entrée. Synchronisation ou conflit Vérifiez le compte cloud, la connexion et l’espace libre. Demandez Synchroniser sur chaque appareil concerné et attendez la fin. Sur Android, renouvelez l’autorisation avec Reconnecter Google Drive ; sur iOS, vérifiez iCloud Drive et que la synchronisation n’est pas suspendue. Comparez les versions de l’appareil et du cloud avant de résoudre un conflit. Conservez les modifications non synchronisées et PDF d’origine. Ne supposez pas que le cloud est plus récent, ne supprimez pas la bibliothèque et ne changez pas de compte pour réparer. Si l’état change pendant la résolution, actualisez et comparez à nouveau. TF-SYNC-4004 indique un échec de téléchargement, TF-SYNC-4005 un échec de remplacement, TF-SYNC-4006 une modification pendant la synchronisation et TF-SYNC-4300 un échec de synchronisation/actualisation. Vérifiez la disponibilité, réessayez une fois les changements terminés et signalez une erreur persistante. La référence désigne une catégorie ou étape, pas une preuve de perte de données. Suivez aussi l’explication affichée et Synchronisation. Contacter l’assistance Écrivez à contact@tunefinder.app avec la version de l’app, la plateforme et sa version, l’action, la référence exacte et la répétition éventuelle. Vérifiez l’absence de titres, noms ou comptes privés dans une capture avant de la joindre. N’envoyez pas de PDF privé, mots de passe ou données de paiement sans demande appropriée et votre accord. Conservez le document d’origine et la bibliothèque locale pendant l’enquête. Examen par la boutique, restauration d’achat et connexion cloud sont des opérations distinctes ; précisez celle qui échoue. Accès à la recherche et langue explique la limitation d’accès à l’écran d’achat de la version 1.5.5."
+  },
+  {
+    "id": "release-1-5-5",
+    "title": "Les nouveautés de la version 1.5.5",
+    "summary": "PDF personnels, index OCR vérifiés et bibliothèque recherchable sur iOS et Android.",
+    "url": "/fr/docs/release-1-5-5/",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "headings": [
+      "Votre bibliothèque PDF personnelle",
+      "Des index OCR modifiables",
+      "Recherche, présentation et synchronisation",
+      "Disponibilité et limites"
+    ],
+    "text": "Votre bibliothèque PDF personnelle La version 1.5.5 importe les PDF dans votre bibliothèque et reçoit les PDF réels partagés par d’autres apps sur iOS et Android. La liste recherchable et les détails dédiés facilitent la gestion d’une collection grandissante. Des index OCR modifiables L’OCR sur l’appareil propose des titres et plages de pages PDF. Vérifiez, corrigez et enregistrez les propositions avant leur utilisation par la recherche. La détection reprend après interruption et peut reconstruire un index supprimé si son PDF est toujours disponible. Recherche, présentation et synchronisation La recherche gratuite permet de sélectionner un recueil indexé et d’en changer sans supprimer les autres. La Recherche multi-recueils utilise plusieurs index à la fois. La navigation du bas, les présentations téléphone/tablette et les références d’erreurs localisées aident avec les grandes bibliothèques. La synchronisation reste facultative et propre à chaque plateforme : iCloud Documents sur iOS, compte Google Drive connecté sur Android. L’importation conserve les PDF d’origine ; les brouillons OCR restent locaux jusqu’à leur validation. Disponibilité et limites Ces guides décrivent la version 1.5.5. Apple Intelligence appartient à une version ultérieure 1.6.0 et ne fait pas partie de ces instructions OCR. La précision dépend du PDF ; la vérification reste nécessaire. L’absence de point d’accès à l’achat/restauration dans la navigation principale de la version 1.5.5 est décrite dans Accès à la recherche. Commencez par Votre première bibliothèque et recherche ou l’index complet des guides."
   }
 ]

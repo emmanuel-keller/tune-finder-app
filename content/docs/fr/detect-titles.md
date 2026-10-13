@@ -4,7 +4,7 @@
   "title": "Détecter et vérifier les titres",
   "summary": "Créez un index modifiable par OCR sur l’appareil, vérifiez les propositions et enregistrez-le.",
   "section": "Index et détection des titres",
-  "order": 2,
+  "order": 4,
   "platforms": [
     "ios",
     "android"
@@ -12,8 +12,8 @@
   "minVersion": "1.5.5",
   "verifiedRelease": "1.5.5",
   "related": [
-    "import-pdf",
-    "android-drive"
+    "manual-index",
+    "troubleshooting"
   ]
 }
 ---

@@ -4,7 +4,7 @@
   "title": "Synchronisation",
   "summary": "Synchronisez votre bibliothèque avec iCloud sur iPhone/iPad ou Google Drive sur Android.",
   "section": "Synchronisation et récupération",
-  "order": 3,
+  "order": 8,
   "platforms": [
     "ios",
     "android"
@@ -12,8 +12,8 @@
   "minVersion": "1.5.5",
   "verifiedRelease": "1.5.5",
   "related": [
-    "import-pdf",
-    "detect-titles"
+    "playlists",
+    "troubleshooting"
   ]
 }
 ---
