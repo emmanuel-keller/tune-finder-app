@@ -4,7 +4,7 @@
   "title": "Détecter et vérifier les titres",
   "summary": "Créez un index modifiable par OCR sur l’appareil, vérifiez les propositions et enregistrez-le.",
   "section": "Index et détection des titres",
-  "order": 2,
+  "order": 4,
   "platforms": [
     "ios",
     "android"
@@ -12,8 +12,8 @@
   "minVersion": "1.5.5",
   "verifiedRelease": "1.5.5",
   "related": [
-    "import-pdf",
-    "android-drive"
+    "manual-index",
+    "troubleshooting"
   ]
 }
 ---
@@ -50,4 +50,4 @@ Vérifiez les plages de pages : des titres répétés peuvent être réunis en u
 ## Reconstruire ou récupérer {#rebuild}
 La suppression d’un index n’empêche pas la détection tant que le PDF est disponible. Ouvrez les détails et touchez **Détecter les titres** pour reconstruire l’index. Si le PDF est inaccessible, restaurez-le ou choisissez son fichier avant de réessayer. Ne supprimez pas la bibliothèque pour réparer une erreur de reconnaissance.
 
-Si l’erreur persiste, [contactez l’assistance](mailto:contact@tunefinder.app) avec la version de l’app, la plateforme, l’action et la référence affichée. Pour synchroniser les index enregistrés sur Android, consultez [Connecter Google Drive](/fr/docs/android-drive/).
+Si l’erreur persiste, [contactez l’assistance](mailto:contact@tunefinder.app) avec la version de l’app, la plateforme, l’action et la référence affichée. Pour synchroniser les index enregistrés, consultez [Synchronisation](/fr/docs/android-drive/).

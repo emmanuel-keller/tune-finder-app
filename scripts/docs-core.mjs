@@ -31,7 +31,7 @@ export function parseArticle(source, locale, filename) {
   if (!/^\d+\.\d+\.\d+$/.test(meta.minVersion) || !/^\d+\.\d+\.\d+$/.test(meta.verifiedRelease)) throw new Error('Invalid release');
   return {...meta, locale, body: match[2]};
 }
-export function renderMarkdown(body, locale) {
+export function renderMarkdown(body, locale, imageDimensions = {}) {
   const headings = [], html = []; let paragraph = [], list = [], platform = null;
   const flush = () => {
     if (paragraph.length) {html.push(`<p>${inline(paragraph.join(' '))}</p>`); paragraph = [];}
@@ -53,7 +53,9 @@ export function renderMarkdown(body, locale) {
     } else if (image) {
       flush(); const url = safeUrl(image[2]);
       if (!url.startsWith(`/screenshots/${locale}/`)) throw new Error('Screenshot must match article language');
-      html.push(`<figure><a href="${escape(url)}"><img src="${escape(url)}" alt="${escape(image[1])}" loading="lazy" width="420" height="910"></a><figcaption>${escape(image[1])} · <a href="${escape(url)}">${escape(ui[locale].openImage)}</a></figcaption></figure>`);
+      const size = imageDimensions[url];
+      const dimensions = size ? ` width="${size.width}" height="${size.height}"` : '';
+      html.push(`<figure><a href="${escape(url)}"><img src="${escape(url)}" alt="${escape(image[1])}" loading="lazy"${dimensions}></a><figcaption>${escape(image[1])} · <a href="${escape(url)}">${escape(ui[locale].openImage)}</a></figcaption></figure>`);
     } else if (item) {if (paragraph.length) flush(); list.push(item[1]);}
     else {if (list.length) flush(); if (line.startsWith('#') || line.startsWith('![')) throw new Error(`Unsupported Markdown: ${line}`); paragraph.push(line);}
   }

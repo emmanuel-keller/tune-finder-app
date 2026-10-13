@@ -4,7 +4,7 @@
   "title": "Importer et partager un PDF",
   "summary": "Ajoutez un PDF personnel à votre bibliothèque depuis le sélecteur de fichiers ou une autre app.",
   "section": "Recueils et PDF",
-  "order": 1,
+  "order": 2,
   "platforms": [
     "ios",
     "android"
@@ -12,8 +12,8 @@
   "minVersion": "1.5.5",
   "verifiedRelease": "1.5.5",
   "related": [
-    "detect-titles",
-    "android-drive"
+    "manage-books",
+    "detect-titles"
   ]
 }
 ---

@@ -4,7 +4,7 @@
   "title": "Import and share a PDF",
   "summary": "Add a personal PDF to your library from the file picker or another app.",
   "section": "Books and PDFs",
-  "order": 1,
+  "order": 2,
   "platforms": [
     "ios",
     "android"
@@ -12,8 +12,8 @@
   "minVersion": "1.5.5",
   "verifiedRelease": "1.5.5",
   "related": [
-    "detect-titles",
-    "android-drive"
+    "manage-books",
+    "detect-titles"
   ]
 }
 ---

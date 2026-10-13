@@ -1,5 +1,6 @@
 import {readFile, writeFile, mkdir, access} from 'node:fs/promises';
 import {ui, names, activeLocales} from './docs-ui.mjs';
+import {pngDimensions} from './docs-images.mjs';
 import {fileURLToPath} from 'node:url';
 import {escape as e, locales, route, renderMarkdown, loadArticles} from './docs-core.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -7,8 +8,14 @@ const origin = 'https://tunefinder.app';
 const articles = await loadArticles(root);
 const glossary = JSON.parse(await readFile(`${root}/content/terminology.json`, 'utf8'));
 const rendered = new Map();
+const imageDimensions = {};
+for (const article of articles) {
+ for (const [,url] of article.body.matchAll(/^!\[[^\]]+\]\((\/screenshots\/[^)]+)\)$/gm)) {
+  if (!imageDimensions[url]) imageDimensions[url] = pngDimensions(await readFile(root+url));
+ }
+}
 for (const a of articles) {
- const r = renderMarkdown(a.body,a.locale); rendered.set(`${a.locale}/${a.id}`,r);
+ const r = renderMarkdown(a.body,a.locale,imageDimensions); rendered.set(`${a.locale}/${a.id}`,r);
  const words = `${a.title} ${a.summary} ${r.text}`.toLocaleLowerCase(a.locale).match(/\p{L}+(?:-\p{L}+)*/gu) ?? [];
  const conflicts = glossary[a.locale].avoid.filter(term => words.includes(term.toLocaleLowerCase(a.locale)));
  if (conflicts.length) throw new Error(`Terminology conflict in ${a.locale}/${a.id}: ${conflicts}`);
@@ -22,7 +29,7 @@ function shell(locale,id,title,content,toc='',untranslated=false) {
  const sidebar = own.length ? `<details class="guide-menu"><summary>${t.browse}</summary><nav aria-label="${t.docs}"><a ${id ? '' : 'aria-current="page"'} href="${route(locale)}">${t.docs}</a><ul>${nav}</ul></nav></details>` : '';
  const breadcrumb = `<a href="${home}">${t.home}</a> / ${id ? `<a href="${route(locale)}">${t.docs}</a> / <span aria-current="page">${e(title)}</span>` : `<span aria-current="page">${t.docs}</span>`}`;
  const search = untranslated?'':`<section class="search-panel" data-search hidden><label for="doc-search">${t.search}</label><input type="search" id="doc-search" placeholder="${e(t.placeholder)}" autocomplete="off"><p id="search-status" role="status" aria-live="polite"></p><ul id="search-results"></ul></section>`;
- return `<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${e(title)} — TuneFinder</title><meta name="description" content="${e(own.find(a=>a.id===id)?.summary??t.intro??t.notice)}"><link rel="canonical" href="${canonical}">${alternate}<link rel="alternate" hreflang="x-default" href="${origin+route('en',id)}">${untranslated?'<meta name="robots" content="noindex,follow">':''}<link rel="icon" href="/tune-finder-logo.png"><link rel="stylesheet" href="/docs.css"><script src="/docs.js" type="module"></script></head><body data-locale="${locale}" data-empty="${e(t.empty)}" data-count="${e(t.count)}" data-error="${e(t.error)}"><a class="skip" href="#content">${t.skip}</a><header class="docs-header"><a class="brand" href="${home}"><img src="/tune-finder-logo.png" alt="" width="36" height="36">TuneFinder</a><a href="${route(locale)}">${t.docs}</a><details class="languages"><summary>${names[locale]}</summary><nav aria-label="${t.language}">${locales.map(l=>`<a href="${route(l,id)}" lang="${l}" ${locale===l?'aria-current="true"':''}>${names[l]}</a>`).join('')}</nav></details></header><div class="docs-layout"><aside class="sidebar">${sidebar}${search}</aside><main id="content" tabindex="-1"><nav class="breadcrumbs" aria-label="${t.breadcrumb}">${breadcrumb}</nav>${content}</main>${toc?`<aside class="toc"><nav aria-label="${t.contents}"><strong>${t.contents}</strong>${toc}</nav></aside>`:''}</div><footer><a href="${home}#privacy">${t.privacy}</a><a href="mailto:contact@tunefinder.app">contact@tunefinder.app</a><span>© Ekeller Limited 2026</span></footer></body></html>`;
+ return `<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${e(title)} — TuneFinder</title><meta name="description" content="${e(own.find(a=>a.id===id)?.summary??t.intro??t.notice)}"><link rel="canonical" href="${canonical}">${alternate}<link rel="alternate" hreflang="x-default" href="${origin+route('en',id)}">${untranslated?'<meta name="robots" content="noindex,follow">':''}<link rel="icon" href="/tune-finder-logo.png"><link rel="stylesheet" href="/docs.css"><script src="/docs.js" type="module"></script></head><body data-locale="${locale}" data-empty="${e(t.empty)}" data-count="${e(t.count)}" data-error="${e(t.error)}"><a class="skip" href="#content">${t.skip}</a><header class="docs-header"><a class="brand" href="${home}"><img src="/tune-finder-logo.png" alt="" width="36" height="36">TuneFinder</a><a href="${route(locale)}">${t.docs}</a><details class="languages"><summary>${names[locale]}</summary><nav aria-label="${t.language}">${locales.map(l=>`<a href="${route(l,id)}" lang="${l}" ${locale===l?'aria-current="true"':''}>${names[l]}</a>`).join('')}</nav></details></header><div class="docs-layout"><aside class="sidebar">${search}${sidebar}</aside><main id="content" tabindex="-1"><nav class="breadcrumbs" aria-label="${t.breadcrumb}">${breadcrumb}</nav>${content}</main>${toc?`<aside class="toc"><nav aria-label="${t.contents}"><strong>${t.contents}</strong>${toc}</nav></aside>`:''}</div><footer><a href="${home}#privacy">${t.privacy}</a><a href="mailto:contact@tunefinder.app">contact@tunefinder.app</a><span>© Ekeller Limited 2026</span></footer></body></html>`;
 }
 for (const locale of locales) {
  const own = articles.filter(a=>a.locale===locale), t={...ui.en,...ui[locale]};
@@ -66,4 +73,4 @@ for (const [path,html] of output) {await mkdir(root+path,{recursive:true}); awai
 const sitemap = (await readFile(root+'sitemap.xml','utf8')).replace(/\s*<!-- documentation --><url>[\s\S]*?<\/url>/g,'');
 const urls = [...output.keys()].filter(p=>activeLocales.some(locale=>p.startsWith(route(locale)))).map(p=>`  <!-- documentation --><url><loc>${origin+p}</loc><changefreq>monthly</changefreq></url>`).join('\n');
 await writeFile(root+'sitemap.xml',sitemap.replace('</urlset>',`${urls}\n</urlset>`));
-console.log(`Built ${articles.length} articles, ${output.size} routes, and two local search indexes.`);
+console.log(`Built ${articles.length} articles, ${output.size} routes, and ${activeLocales.length} local search indexes.`);

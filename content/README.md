@@ -1,6 +1,6 @@
 # TuneFinder documentation sources
 
-The initial prototype covers three tasks in English and French for the shipped 1.5.5 release. Portuguese, German, Spanish and Italian routes explicitly identify unavailable translations and link to the equivalent English/French guide. They are not included in the sitemap and use `noindex,follow`. Complete the broader guide and its six-language coverage after reviewing this prototype. Apple Intelligence belongs to a future 1.6.0 update.
+The complete 1.5.5 guide covers 11 topics in English, French, Portuguese, German, Spanish and Italian: first library/search, PDF import/share, book/file management, OCR review, manual/CSV indexes, search/reading, playlists, synchronization, purchases/settings, troubleshooting and release notes. Every article has equivalent stable routes and heading anchors in all six languages, its own localized search data, UI labels and matching screenshots. Portuguese uses the neutral `pt` language/route. Optional in-app Help links remain subsequent work; Apple Intelligence belongs to the later 1.6.0 update.
 
 ## Build and validate
 
@@ -13,32 +13,33 @@ node --test tests/*.test.mjs
 git diff --check
 ```
 
-GitHub Pages continues to serve committed HTML from `main`. Commit generated pages and search indexes together with their sources. CI checks reproducibility; it does not deploy a documentation preview. Review the branch before merging into the live site.
+GitHub Pages serves committed HTML from `main`. Commit generated pages and search indexes with their sources. CI verifies tracked and untracked output with `scripts/check-generated.mjs`. Review PR #5 before merging it into the live site.
 
 ## Add or edit an article
 
-Each `docs/<language>/<stable-id>.md` starts with JSON metadata between `---` lines. Required fields: `id`, `title`, `summary`, `section`, `order`, `platforms`, `minVersion`, `verifiedRelease`, `related`. Keep the ID and explicit heading anchors stable across translations. Supported Markdown is deliberately small: paragraphs, numbered lists, bold text, HTTPS/mail links, relative site links, screenshots, and level-two/three headings with `{#stable-anchor}`. Raw HTML is escaped. Platform blocks use `::: ios` or `::: android`, followed by `:::`. Both remain visible without JavaScript.
+Each `docs/<language>/<stable-id>.md` starts with JSON metadata between `---` lines. Required fields are `id`, `title`, `summary`, `section`, `order`, `platforms`, `minVersion`, `verifiedRelease` and `related`. Keep IDs and explicit heading anchors stable across translations. Markdown supports paragraphs, numbered lists, bold text, HTTPS/mail links, local links, screenshots and level-two/three headings with `{#stable-anchor}`. Raw HTML is escaped. Platform blocks start with `::: ios` or `::: android` and end with `:::`; both remain visible without JavaScript.
 
-Use matching-language screenshots and descriptive captions. Images link directly to their full-size version. Documentation search fetches only the current language’s static index; queries stay in the browser. Platform preference is stored locally and can be changed explicitly. Direct links to a platform heading select the matching visible platform without replacing the stored preference. An explicit platform choice updates the preference and clears the opposing heading fragment. Search ignores punctuation, preserves support-reference hyphens, and prepares normalized article text once on index load. Client helper and DOM-controller regressions run in the Node test suite.
+Use matching-language screenshots and descriptive captions. Figures link to full-size images. The generator reads each PNG’s intrinsic dimensions to reserve the correct space; tests verify headers, compressed image payloads, row sizes and rendered dimensions for every referenced capture. Search loads the current language’s static index; queries stay in the browser. Normalized text is prepared once on index load. The browser stores the platform preference locally, carrying it across guides and reloads. Direct platform heading links select their matching visible platform without replacing the saved preference; an explicit choice overrides that view. Client helpers and the actual DOM controller have automated regressions.
 
-The translated documentation languages are configured once in `activeLocales` in `scripts/docs-ui.mjs`; adding a language there requires its article files and translations.
+Configure translated documentation languages once in `activeLocales` in `scripts/docs-ui.mjs`. Adding a language requires its complete article files and UI translations. Marketing locale generation and documentation share UI labels in this file. Refresh the glossary snapshot `terminology.json` at release time; provenance is in `terminology-source.json`. A playlist is the app’s practice/performance collection, rather than a separate setlist concept.
 
-Shared documentation UI labels, including navigation and image actions, are centralized in `scripts/docs-ui.mjs` and also used by marketing locale generation. CI checks tracked and untracked generated output with `scripts/check-generated.mjs`.
+## Behavior audit: 1.5.5
 
-The glossary snapshot is `terminology.json`; its provenance is recorded in `terminology-source.json`. Refresh it with the app release, then check translated prose and exact control labels. A playlist is also the app’s performance collection; do not introduce a separate setlist concept.
+| Coverage | Source checked | Manual review to retain |
+| --- | --- | --- |
+| First library, import/share, catalogue and book/file management | MainTabs, Sources, BookDetails, private import/OCR guide | Follow picker and share flows; verify edition matching and deletion confirmations |
+| OCR and manual/CSV indexes | IndexEditor, bookIndex CSV parser/exporter, BookDetails | Pause/resume, entry versus complete-index save, CSV exchange and PDF-page checks |
+| Search/reading and playlists | Songs, Viewer, Playlist, Playlists and searchable-source selection | Viewer controls, adding/reordering/removing entries and missing-PDF references |
+| iCloud/Google Drive synchronization | Sync, native provider behavior and Drive guide | iCloud enable/pause; Google account consent; same-platform two-device propagation |
+| Purchases and language | Addon, App, MainTabs, SettingsButton and LanguageOptions | Store recognition/restoration with actual accounts; language persistence |
+| Troubleshooting and release notes | Stable error references, released PDF/OCR limits and release guide | Confirm user-visible explanations and references match device dialogs |
 
-## Content audit: 1.5.5
+Sources describe the shipped `v1.5.5` release. Controls include **Save tune** / **Enregistrer** for the editor and **Sync now** / **Synchroniser** for manual sync. CSV uses comma-separated Title,FirstPage,LastPage; export shares CSV text. There is no global PDF page-offset control. Book deletion retains playlist references. Cloud providers remain separate across iOS and Android.
 
-| Guide | Source behavior checked | Screenshot | Remaining review |
-| --- | --- | --- | --- |
-| Import/share PDF | Books tab; Import PDF; copy ownership; duplicate handling; PDF/page limits; iOS/Android share paths; error references | localized book library | Owner should follow Apple Books and Android source-app share steps on devices |
-| Detect/review titles | Book Details; Detect tune titles; pause/resume; editor page checks, add/edit/delete and Save tune; free Use for search | localized index editor | Owner should follow the pause/resume and acceptance steps on devices |
-| Android Google Drive | Settings gear; Connect/Reconnect Google Drive; same account; no folder picker; local-first preservation; bounded sync triggers | localized Device Sync | Owner should follow account connection and two-device propagation steps |
+A release limitation was found during the audit: AddonScreen is registered but has no navigation entry in the shipped main views. The purchase guide documents the missing purchase/restore entry instead of inventing steps. A separate app fix should restore that entry, followed by updating the guide. Existing purchase recognition at startup is distinct from explicit restoration. Do not claim cross-store entitlement transfer.
 
-Sources were audited against TuneFinder `v1.5.5`, including `MainTabs`, `SettingsButton`, `IndexEditor`, `Sync`, and the import/OCR/Drive engineering guides. Button labels are **Save tune** / **Enregistrer**, and **Sync now** / **Synchroniser**, matching this release. Browser checks establish web behavior, not device synchronization or OCR accuracy.
+Browser checks establish website behavior, not physical-device sync, purchase outcomes or OCR accuracy. Follow the task procedures on devices before changing the verified-release baseline. Existing screenshots are isolated 1.5.5 release captures; Android sync images use matching Android captures. The iOS example explicitly shows iCloud unavailable. No personal PDFs/accounts are used.
 
-Existing captures cover the three overview states. Detailed share-sheet, consent and recognition-progress captures can be added later if task review demonstrates that they help; do not use personal PDFs or account details.
+## Release maintenance
 
-## Next scope
-
-Expand to first search, catalogue/file management, manual/CSV indexing, playlists, iCloud, purchase restoration/settings, troubleshooting and release notes. Translate that coverage into all six languages. In-app Help links are a subsequent app change. Every release should review affected articles, glossary, screenshots, links and verified-release metadata.
+Review affected articles, translations, glossary, screenshots, links and release markers for each app change. Keep all six translations current and add contextual in-app Help after the routes/content are settled. Extend platform detection instructions for 1.6.0 only after its behavior is verified.
