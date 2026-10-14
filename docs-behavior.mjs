@@ -45,3 +45,8 @@ export function savePlatform(storage, value) {
 export function platformForHeading(value, headingPlatform) {
   return ['ios','android'].includes(headingPlatform)?headingPlatform:value;
 }
+
+export function platformFromQuery(search) {
+  const platform = new URLSearchParams(search).get('platform');
+  return ['ios','android'].includes(platform) ? platform : null;
+}

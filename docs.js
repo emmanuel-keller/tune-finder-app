@@ -1,4 +1,4 @@
-import {queryTerms, prepareIndex, searchIndex, snippetFor, readPlatform, savePlatform, platformForHeading} from './docs-behavior.mjs';
+import {queryTerms, prepareIndex, searchIndex, snippetFor, readPlatform, savePlatform, platformForHeading, platformFromQuery} from './docs-behavior.mjs';
 (() => {
   const locale = document.body.dataset.locale;
   const menu = document.querySelector('.guide-menu');
@@ -10,7 +10,9 @@ import {queryTerms, prepareIndex, searchIndex, snippetFor, readPlatform, savePla
   const picker = document.querySelector('.platform-picker');
   let storage;
   try {storage = localStorage;} catch {}
-  let platform = readPlatform(storage);
+  const appPlatform = platformFromQuery(location.search);
+  let platform = appPlatform ?? readPlatform(storage);
+  if (appPlatform) savePlatform(storage, appPlatform);
   const applyPlatform = (value, respectHeading = true) => {
     const heading = document.getElementById(location.hash.slice(1));
     platform = platformForHeading(value, respectHeading ? heading?.closest('[data-platform]')?.dataset.platform : undefined);
@@ -23,10 +25,15 @@ import {queryTerms, prepareIndex, searchIndex, snippetFor, readPlatform, savePla
     picker.hidden = false; applyPlatform(platform);
     picker.addEventListener('change', event => {
       if (!['all','ios','android'].includes(event.target.value)) return;
-      // An explicit choice replaces an opposing deep link without jumping the page.
+      // Explicit user choices supersede the app hint and opposing heading.
       const headingPlatform = document.getElementById(location.hash.slice(1))?.closest('[data-platform]')?.dataset.platform;
-      if (headingPlatform && event.target.value !== 'all' && event.target.value !== headingPlatform) {
-        history.replaceState(null, '', location.pathname + location.search);
+      const clearHeading = headingPlatform && event.target.value !== headingPlatform;
+      const query = new URLSearchParams(location.search);
+      const hadHint = query.has('platform');
+      query.delete('platform');
+      if (hadHint || clearHeading) {
+        const search = query.toString();
+        history.replaceState(null, '', location.pathname + (search ? '?' + search : '') + (clearHeading ? '' : location.hash));
       }
       applyPlatform(event.target.value, false);
       savePlatform(storage, platform);
