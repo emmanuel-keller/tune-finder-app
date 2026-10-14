@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile, readdir} from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
-import {redirects} from '../scripts/docs-redirects.mjs';
+import {redirects,buildRedirects} from '../scripts/docs-redirects.mjs';
 import {activeLocales,ui} from '../scripts/docs-ui.mjs';
 import {parseArticle,renderMarkdown,inline,route,loadArticles,normalize,safeUrl} from '../scripts/docs-core.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
@@ -159,8 +159,10 @@ test('shared synchronization guidance and search suggestions cover both provider
 test('guides and public search stay versionless; redirects are not indexed',async()=>{
  const articles=await loadArticles(root);
  // Two- and three-part releases; avoid localized thousands such as 1.000 pages.
- const versionNumber=/\b\d+\.\d{1,2}(?:\.\d+)?\b(?![\d.]\d)/;
+ const versionNumber=/\bv?\d+\.\d{1,2}(?:\.\d+)?\b(?![\d.]\d)/i;
  assert.match("TuneFinder 1.5",versionNumber);
+ assert.match("TuneFinder v1.5",versionNumber);
+ assert.match("TuneFinder V1.6.0",versionNumber);
  assert.match("TuneFinder 1.6.0",versionNumber);
  assert.doesNotMatch("1.000 páginas",versionNumber);
  const sitemap=await readFile(root+'sitemap.xml','utf8');
@@ -214,4 +216,15 @@ test('troubleshooting translations do not retain retired purchase-limit lead-ins
    assert.ok(!index.includes(fragment));
   }
  }
+});
+
+test('redirect registration rejects missing destinations and active or duplicate route collisions',async()=>{
+ const articles=await loadArticles(root);
+ const paths=articles.map(a=>route(a.locale,a.id));
+ assert.throws(()=>buildRedirects(articles,paths,[{from:'old-guide',to:'missing-guide'}]),/Invalid redirect/);
+ assert.throws(()=>buildRedirects(articles,paths,[{from:'getting-started',to:'whats-new'}]),/Invalid redirect/);
+ assert.throws(()=>buildRedirects(articles,paths,[...redirects,...redirects]),/Invalid redirect/);
+ const entries=buildRedirects(articles,paths);
+ assert.deepEqual(entries.map(entry=>entry.locale),activeLocales);
+ assert.equal(entries.length,activeLocales.length);
 });
