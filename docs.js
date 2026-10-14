@@ -11,18 +11,18 @@ import {queryTerms, prepareIndex, searchIndex, snippetFor, readPlatform, savePla
   let storage;
   try {storage = localStorage;} catch {}
   const appPlatform = platformFromQuery(location.search);
-  let platform = appPlatform ?? readPlatform(storage);
+  let preferredPlatform = appPlatform ?? readPlatform(storage);
   if (appPlatform) savePlatform(storage, appPlatform);
   const applyPlatform = (value, respectHeading = true) => {
     const heading = document.getElementById(location.hash.slice(1));
-    platform = platformForHeading(value, respectHeading ? heading?.closest('[data-platform]')?.dataset.platform : undefined);
+    const effectivePlatform = platformForHeading(value, respectHeading ? heading?.closest('[data-platform]')?.dataset.platform : undefined);
     document.querySelectorAll('[data-platform]').forEach(section => {
-      section.hidden = platform !== 'all' && section.dataset.platform !== platform;
+      section.hidden = effectivePlatform !== 'all' && section.dataset.platform !== effectivePlatform;
     });
-    if (picker) picker.querySelectorAll('input').forEach(input => {input.checked=input.value===platform;});
+    if (picker) picker.querySelectorAll('input').forEach(input => {input.checked=input.value===effectivePlatform;});
   };
   if (picker) {
-    picker.hidden = false; applyPlatform(platform);
+    picker.hidden = false; applyPlatform(preferredPlatform);
     picker.addEventListener('change', event => {
       if (!['all','ios','android'].includes(event.target.value)) return;
       // Explicit user choices supersede the app hint and opposing heading.
@@ -35,10 +35,11 @@ import {queryTerms, prepareIndex, searchIndex, snippetFor, readPlatform, savePla
         const search = query.toString();
         history.replaceState(null, '', location.pathname + (search ? '?' + search : '') + (clearHeading ? '' : location.hash));
       }
-      applyPlatform(event.target.value, false);
-      savePlatform(storage, platform);
+      preferredPlatform = event.target.value;
+      applyPlatform(preferredPlatform, false);
+      savePlatform(storage, preferredPlatform);
     });
-    window.addEventListener('hashchange',()=>applyPlatform(platform));
+    window.addEventListener('hashchange',()=>applyPlatform(preferredPlatform));
   }
   const panel = document.querySelector('[data-search]');
   if (!panel) return;

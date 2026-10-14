@@ -53,3 +53,5 @@ Review affected articles, translations, glossary, screenshots and links for each
 ## App platform hints
 
 App Help links use `?platform=ios` or `?platform=android` before any section fragment. Valid hints override the saved browser preference on arrival and are remembered even on the documentation landing page. Existing platform-specific section links can still reveal their target instructions. Choosing a platform manually removes the URL hint and saves the explicit choice, so reloads and further guides respect it. Unsupported hints leave the existing preference unchanged.
+
+Platform-specific section links temporarily override the configured preference for the displayed page. Returning to a shared section restores the app hint or explicit user preference without changing saved storage. Regression tests parse actual replacement URLs and cover neutral, matching and opposing section fragments.

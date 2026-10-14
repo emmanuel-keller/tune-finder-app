@@ -36,6 +36,15 @@ test('platform preferences survive navigation, storage failure is safe, and dire
  const broken={getItem(){throw Error('Denied');},setItem(){throw Error('Denied');}};
  assert.equal(behavior.readPlatform(broken),'all');assert.doesNotThrow(()=>behavior.savePlatform(broken,'ios'));
 });
+function historyFor(location) {
+ return {paths:[],replaceState(_state,_title,path){
+  assert.equal(typeof path,'string');
+  const url=new URL(path,'https://tunefinder.app');
+  assert.equal(url.origin,'https://tunefinder.app');
+  this.paths.push(url.pathname+url.search+url.hash);
+  Object.assign(location,{pathname:url.pathname,search:url.search,hash:url.hash});
+ }};
+}
 test('actual client controller renders comma queries and synchronizes radio selection with heading visibility',async()=>{
  class Element {
   constructor(){this.dataset={};this.listeners={};this.children=[];this.value='';this.textContent='';this.hidden=false;this.checked=false;}
@@ -53,7 +62,7 @@ test('actual client controller renders comma queries and synchronizes radio sele
  const location={hash:'#share-ios',pathname:'/docs/import-pdf/',search:''};
  const layout={matches:false,addEventListener(type,callback){this.change=callback;}};
  const window={matchMedia:()=>layout,addEventListener(){}};
- const history={replaceState(){location.hash='';}};
+ const history=historyFor(location);
  let requested;
  const fetch=url=>{requested=url;return Promise.resolve({ok:true,json:async()=>[article()]});};
  // Execute the actual DOM controller with its imported production helpers supplied by the VM.
@@ -74,18 +83,19 @@ test('app platform hints accept only supported platforms',()=>{
  for(const query of ['','?platform=all','?platform=unknown','?platform=IOS']) assert.equal(behavior.platformFromQuery(query),null);
 });
 
-async function platformController({search='',saved='android',values=new Map([['tunefinder-docs-platform',saved]]),pickerPresent=true,blocked=false}={}) {
+async function platformController({search='',hash='',headingPlatform,saved='android',values=new Map([['tunefinder-docs-platform',saved]]),pickerPresent=true,blocked=false}={}) {
  const radios=['all','ios','android'].map(value=>({value,checked:false}));
  const sections=['ios','android'].map(platform=>({dataset:{platform},hidden:false}));
  const picker={hidden:true,listeners:{},querySelectorAll:()=>radios,addEventListener(event,callback){this.listeners[event]=callback;}};
- const location={pathname:'/docs/import-pdf/',search,hash:''};
- const document={body:{dataset:{locale:'en'}},querySelector:selector=>selector==='.platform-picker'&&pickerPresent?picker:null,querySelectorAll:()=>sections,getElementById:()=>null};
+ const location={pathname:'/docs/import-pdf/',search,hash};
+ const headings={'share-ios':'ios','share-android':'android',...(headingPlatform?{[hash.slice(1)]:headingPlatform}:{})};
+ const document={body:{dataset:{locale:'en'}},querySelector:selector=>selector==='.platform-picker'&&pickerPresent?picker:null,querySelectorAll:()=>sections,getElementById:id=>({closest:()=>sections.find(section=>section.dataset.platform===headings[id])})};
  const localStorage={getItem(key){if(blocked)throw new Error('Blocked');return values.get(key);},setItem(key,value){if(blocked)throw new Error('Blocked');values.set(key,value);}};
- const history={replaceState(_state,_title,path){const url=new URL(path,'https://tunefinder.app');location.search=url.search;location.hash=url.hash;}};
- const window={addEventListener(){}};
+ const history=historyFor(location);
+ const window={listeners:{},addEventListener(event,callback){this.listeners[event]=callback;}};
  const source=(await readFile(new URL('../docs.js',import.meta.url),'utf8')).replace(/^import[^\n]+\n/,'');
  runInNewContext(source,{...behavior,document,window,localStorage,location,history,URLSearchParams});
- return {radios,sections,picker,location,values};
+ return {radios,sections,picker,location,values,history,window};
 }
 test('app platform overrides saved preference; manual choice clears hint and persists across guides',async()=>{
  const page=await platformController({search:'?platform=ios&keep=value'});
@@ -106,4 +116,36 @@ test('documentation landing remembers app hints; invalid hints and blocked stora
  assert.equal(invalid.radios.find(r=>r.checked).value,'android');
  const blocked=await platformController({search:'?platform=ios',blocked:true});
  assert.equal(blocked.radios.find(r=>r.checked).value,'ios');
+});
+
+test('platform-specific hashes temporarily override preference and neutral hashes restore it',async()=>{
+ for(const saved of ['all','android']) {
+  const page=await platformController({saved});
+  page.location.hash='#share-ios';page.window.listeners.hashchange();
+  assert.equal(page.radios.find(r=>r.checked).value,'ios');
+  assert.equal(page.values.get('tunefinder-docs-platform'),saved);
+  page.location.hash='#overview';page.window.listeners.hashchange();
+  assert.equal(page.radios.find(r=>r.checked).value,saved);
+  assert.equal(page.sections[0].hidden,saved==='android');
+ }
+});
+test('manual selection strips app hint while retaining neutral or matching section fragments',async()=>{
+ for(const [hash,headingPlatform,selected] of [['#overview',undefined,'android'],['#share-ios','ios','ios']]) {
+  const page=await platformController({search:'?platform=ios&keep=1',hash,headingPlatform});
+  page.picker.listeners.change({target:{value:selected}});
+  assert.deepEqual(page.history.paths,[`/docs/import-pdf/?keep=1${hash}`]);
+  assert.equal(page.location.hash,hash);assert.equal(page.location.search,'?keep=1');
+  assert.equal(page.values.get('tunefinder-docs-platform'),selected);
+ }
+});
+test('manual selection clears conflicting sections and app hints without losing unrelated query data',async()=>{
+ for(const selected of ['android','all']) {
+  const page=await platformController({search:'?platform=ios&keep=1',hash:'#share-ios',headingPlatform:'ios'});
+  page.picker.listeners.change({target:{value:selected}});
+  assert.deepEqual(page.history.paths,['/docs/import-pdf/?keep=1']);
+  assert.equal(page.location.hash,'');assert.equal(page.location.search,'?keep=1');
+  assert.equal(page.radios.find(r=>r.checked).value,selected);
+  const reload=await platformController({search:page.location.search,hash:page.location.hash,values:page.values});
+  assert.equal(reload.radios.find(r=>r.checked).value,selected);
+ }
 });
