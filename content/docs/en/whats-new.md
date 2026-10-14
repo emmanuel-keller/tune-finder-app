@@ -2,7 +2,7 @@
 {
   "id": "whats-new",
   "title": "What’s new",
-  "summary": "Personal PDFs, reviewed OCR indexes, and a searchable library on iOS and Android.",
+  "summary": "Contextual Help, guides for your device, and easy access to purchase restoration.",
   "section": "What’s new",
   "order": 11,
   "platforms": [
@@ -10,13 +10,20 @@
     "android"
   ],
   "minVersion": "1.5.5",
-  "verifiedRelease": "1.5.5",
+  "verifiedRelease": "1.5.6",
   "related": [
     "getting-started",
     "android-drive"
   ]
 }
 ---
+
+## Help where you need it {#help}
+Tap the question-mark button on Search, Playlists, Books or another screen to open a relevant guide. When several topics apply, choose one from the Help menu. Guides open in your browser, in your app language, with instructions for your device selected automatically. You can change the platform in the guide.
+
+## Purchase and restoration in Settings {#purchase-restore}
+Open **Settings → Multi-Book Search** to purchase access or restore an existing purchase with the store account that bought it. Search and Books also have clearer navigation icons.
+
 ## Your personal PDF library {#library}
 TuneFinder imports PDFs into your own library and accepts actual PDFs shared from other apps on iOS and Android. The searchable book list and dedicated details screen make it easier to manage a growing collection.
 

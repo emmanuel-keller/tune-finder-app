@@ -26,10 +26,11 @@ test('Markdown escapes text, rejects unsafe links and requires stable anchors',(
 });
 test('all guides have corresponding translations and navigation',async()=>{
  const articles=await loadArticles(root);assert.equal(articles.length,66);
+ assert.equal(articles.find(a=>a.locale==='en' && a.id==='whats-new').verifiedRelease,'1.5.6');
  const coverage=['getting-started','import-pdf','manage-books','detect-titles','manual-index','search-reading','playlists','android-drive','settings-purchases','troubleshooting','whats-new'];
  for(const locale of activeLocales) assert.deepEqual(articles.filter(a=>a.locale===locale).map(a=>a.id),coverage);
- for(const a of articles) {assert.equal(a.verifiedRelease,'1.5.5');assert.equal(a.related.length,2);}
- for (const english of articles.filter(a=>a.locale==='en')) {for(const locale of activeLocales) {const translated=articles.find(a=>a.locale===locale&&a.id===english.id); assert.deepEqual(renderMarkdown(english.body,'en').headings.map(h=>h.id),renderMarkdown(translated.body,locale).headings.map(h=>h.id)); assert.deepEqual([...new Set(english.body.match(/TF-SYNC-\d+/g)??[])].sort(),[...new Set(translated.body.match(/TF-SYNC-\d+/g)??[])].sort());}}
+ for(const a of articles) assert.equal(a.related.length,2);
+ for (const english of articles.filter(a=>a.locale==='en')) {for(const locale of activeLocales) {const translated=articles.find(a=>a.locale===locale&&a.id===english.id); assert.equal(translated.verifiedRelease,english.verifiedRelease); assert.equal(translated.minVersion,english.minVersion); assert.deepEqual(renderMarkdown(english.body,'en').headings.map(h=>h.id),renderMarkdown(translated.body,locale).headings.map(h=>h.id)); assert.deepEqual([...new Set(english.body.match(/TF-SYNC-\d+/g)??[])].sort(),[...new Set(translated.body.match(/TF-SYNC-\d+/g)??[])].sort());}}
  assert.equal(route('fr','import-pdf'),'/fr/docs/import-pdf/');
 });
 test('search data contains accented terms and support references in the selected language',async()=>{
@@ -190,13 +191,16 @@ test('guides and public search stay versionless; redirects are not indexed',asyn
  }
 });
 
-test('purchase guide actions match audited effective app translations',async()=>{
+test('purchase guides match audited effective app translations',async()=>{
  const snapshot=JSON.parse(await readFile(root+'content/app-ui-labels.json','utf8'));
  assert.match(snapshot.source.commit,/^[a-f0-9]{40}$/);
  assert.equal(snapshot.source.path,'src/i18n.ts');
  const articles=await loadArticles(root);
  for(const locale of activeLocales) {
   const body=articles.find(a=>a.locale===locale && a.id==='settings-purchases').body;
+  const highlights=articles.find(a=>a.locale===locale && a.id==='whats-new').body;
+  const {settings,multiBookSearch}=snapshot.labels[locale];
+  assert.ok(highlights.includes(`**${settings} → ${multiBookSearch}**`),`${locale} What's new purchase navigation differs from audited app labels`);
   assert.deepEqual(Object.keys(snapshot.labels[locale]),['settings','multiBookSearch','restorePurchase','chooseSongbooks']);
   for(const [key,label] of Object.entries(snapshot.labels[locale])) {
    assert.ok(body.includes(`**${label}**`),`${locale} purchase guide missing ${key}: ${label}`);
