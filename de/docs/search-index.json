@@ -182,18 +182,20 @@
   {
     "id": "whats-new",
     "title": "Neuigkeiten",
-    "summary": "Persönliche PDFs, geprüfte OCR-Indizes und eine durchsuchbare Bibliothek auf iOS und Android.",
+    "summary": "Kontextbezogene Hilfe, Anleitungen für dein Gerät und direkter Zugriff auf die Kaufwiederherstellung.",
     "url": "/de/docs/whats-new/",
     "platforms": [
       "ios",
       "android"
     ],
     "headings": [
+      "Hilfe auf dem passenden Bildschirm",
+      "Kauf und Wiederherstellung in den Einstellungen",
       "Persönliche PDF-Bibliothek",
       "Bearbeitbare OCR-Indizes",
       "Suche, Darstellung und Synchronisierung",
       "Verfügbarkeit und Grenzen"
     ],
-    "text": "Persönliche PDF-Bibliothek TuneFinder importiert eigene PDFs und empfängt echte Dateien aus iOS-/Android-Apps. Durchsuchbare Liste und Details helfen großen Sammlungen. Bearbeitbare OCR-Indizes Lokale OCR schlägt Titel/Bereiche vor: prüfe, korrigiere und speichere vor Suche. Setze nach Unterbrechung fort oder baue gelöschte Indizes bei vorhandener PDF neu auf. Suche, Darstellung und Synchronisierung Kostenlos wählst du ein indexiertes Buch, ohne andere zu löschen. Mehrbuch-Suche sucht mehrere. Untere Navigation, Telefon-/Tablet-Layouts und lokalisierte Fehler helfen. Optionaler Sync bleibt getrennt: iCloud Documents auf iOS, verbundenes Google Drive auf Android. Import behält Originale; OCR-Entwürfe bleiben bis Annahme lokal. Verfügbarkeit und Grenzen Die OCR-Genauigkeit hängt vom PDF ab und erfordert eine Prüfung. Informationen zu Kauf und Wiederherstellung findest du unter Suchzugang und App-Sprache. Beginne mit Erster Bibliothek oder allen Anleitungen."
+    "text": "Hilfe auf dem passenden Bildschirm Tippe auf das Fragezeichen in Suche, Playlists, Bücher oder auf einem anderen Bildschirm, um die passende Anleitung zu öffnen. Wenn mehrere Themen angeboten werden, wähle eines im Hilfemenü. Die Anleitungen öffnen sich im Browser in deiner App-Sprache; die Hinweise für dein Gerät werden automatisch ausgewählt. Du kannst die Plattform in der Anleitung wechseln. Kauf und Wiederherstellung in den Einstellungen Öffne Einstellungen → Mehrbuch-Suche, um den Zugriff zu kaufen oder einen bestehenden Kauf mit dem ursprünglichen Store-Konto wiederherzustellen. Suche und Bücher haben außerdem klarere Navigationssymbole. Persönliche PDF-Bibliothek TuneFinder importiert eigene PDFs und empfängt echte Dateien aus iOS-/Android-Apps. Durchsuchbare Liste und Details helfen großen Sammlungen. Bearbeitbare OCR-Indizes Lokale OCR schlägt Titel/Bereiche vor: prüfe, korrigiere und speichere vor Suche. Setze nach Unterbrechung fort oder baue gelöschte Indizes bei vorhandener PDF neu auf. Suche, Darstellung und Synchronisierung Kostenlos wählst du ein indexiertes Buch, ohne andere zu löschen. Mehrbuch-Suche sucht mehrere. Untere Navigation, Telefon-/Tablet-Layouts und lokalisierte Fehler helfen. Optionaler Sync bleibt getrennt: iCloud Documents auf iOS, verbundenes Google Drive auf Android. Import behält Originale; OCR-Entwürfe bleiben bis Annahme lokal. Verfügbarkeit und Grenzen Die OCR-Genauigkeit hängt vom PDF ab und erfordert eine Prüfung. Informationen zu Kauf und Wiederherstellung findest du unter Suchzugang und App-Sprache. Beginne mit Erster Bibliothek oder allen Anleitungen."
   }
 ]

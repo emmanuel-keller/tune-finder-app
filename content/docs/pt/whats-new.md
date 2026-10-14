@@ -2,7 +2,7 @@
 {
   "id": "whats-new",
   "title": "Novidades",
-  "summary": "PDF pessoais, índices OCR revistos e biblioteca pesquisável no iOS e Android.",
+  "summary": "Ajuda contextual, guias para o seu dispositivo e acesso direto ao restauro de compras.",
   "section": "Novidades",
   "order": 11,
   "platforms": [
@@ -10,13 +10,20 @@
     "android"
   ],
   "minVersion": "1.5.5",
-  "verifiedRelease": "1.5.5",
+  "verifiedRelease": "1.5.6",
   "related": [
     "getting-started",
     "android-drive"
   ]
 }
 ---
+
+## Ajuda quando precisa {#help}
+Toque no ponto de interrogação na Pesquisa, nas Playlists, nos Livros ou noutro ecrã para abrir o guia relevante. Quando houver vários tópicos, escolha um no menu de Ajuda. Os guias abrem no navegador, no idioma da aplicação, com as instruções para o seu dispositivo selecionadas automaticamente. Pode mudar a plataforma no guia.
+
+## Compra e restauro nas Definições {#purchase-restore}
+Abra **Definições → Busca em vários livros** para comprar o acesso ou restaurar uma compra existente com a conta que a efetuou. A Pesquisa e os Livros também têm ícones de navegação mais claros.
+
 ## Biblioteca PDF pessoal {#library}
 TuneFinder importa PDF próprios e recebe ficheiros reais de apps iOS/Android. Lista pesquisável e detalhes facilitam coleções grandes.
 ## Índices OCR editáveis {#ocr}

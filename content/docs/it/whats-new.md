@@ -2,7 +2,7 @@
 {
   "id": "whats-new",
   "title": "Novità",
-  "summary": "PDF personali, indici OCR verificati e libreria ricercabile su iOS e Android.",
+  "summary": "Aiuto contestuale, guide per il tuo dispositivo e accesso diretto al ripristino degli acquisti.",
   "section": "Novità",
   "order": 11,
   "platforms": [
@@ -10,13 +10,20 @@
     "android"
   ],
   "minVersion": "1.5.5",
-  "verifiedRelease": "1.5.5",
+  "verifiedRelease": "1.5.6",
   "related": [
     "getting-started",
     "android-drive"
   ]
 }
 ---
+
+## Aiuto dove serve {#help}
+Tocca il punto interrogativo in Cerca, Playlist, Libri o in un’altra schermata per aprire la guida pertinente. Se vengono proposti più argomenti, scegline uno nel menu di aiuto. Le guide si aprono nel browser, nella lingua dell’app, con le istruzioni per il tuo dispositivo selezionate automaticamente. Puoi cambiare piattaforma nella guida.
+
+## Acquisto e ripristino nelle Impostazioni {#purchase-restore}
+Apri **Impostazioni → Ricerca multi-libro** per acquistare l’accesso o ripristinare un acquisto esistente con l’account che lo ha effettuato. Cerca e Libri hanno anche icone di navigazione più chiare.
+
 ## Libreria PDF personale {#library}
 TuneFinder importa PDF propri e riceve file reali da app iOS/Android. Lista ricercabile e dettagli facilitano raccolte grandi.
 ## Indici OCR modificabili {#ocr}

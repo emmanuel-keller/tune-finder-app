@@ -28,8 +28,8 @@ test('all guides have corresponding translations and navigation',async()=>{
  const articles=await loadArticles(root);assert.equal(articles.length,66);
  const coverage=['getting-started','import-pdf','manage-books','detect-titles','manual-index','search-reading','playlists','android-drive','settings-purchases','troubleshooting','whats-new'];
  for(const locale of activeLocales) assert.deepEqual(articles.filter(a=>a.locale===locale).map(a=>a.id),coverage);
- for(const a of articles) {assert.equal(a.verifiedRelease,'1.5.5');assert.equal(a.related.length,2);}
- for (const english of articles.filter(a=>a.locale==='en')) {for(const locale of activeLocales) {const translated=articles.find(a=>a.locale===locale&&a.id===english.id); assert.deepEqual(renderMarkdown(english.body,'en').headings.map(h=>h.id),renderMarkdown(translated.body,locale).headings.map(h=>h.id)); assert.deepEqual([...new Set(english.body.match(/TF-SYNC-\d+/g)??[])].sort(),[...new Set(translated.body.match(/TF-SYNC-\d+/g)??[])].sort());}}
+ for(const a of articles) assert.equal(a.related.length,2);
+ for (const english of articles.filter(a=>a.locale==='en')) {for(const locale of activeLocales) {const translated=articles.find(a=>a.locale===locale&&a.id===english.id); assert.equal(translated.verifiedRelease,english.verifiedRelease); assert.equal(translated.minVersion,english.minVersion); assert.deepEqual(renderMarkdown(english.body,'en').headings.map(h=>h.id),renderMarkdown(translated.body,locale).headings.map(h=>h.id)); assert.deepEqual([...new Set(english.body.match(/TF-SYNC-\d+/g)??[])].sort(),[...new Set(translated.body.match(/TF-SYNC-\d+/g)??[])].sort());}}
  assert.equal(route('fr','import-pdf'),'/fr/docs/import-pdf/');
 });
 test('search data contains accented terms and support references in the selected language',async()=>{
