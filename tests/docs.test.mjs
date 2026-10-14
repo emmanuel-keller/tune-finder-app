@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile, readdir} from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
+import {redirects,buildRedirects} from '../scripts/docs-redirects.mjs';
 import {activeLocales,ui} from '../scripts/docs-ui.mjs';
 import {parseArticle,renderMarkdown,inline,route,loadArticles,normalize,safeUrl} from '../scripts/docs-core.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
@@ -23,9 +24,9 @@ test('Markdown escapes text, rejects unsafe links and requires stable anchors',(
  const r=renderMarkdown('## Title {#title}\n\n1. One\n2. Two\n\n::: ios\n### iOS {#ios}\n**Bold**\n:::','en');
  assert.match(r.html,/<ol><li>One<\/li><li>Two<\/li><\/ol>/);assert.match(r.html,/data-platform="ios"/);
 });
-test('all planned 1.5.5 guides have corresponding translations and navigation',async()=>{
+test('all guides have corresponding translations and navigation',async()=>{
  const articles=await loadArticles(root);assert.equal(articles.length,66);
- const coverage=['getting-started','import-pdf','manage-books','detect-titles','manual-index','search-reading','playlists','android-drive','settings-purchases','troubleshooting','release-1-5-5'];
+ const coverage=['getting-started','import-pdf','manage-books','detect-titles','manual-index','search-reading','playlists','android-drive','settings-purchases','troubleshooting','whats-new'];
  for(const locale of activeLocales) assert.deepEqual(articles.filter(a=>a.locale===locale).map(a=>a.id),coverage);
  for(const a of articles) {assert.equal(a.verifiedRelease,'1.5.5');assert.equal(a.related.length,2);}
  for (const english of articles.filter(a=>a.locale==='en')) {for(const locale of activeLocales) {const translated=articles.find(a=>a.locale===locale&&a.id===english.id); assert.deepEqual(renderMarkdown(english.body,'en').headings.map(h=>h.id),renderMarkdown(translated.body,locale).headings.map(h=>h.id)); assert.deepEqual([...new Set(english.body.match(/TF-SYNC-\d+/g)??[])].sort(),[...new Set(translated.body.match(/TF-SYNC-\d+/g)??[])].sort());}}
@@ -153,4 +154,77 @@ test('shared synchronization guidance and search suggestions cover both provider
   assert.ok(ui[locale].placeholder.includes(({en:'synchronization',fr:'synchronisation',pt:'sincronização',de:'Synchronisierung',es:'sincronización',it:'sincronizzazione'})[locale]));
   assert.ok(ui[locale].empty.includes(({en:'synchronization',fr:'synchronisation',pt:'sincronização',de:'Synchronisierung',es:'sincronización',it:'sincronizzazione'})[locale]));
  }
+});
+
+test('guides and public search stay versionless; redirects are not indexed',async()=>{
+ const articles=await loadArticles(root);
+ // Two- and three-part releases; avoid localized thousands such as 1.000 pages.
+ const versionNumber=/\bv?\d+\.\d{1,2}(?:\.\d+)?\b(?![\d.]\d)/i;
+ assert.match("TuneFinder 1.5",versionNumber);
+ assert.match("TuneFinder v1.5",versionNumber);
+ assert.match("TuneFinder V1.6.0",versionNumber);
+ assert.match("TuneFinder 1.6.0",versionNumber);
+ assert.doesNotMatch("1.000 páginas",versionNumber);
+ const sitemap=await readFile(root+'sitemap.xml','utf8');
+ for(const article of articles) {
+  assert.doesNotMatch(article.body,versionNumber);
+  const html=await readFile(root+route(article.locale,article.id)+'index.html','utf8');
+  assert.doesNotMatch(html,versionNumber);
+ }
+ for(const locale of activeLocales) {
+  for (const file of ['index.html','search-index.json']) {
+   const content=await readFile(root+route(locale)+file,'utf8');
+   assert.doesNotMatch(content,versionNumber);
+  }
+  for(const {from,to} of redirects) {
+   const destination=route(locale,to), legacy=route(locale,from);
+   const redirect=await readFile(root+legacy+'index.html','utf8');
+   const title=articles.find(a=>a.locale===locale && a.id===to).title;
+   assert.ok(redirect.includes(`content="0;url=${destination}"`));
+   assert.ok(redirect.includes(`href="https://tunefinder.app${destination}"`));
+   assert.ok(redirect.includes('content="noindex,follow"'));
+   assert.ok(redirect.includes(`>${title}</a>`));
+   assert.ok(!sitemap.includes(`<loc>https://tunefinder.app${legacy}</loc>`));
+   assert.ok(sitemap.includes(`<loc>https://tunefinder.app${destination}</loc>`));
+  }
+ }
+});
+
+test('purchase guide actions match audited effective app translations',async()=>{
+ const snapshot=JSON.parse(await readFile(root+'content/app-ui-labels.json','utf8'));
+ assert.match(snapshot.source.commit,/^[a-f0-9]{40}$/);
+ assert.equal(snapshot.source.path,'src/i18n.ts');
+ const articles=await loadArticles(root);
+ for(const locale of activeLocales) {
+  const body=articles.find(a=>a.locale===locale && a.id==='settings-purchases').body;
+  assert.deepEqual(Object.keys(snapshot.labels[locale]),['settings','multiBookSearch','restorePurchase','chooseSongbooks']);
+  for(const [key,label] of Object.entries(snapshot.labels[locale])) {
+   assert.ok(body.includes(`**${label}**`),`${locale} purchase guide missing ${key}: ${label}`);
+  }
+ }
+});
+
+test('troubleshooting translations do not retain retired purchase-limit lead-ins',async()=>{
+ const articles=await loadArticles(root);
+ const fragments=['Siehe Kaufgrenze unter','Consulta la limitación de compra en','Vedi la limitazione di acquisto in','Veja a limitação de compra em'];
+ for(const article of articles.filter(a=>a.id==='troubleshooting')) {
+  const html=await readFile(root+route(article.locale,article.id)+'index.html','utf8');
+  const index=await readFile(root+route(article.locale)+'search-index.json','utf8');
+  for(const fragment of fragments) {
+   assert.ok(!article.body.includes(fragment));
+   assert.ok(!html.includes(fragment));
+   assert.ok(!index.includes(fragment));
+  }
+ }
+});
+
+test('redirect registration rejects missing destinations and active or duplicate route collisions',async()=>{
+ const articles=await loadArticles(root);
+ const paths=articles.map(a=>route(a.locale,a.id));
+ assert.throws(()=>buildRedirects(articles,paths,[{from:'old-guide',to:'missing-guide'}]),/Invalid redirect/);
+ assert.throws(()=>buildRedirects(articles,paths,[{from:'getting-started',to:'whats-new'}]),/Invalid redirect/);
+ assert.throws(()=>buildRedirects(articles,paths,[...redirects,...redirects]),/Invalid redirect/);
+ const entries=buildRedirects(articles,paths);
+ assert.deepEqual(entries.map(entry=>entry.locale),activeLocales);
+ assert.equal(entries.length,activeLocales.length);
 });

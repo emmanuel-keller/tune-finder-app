@@ -1,6 +1,6 @@
 # TuneFinder documentation sources
 
-The complete 1.5.5 guide covers 11 topics in English, French, Portuguese, German, Spanish and Italian: first library/search, PDF import/share, book/file management, OCR review, manual/CSV indexes, search/reading, playlists, synchronization, purchases/settings, troubleshooting and release notes. Every article has equivalent stable routes and heading anchors in all six languages, its own localized search data, UI labels and matching screenshots. Portuguese uses the neutral `pt` language/route. Optional in-app Help links remain subsequent work; Apple Intelligence belongs to the later 1.6.0 update.
+The complete guide covers 11 topics in English, French, Portuguese, German, Spanish and Italian: first library/search, PDF import/share, book/file management, OCR review, manual/CSV indexes, search/reading, playlists, synchronization, purchases/settings, troubleshooting and what’s new. Every article has equivalent stable routes and heading anchors in all six languages, its own localized search data, UI labels and matching screenshots. Portuguese uses the neutral `pt` language/route. The documentation always describes the current app. Update all six languages alongside app changes; public pages do not display release numbers.
 
 ## Build and validate
 
@@ -13,7 +13,7 @@ node --test tests/*.test.mjs
 git diff --check
 ```
 
-GitHub Pages serves committed HTML from `main`. Commit generated pages and search indexes with their sources. CI verifies tracked and untracked output with `scripts/check-generated.mjs`. Review PR #5 before merging it into the live site.
+GitHub Pages serves committed HTML from `main`. Commit generated pages and search indexes with their sources. CI verifies tracked and untracked output with `scripts/check-generated.mjs`. Review generated output before merging it into the live site.
 
 ## Add or edit an article
 
@@ -23,7 +23,7 @@ Use matching-language screenshots and descriptive captions. Figures link to full
 
 Configure translated documentation languages once in `activeLocales` in `scripts/docs-ui.mjs`. Adding a language requires its complete article files and UI translations. Marketing locale generation and documentation share UI labels in this file. Refresh the glossary snapshot `terminology.json` at release time; provenance is in `terminology-source.json`. A playlist is the app’s practice/performance collection, rather than a separate setlist concept.
 
-## Behavior audit: 1.5.5
+## Behavior audit
 
 | Coverage | Source checked | Manual review to retain |
 | --- | --- | --- |
@@ -32,14 +32,20 @@ Configure translated documentation languages once in `activeLocales` in `scripts
 | Search/reading and playlists | Songs, Viewer, Playlist, Playlists and searchable-source selection | Viewer controls, adding/reordering/removing entries and missing-PDF references |
 | iCloud/Google Drive synchronization | Sync, native provider behavior and Drive guide | iCloud enable/pause; Google account consent; same-platform two-device propagation |
 | Purchases and language | Addon, App, MainTabs, SettingsButton and LanguageOptions | Store recognition/restoration with actual accounts; language persistence |
-| Troubleshooting and release notes | Stable error references, released PDF/OCR limits and release guide | Confirm user-visible explanations and references match device dialogs |
+| Troubleshooting and what’s new | Stable error references, released PDF/OCR limits and what’s new guide | Confirm user-visible explanations and references match device dialogs |
 
 Sources describe the shipped `v1.5.5` release. Controls include **Save tune** / **Enregistrer** for the editor and **Sync now** / **Synchroniser** for manual sync. CSV uses comma-separated Title,FirstPage,LastPage; export shares CSV text. There is no global PDF page-offset control. Book deletion retains playlist references. Cloud providers remain separate across iOS and Android.
 
-A release limitation was found during the audit: AddonScreen is registered but has no navigation entry in the shipped main views. The purchase guide documents the missing purchase/restore entry instead of inventing steps. A separate app fix should restore that entry, followed by updating the guide. Existing purchase recognition at startup is distinct from explicit restoration. Do not claim cross-store entitlement transfer.
+Purchase and restore controls are accessed through Settings → Multi-Book Search. The app patch and updated instructions must ship together. Existing purchase recognition at startup is distinct from explicit restoration. Do not claim cross-store entitlement transfer.
 
 Browser checks establish website behavior, not physical-device sync, purchase outcomes or OCR accuracy. Follow the task procedures on devices before changing the verified-release baseline. Existing screenshots are isolated 1.5.5 release captures; Android sync images use matching Android captures. The iOS example explicitly shows iCloud unavailable. No personal PDFs/accounts are used.
 
 ## Release maintenance
 
-Review affected articles, translations, glossary, screenshots, links and release markers for each app change. Keep all six translations current and add contextual in-app Help after the routes/content are settled. Extend platform detection instructions for 1.6.0 only after its behavior is verified.
+Review affected articles, translations, glossary, screenshots and links for each app change. Keep all six translations current with the latest app. Internal minVersion and verifiedRelease metadata records audit provenance only and is never shown to readers. Keep the versionless whats-new route current; old release routes redirect to it. Document new platform detection options only after their behavior is verified.
+
+## What’s new maintenance policy
+
+`whats-new` is a curated overview of the current app, not a cumulative changelog. At each app update, revise or replace its highlights in all six languages to reflect what users can use now. Retain stable topical anchors (`library`, `ocr`, `search-sync`, `limits`) while updating their content. Do not add versioned or dated entries to this guide. Historical release notes belong in the app repository’s GitHub Releases; they are not stored in the user guide. Add retired article routes to `scripts/docs-redirects.mjs`; the builder excludes those exact paths from the sitemap and labels redirect links with the translated destination title.
+
+`content/app-ui-labels.json` is an audited snapshot of purchase-navigation labels from the app localization dictionary, with its source commit recorded. When these app labels change, read the effective translations (including overrides), refresh the snapshot and corresponding guide text together, then run the website tests. This snapshot keeps website CI independent of an adjacent app checkout; it does not automatically detect later changes in the app repository.

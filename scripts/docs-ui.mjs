@@ -16,9 +16,8 @@ export const ui = {
     "next": "Next",
     "platform": "Show instructions for",
     "all": "Both platforms",
-    "intro": "Practical guides for your TuneFinder 1.5.5 library.",
-    "scope": "The 1.5.5 guide covers your library, indexes, search, playlists, synchronization, settings and troubleshooting. Available in six languages.",
-    "version": "Verified with TuneFinder",
+    "intro": "Practical guides for your TuneFinder library.",
+    "scope": "The guide covers your library, indexes, search, playlists, synchronization, settings and troubleshooting. Available in six languages.",
     "notice": "This guide is not yet translated. Read it in English or French.",
     "available": "Available guides",
     "support": "Contact support",
@@ -43,9 +42,8 @@ export const ui = {
     "next": "Suivant",
     "platform": "Afficher les instructions pour",
     "all": "Les deux plateformes",
-    "intro": "Des guides pratiques pour votre bibliothèque TuneFinder 1.5.5.",
-    "scope": "Le guide 1.5.5 couvre la bibliothèque, les index, la recherche, les playlists, la synchronisation, les paramètres et le dépannage. Disponible en six langues.",
-    "version": "Vérifié avec TuneFinder",
+    "intro": "Des guides pratiques pour votre bibliothèque TuneFinder.",
+    "scope": "Le guide couvre la bibliothèque, les index, la recherche, les playlists, la synchronisation, les paramètres et le dépannage. Disponible en six langues.",
     "notice": "Ce guide n’est pas encore traduit. Consultez-le en anglais ou en français.",
     "available": "Guides disponibles",
     "support": "Contacter l’assistance",
@@ -76,9 +74,8 @@ export const ui = {
     "next": "Seguinte",
     "platform": "Mostrar instruções para",
     "all": "Ambas as plataformas",
-    "intro": "Guias práticos para a biblioteca TuneFinder 1.5.5.",
-    "scope": "O guia 1.5.5 cobre biblioteca, índices, pesquisa, playlists, sincronização, definições e resolução de problemas. Disponível em seis idiomas.",
-    "version": "Verificado com TuneFinder",
+    "intro": "Guias práticos para a biblioteca TuneFinder.",
+    "scope": "O guia cobre biblioteca, índices, pesquisa, playlists, sincronização, definições e resolução de problemas. Disponível em seis idiomas.",
     "support": "Contactar o apoio"
   },
   "de": {
@@ -103,9 +100,8 @@ export const ui = {
     "next": "Weiter",
     "platform": "Anweisungen anzeigen für",
     "all": "Beide Plattformen",
-    "intro": "Praktische Anleitungen für deine TuneFinder-1.5.5-Bibliothek.",
-    "scope": "Die Anleitung für 1.5.5 umfasst Bibliothek, Indizes, Suche, Playlists, Synchronisierung, Einstellungen und Fehlerbehebung. In sechs Sprachen verfügbar.",
-    "version": "Geprüft mit TuneFinder",
+    "intro": "Praktische Anleitungen für deine TuneFinder-Bibliothek.",
+    "scope": "Die Anleitung umfasst Bibliothek, Indizes, Suche, Playlists, Synchronisierung, Einstellungen und Fehlerbehebung. In sechs Sprachen verfügbar.",
     "support": "Hilfe kontaktieren"
   },
   "es": {
@@ -130,9 +126,8 @@ export const ui = {
     "next": "Siguiente",
     "platform": "Mostrar instrucciones para",
     "all": "Ambas plataformas",
-    "intro": "Guías prácticas para tu biblioteca TuneFinder 1.5.5.",
-    "scope": "La guía de 1.5.5 cubre biblioteca, índices, búsqueda, listas, sincronización, ajustes y solución de problemas. Disponible en seis idiomas.",
-    "version": "Verificado con TuneFinder",
+    "intro": "Guías prácticas para tu biblioteca TuneFinder.",
+    "scope": "La guía cubre biblioteca, índices, búsqueda, listas, sincronización, ajustes y solución de problemas. Disponible en seis idiomas.",
     "support": "Contactar con ayuda"
   },
   "it": {
@@ -157,9 +152,8 @@ export const ui = {
     "next": "Successiva",
     "platform": "Mostra istruzioni per",
     "all": "Entrambe le piattaforme",
-    "intro": "Guide pratiche per la libreria TuneFinder 1.5.5.",
-    "scope": "La guida 1.5.5 copre libreria, indici, ricerca, playlist, sincronizzazione, impostazioni e risoluzione dei problemi. Disponibile in sei lingue.",
-    "version": "Verificato con TuneFinder",
+    "intro": "Guide pratiche per la libreria TuneFinder.",
+    "scope": "La guida copre libreria, indici, ricerca, playlist, sincronizzazione, impostazioni e risoluzione dei problemi. Disponibile in sei lingue.",
     "support": "Contattare assistenza"
   }
 };

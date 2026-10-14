@@ -22,8 +22,17 @@ Personal PDF import, manual indexes, OCR drafts, and choosing one indexed search
 
 An index must still be saved and its PDF available to open a result. Multi-Book Search does not supply PDF documents or improve OCR recognition.
 
-## Purchase and restoration in 1.5.5 {#purchase}
-The Multi-Book Search screen has a store purchase control and **Restore purchase**. However, 1.5.5 has no entry point to that screen in its main navigation. If you need to purchase or restore access and cannot reach the controls, [contact support](mailto:contact@tunefinder.app) rather than deleting your library or purchasing again.
+## Open purchase and restore controls {#open-search-access}
+
+1. Open **Settings** using the gear button.
+2. Tap **Multi-Book Search**.
+3. To purchase, use the purchase button and confirm the price in the platform’s store. To recover an existing purchase, use **Restore purchase** with the store account that bought it.
+4. Wait for confirmation. If access is already enabled, the screen offers **Choose your books** to return to your library.
+
+The entry is available on iOS and Android, including when cloud sync is unavailable. Opening Settings does not start a purchase. Purchase or restoration still requires the platform’s store to be available.
+
+## Purchase and restoration {#purchase}
+If you cannot open the purchase or restoration controls, [contact support](mailto:contact@tunefinder.app) rather than deleting your library or purchasing again.
 
 The app can recognize an existing store purchase at startup. Use the store account that bought it. Where the restoration screen is accessible, **Restore purchase** requests the store’s existing entitlement; wait for its confirmation before expecting multi-book results.
 

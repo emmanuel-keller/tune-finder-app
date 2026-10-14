@@ -1,5 +1,6 @@
 import {readFile, writeFile, mkdir, access} from 'node:fs/promises';
 import {ui, names, activeLocales} from './docs-ui.mjs';
+import {buildRedirects} from './docs-redirects.mjs';
 import {pngDimensions} from './docs-images.mjs';
 import {fileURLToPath} from 'node:url';
 import {escape as e, locales, route, renderMarkdown, loadArticles} from './docs-core.mjs';
@@ -41,7 +42,7 @@ for (const locale of locales) {
    }
    continue;
  }
- output.set(route(locale),shell(locale,'',t.docs,`<p class="eyebrow">TuneFinder 1.5.5</p><h1>${t.docs}</h1><p class="lead">${t.intro}</p><p class="notice">${t.scope}</p><div class="guide-cards">${own.map(a=>`<article><p class="eyebrow">${e(a.section)}</p><h2><a href="${route(locale,a.id)}">${e(a.title)}</a></h2><p>${e(a.summary)}</p><span class="badge">${a.platforms.length===2?'iOS · Android':'Android'}</span></article>`).join('')}</div>`));
+ output.set(route(locale),shell(locale,'',t.docs,`<p class="eyebrow">TuneFinder</p><h1>${t.docs}</h1><p class="lead">${t.intro}</p><p class="notice">${t.scope}</p><div class="guide-cards">${own.map(a=>`<article><p class="eyebrow">${e(a.section)}</p><h2><a href="${route(locale,a.id)}">${e(a.title)}</a></h2><p>${e(a.summary)}</p><span class="badge">${a.platforms.length===2?'iOS · Android':'Android'}</span></article>`).join('')}</div>`));
  for (const [i,a] of own.entries()) {
   const r=rendered.get(`${locale}/${a.id}`);
   const toc=`<ul>${r.headings.filter(h=>h.level===2).map(h=>`<li><a href="#${h.id}">${e(h.title)}</a></li>`).join('')}</ul>`;
@@ -49,7 +50,7 @@ for (const locale of locales) {
   const contents = `<details class="inline-toc"><summary>${t.contents}</summary>${toc}</details>`;
   const related=`<section class="related"><h2>${t.related}</h2><ul>${a.related.map(id=>`<li><a href="${route(locale,id)}">${e(own.find(x=>x.id===id).title)}</a></li>`).join('')}</ul></section>`;
   const pager=`<nav class="pager" aria-label="${t.browse}">${own[i-1]?`<a rel="prev" href="${route(locale,own[i-1].id)}">← ${t.prev}: ${e(own[i-1].title)}</a>`:'<span></span>'}${own[i+1]?`<a rel="next" href="${route(locale,own[i+1].id)}">${t.next}: ${e(own[i+1].title)} →</a>`:''}</nav>`;
-  output.set(route(locale,a.id),shell(locale,a.id,a.title,`<article><p class="eyebrow">${e(a.section)} · ${a.platforms.length===2?'iOS · Android':'Android'}</p><h1>${e(a.title)}</h1><p class="lead">${e(a.summary)}</p><p class="verified">${t.version} ${a.verifiedRelease}</p>${contents}${controls}${r.html}${related}${pager}</article>`,toc));
+  output.set(route(locale,a.id),shell(locale,a.id,a.title,`<article><p class="eyebrow">${e(a.section)} · ${a.platforms.length===2?'iOS · Android':'Android'}</p><h1>${e(a.title)}</h1><p class="lead">${e(a.summary)}</p>${contents}${controls}${r.html}${related}${pager}</article>`,toc));
  }
  const index=own.map(a=>({id:a.id,title:a.title,summary:a.summary,url:route(locale,a.id),platforms:a.platforms,headings:rendered.get(`${locale}/${a.id}`).headings.map(h=>h.title),text:rendered.get(`${locale}/${a.id}`).text}));
  await mkdir(`${root}${route(locale)}`,{recursive:true});
@@ -69,8 +70,14 @@ for (const [path,html] of output) {
   }
  }
 }
+// Keep redirects separate from indexable article routes.
+const redirectEntries = buildRedirects(articles, output.keys());
+const redirectPaths = new Set(redirectEntries.map(entry=>entry.path));
+for (const {locale,path,destination,title} of redirectEntries) {
+ output.set(path,`<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=${destination}"><link rel="canonical" href="${origin+destination}"><meta name="robots" content="noindex,follow"><title>${e(title)} — TuneFinder</title></head><body><a href="${destination}">${e(title)}</a></body></html>`);
+}
 for (const [path,html] of output) {await mkdir(root+path,{recursive:true}); await writeFile(root+path+'index.html',html+'\n');}
 const sitemap = (await readFile(root+'sitemap.xml','utf8')).replace(/\s*<!-- documentation --><url>[\s\S]*?<\/url>/g,'');
-const urls = [...output.keys()].filter(p=>activeLocales.some(locale=>p.startsWith(route(locale)))).map(p=>`  <!-- documentation --><url><loc>${origin+p}</loc><changefreq>monthly</changefreq></url>`).join('\n');
+const urls = [...output.keys()].filter(p=>activeLocales.some(locale=>p.startsWith(route(locale))) && !redirectPaths.has(p)).map(p=>`  <!-- documentation --><url><loc>${origin+p}</loc><changefreq>monthly</changefreq></url>`).join('\n');
 await writeFile(root+'sitemap.xml',sitemap.replace('</urlset>',`${urls}\n</urlset>`));
 console.log(`Built ${articles.length} articles, ${output.size} routes, and ${activeLocales.length} local search indexes.`);

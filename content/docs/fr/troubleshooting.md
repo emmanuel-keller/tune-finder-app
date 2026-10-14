@@ -38,4 +38,4 @@ Comparez les versions de l’appareil et du cloud avant de résoudre un conflit.
 ## Contacter l’assistance {#support}
 Écrivez à [contact@tunefinder.app](mailto:contact@tunefinder.app) avec la version de l’app, la plateforme et sa version, l’action, la référence exacte et la répétition éventuelle. Vérifiez l’absence de titres, noms ou comptes privés dans une capture avant de la joindre. N’envoyez pas de PDF privé, mots de passe ou données de paiement sans demande appropriée et votre accord.
 
-Conservez le document d’origine et la bibliothèque locale pendant l’enquête. Examen par la boutique, restauration d’achat et connexion cloud sont des opérations distinctes ; précisez celle qui échoue. [Accès à la recherche et langue](/fr/docs/settings-purchases/) explique la limitation d’accès à l’écran d’achat de la version 1.5.5.
+Conservez le document d’origine et la bibliothèque locale pendant l’enquête. Examen par la boutique, restauration d’achat et connexion cloud sont des opérations distinctes ; précisez celle qui échoue. Pour les achats et la restauration, consultez [Accès à la recherche et langue](/fr/docs/settings-purchases/).

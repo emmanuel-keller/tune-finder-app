@@ -38,4 +38,4 @@ For a conflict, compare the device and cloud versions before choosing a copy. Ke
 ## Contact support {#support}
 Email [contact@tunefinder.app](mailto:contact@tunefinder.app) with the app version, platform and OS version, the action, exact displayed reference, and whether the problem repeats. Include a screenshot only after checking it for private titles, names or account details. Do not send a private PDF, passwords or payment information unless an appropriate file is explicitly requested and you agree.
 
-Keep the original document and local library while investigating. Store review, purchase restoration and cloud connection are different operations; say which one failed. [Search access and app language](/docs/settings-purchases/) covers the 1.5.5 purchase-screen limitation.
+Keep the original document and local library while investigating. Store review, purchase restoration and cloud connection are different operations; say which one failed. For purchase and restoration controls, see [Search access and app language](/docs/settings-purchases/).

@@ -22,8 +22,17 @@ L’importation de PDF, les index manuels, les brouillons OCR et le choix d’un
 
 L’index doit être enregistré et le PDF disponible pour ouvrir un résultat. La Recherche multi-recueils ne fournit pas de PDF et n’améliore pas l’OCR.
 
-## Achat et restauration dans la version 1.5.5 {#purchase}
-L’écran Recherche multi-recueils contient un achat via la boutique et **Restaurer l’achat**. Toutefois, la version 1.5.5 n’a pas de point d’accès à cet écran dans sa navigation principale. Si vous devez acheter ou restaurer l’accès sans pouvoir atteindre ces contrôles, [contactez l’assistance](mailto:contact@tunefinder.app) plutôt que de supprimer la bibliothèque ou d’acheter à nouveau.
+## Ouvrir les achats et la restauration {#open-search-access}
+
+1. Ouvrez **Paramètres** avec l’engrenage.
+2. Touchez **Recherche multi-recueils**.
+3. Pour acheter, utilisez le bouton d’achat et confirmez le prix dans la boutique de la plateforme. Pour retrouver un achat existant, utilisez **Restaurer l’achat** avec le compte ayant acheté.
+4. Attendez la confirmation. Si l’accès est déjà actif, **Choisir vos recueils** ramène à votre bibliothèque.
+
+L’entrée est disponible sur iOS et Android, même sans synchronisation cloud. Ouvrir les paramètres ne lance pas d’achat. Achat et restauration nécessitent une boutique disponible.
+
+## Achat et restauration {#purchase}
+Si vous ne pouvez pas ouvrir les contrôles d’achat ou de restauration, [contactez l’assistance](mailto:contact@tunefinder.app) plutôt que de supprimer la bibliothèque ou d’acheter à nouveau.
 
 L’app peut reconnaître un achat existant au lancement. Utilisez le compte de boutique ayant effectué l’achat. Si l’écran de restauration est accessible, **Restaurer l’achat** demande le droit existant à la boutique ; attendez la confirmation avant d’attendre les résultats multi-recueils.
 

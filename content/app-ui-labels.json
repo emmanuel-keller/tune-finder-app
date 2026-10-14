@@ -1,0 +1,45 @@
+{
+  "source": {
+    "repository": "emmanuel-keller/tune-finder",
+    "commit": "6697bf193a82cdb8064ed79ea9fd59faed0939ee",
+    "path": "src/i18n.ts"
+  },
+  "labels": {
+    "en": {
+      "settings": "Settings",
+      "multiBookSearch": "Multi-Book Search",
+      "restorePurchase": "Restore purchase",
+      "chooseSongbooks": "Choose your books"
+    },
+    "fr": {
+      "settings": "Paramètres",
+      "multiBookSearch": "Recherche multi-recueils",
+      "restorePurchase": "Restaurer l’achat",
+      "chooseSongbooks": "Choisir vos recueils"
+    },
+    "pt": {
+      "settings": "Definições",
+      "multiBookSearch": "Busca em vários livros",
+      "restorePurchase": "Restaurar compra",
+      "chooseSongbooks": "Escolher livros"
+    },
+    "de": {
+      "settings": "Einstellungen",
+      "multiBookSearch": "Mehrbuch-Suche",
+      "restorePurchase": "Kauf wiederherstellen",
+      "chooseSongbooks": "Bücher auswählen"
+    },
+    "es": {
+      "settings": "Ajustes",
+      "multiBookSearch": "Búsqueda en varios libros",
+      "restorePurchase": "Restaurar compra",
+      "chooseSongbooks": "Elegir libros"
+    },
+    "it": {
+      "settings": "Impostazioni",
+      "multiBookSearch": "Ricerca multi-libro",
+      "restorePurchase": "Ripristina acquisto",
+      "chooseSongbooks": "Scegli i libri"
+    }
+  }
+}
