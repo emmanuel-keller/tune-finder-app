@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node build-locales.mjs && node scripts/build-docs.mjs
+      - run: node build-locales.mjs && node scripts/build-docs.mjs && node scripts/build-beta.mjs
       - run: node --test tests/*.test.mjs
       - name: Require current generated pages
         run: node scripts/check-generated.mjs
