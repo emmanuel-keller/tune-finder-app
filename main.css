@@ -707,3 +707,5 @@ h1 {
     font-size: 32px;
   }
 }
+
+.beta-preview{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;margin:8px 0 0;padding:14px 20px;border:1px solid #c8dfcd;border-radius:14px;background:#edf5eb;font-size:14px}.beta-preview a{font-weight:750;color:#087f5b;text-underline-offset:4px}.beta-preview span{color:#456453}

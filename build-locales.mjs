@@ -35,6 +35,7 @@ const locales = {
   },
 };
 
+const beta = JSON.parse(await readFile(new URL("content/beta-1.6.json", import.meta.url), "utf8"));
 const source = await readFile(new URL("index.html", import.meta.url), "utf8");
 for (const [locale, meta] of Object.entries(locales)) {
   const url = `${origin}/${locale}/`;
@@ -60,6 +61,9 @@ for (const [locale, meta] of Object.entries(locales)) {
     .replaceAll("/screenshots/en/", `/screenshots/${locale}/`)
     .replaceAll('href="/docs/"', `href="/${locale}/docs/"`)
     .replaceAll('class="documentation-link">Documentation', `class="documentation-link">${ui[locale].docs}`);
+  html = html.replaceAll(beta.locales.en.eyebrow, beta.locales[locale].eyebrow)
+    .replaceAll(beta.locales.en.pending, beta.locales[locale].pending)
+    .replaceAll('href="/beta/"', `href="/${locale}/beta/"`);
   await mkdir(new URL(`${locale}/`, import.meta.url), { recursive: true });
   await writeFile(new URL(`${locale}/index.html`, import.meta.url), html);
 }
