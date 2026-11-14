@@ -35,6 +35,8 @@ const locales = {
   },
 };
 
+const termsLabels = {de: "Nutzungsbedingungen (Englisch)", es: "Condiciones de uso (inglés)", fr: "Conditions d’utilisation (anglais)", it: "Termini di servizio (inglese)", pt: "Termos de utilização (inglês)"};
+
 const source = await readFile(new URL("index.html", import.meta.url), "utf8");
 for (const [locale, meta] of Object.entries(locales)) {
   const url = `${origin}/${locale}/`;
@@ -60,6 +62,7 @@ for (const [locale, meta] of Object.entries(locales)) {
     .replaceAll("/screenshots/en/", `/screenshots/${locale}/`)
     .replaceAll('href="/docs/"', `href="/${locale}/docs/"`)
     .replaceAll('class="documentation-link">Documentation', `class="documentation-link">${ui[locale].docs}`);
+  html = html.replace('class="terms-link" lang="en">Terms of Service', `class="terms-link" lang="en">${termsLabels[locale]}`);
   await mkdir(new URL(`${locale}/`, import.meta.url), { recursive: true });
   await writeFile(new URL(`${locale}/index.html`, import.meta.url), html);
 }
